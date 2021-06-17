@@ -26,3 +26,4 @@ Branch out from updated version of _main_ branch for a new feature.
 ### Note:
 1. Frontend is built independently from the fe-github of this project.
 2. All coded UI will draw from here.
+3. Use DB schema shared in communication channel to create models. (STRICTLY!!!)
