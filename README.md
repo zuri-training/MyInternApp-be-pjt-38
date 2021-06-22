@@ -22,6 +22,30 @@ Send a pull request (to main) when completed.
 Code will be reviewed and merged if "okay"
 Branch out from updated version of _main_ branch for a new feature.
 
+### Git commands
+Instructions
+1. Forking
+
+2. Cloning
+git clone <repo-link> <folder-name>
+
+3. Adding an "upstream" remote
+git remote add remote <repo-link>
+
+4. Creating a branch
+git branch <branch-name>
+git checkout <branch-name>
+
+5. Editing
+
+6. Adding and committing changes
+
+7. Pushing changes
+
+8. Opening a pull request
+
+9. Linking an issue
+
 
 ### Note:
 1. Frontend is built independently from the fe-github of this project.
