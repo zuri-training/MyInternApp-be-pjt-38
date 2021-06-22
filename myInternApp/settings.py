@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #custom apps 
     'api',
+    'backend',
 
     #django rest framework
     'rest_framework',
