@@ -76,27 +76,27 @@ Branch out from updated version of _main_ branch for a new feature.
 3. Use DB schema shared in communication channel to create models. (STRICTLY!!!)
 
 ### Project Team
-Mulikat Abdulrahman – Team lead
-Habeeb Awoyemi - Sub-team lead
-Akinpelu Joshua 
-Yinka Onabule
-Agbora Fabari Dumle
-Aminat Oluwakemi Owodunni
-Blessing Akinrinola 
-Oluyemi Daniel
-Ilori Similoluwa 
-Mohammed Musa Zakari
-Ediongsenyene Joseph Inokotong
-Merit Oriaghemuoria 
-Edaware oghenekaro Richard
-Emmanuel Essien
-Bello oluwakorede
-Gomina Maryam 
-Daniel Sumah 
-Jubril Osunlana
-Banjoko Judah
-Dumebi Ofili
-Adeyemi Adekanye
+1. Mulikat Abdulrahman – Team lead
+2. Habeeb Awoyemi - Sub-team lead
+3. Akinpelu Joshua 
+4. Yinka Onabule
+5. Agbora Fabari Dumle
+6. Aminat Oluwakemi Owodunni
+7. Blessing Akinrinola 
+8. Oluyemi Daniel
+9. Ilori Similoluwa 
+10. Mohammed Musa Zakari
+11. Ediongsenyene Joseph Inokotong
+12. Merit Oriaghemuoria 
+13. Edaware oghenekaro Richard
+14. Emmanuel Essien
+15. Bello oluwakorede
+16. Gomina Maryam 
+17. Daniel Sumah 
+18. Jubril Osunlana
+19. Banjoko Judah
+20. Dumebi Ofili
+21. Adeyemi Adekanye
 
 ### Backend team
 1.	Gomina Maryam  gominamaryam@gmail.com 
