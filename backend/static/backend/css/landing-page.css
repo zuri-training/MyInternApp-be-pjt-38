@@ -1,0 +1,681 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap');
+
+
+*{
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html, body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  background-color: #E5E5E5;
+}
+
+a{
+  
+  text-decoration: none;
+}
+
+header {
+  background-color: #CBF3F0;
+  background-image: url('../img/hero-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* padding: 0 2rem; */
+}
+.nav-link {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #000;
+}
+
+.nav-links-collapse {
+  margin-top: 4rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+.btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5rem;
+}
+
+
+.button-group .btn-signup {
+  border-radius: 2rem;
+  background-color: #005387;
+  color: #fff;
+  padding: .5rem 3rem;
+}
+
+
+
+.btn-started {
+  font-size: 1.4rem;
+  border-radius: 2rem;
+  background-color: #005387;
+  color: #fff;
+  padding: 1rem 3rem;
+}
+
+.button-group-collapse {
+  flex-direction: column;
+}
+
+.button-group-collapse .btn-signup {
+  border-radius: 2rem;
+  display: inline-block;
+  background-color: #005387;
+  color: #fff;
+  padding: .5rem;
+  margin-bottom: 1rem;
+}
+
+.button-group-collapse .btn-login {
+  padding: 1rem 3rem;
+}
+
+ 
+
+.hero {
+  padding: 2rem max(1rem, 2rem);
+  margin-bottom: 4rem;
+}
+
+.hero-container {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.hero-container img {
+  max-width: 100%;
+  margin-left: -2rem;
+  margin-right: -2rem;
+
+}
+.description-container {
+  margin-top: 2rem;
+}
+
+.heading-primary{
+  font-weight: 500;
+  font-size: 2.2rem;
+}
+
+.heading-primary span {
+  display: inline ;
+}
+
+.strong-span {
+  font-weight: 500;
+  font-size: 3rem;
+  display: inline-block;
+  color: #005387;
+}
+
+
+.demarcate {
+  display: initial;
+}
+
+.demarcate img {
+  width: 350px;
+}
+
+.page-description {
+  font-weight: 300;
+  font-size: 1.6rem;
+}
+
+.how-it-works {
+  padding: 2rem;
+ 
+}
+
+
+
+.banner {
+  padding: 2rem;
+  /* height: 90vh;
+  background-image: url("../img/banner-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  /* background-position: center; */
+  /* position: relative; */
+ 
+}
+
+
+.student-part {
+  font-family: 'Nunito', sans-serif;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+  ;
+    background-color: white;
+    margin-bottom: 4rem;
+}
+
+.student-part p {
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.student-part h2 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #005387;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.student-part h3 {
+  font-weight: 400;
+  font-size: 1.4rem;
+  text-align: left;
+}
+
+.employer-part {
+  background-color: #fff;
+  padding:  2rem 0;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+;
+}
+
+
+
+.employer-part h2 {
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #005387;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.detail-div {
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 2rem;
+  text-align: left;
+  
+}
+
+.detail-div h3 {
+  font-weight: 400;
+  font-size: 1.4rem;
+  text-align: left;
+}
+
+.detail-div li {
+  list-style: disc;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+
+}
+
+
+
+.role-cards {
+  padding: 2rem;
+}
+.role-cards .btn {
+  background-color: black;
+  margin-top: 2rem;
+  border-radius: .8rem;
+  padding: .8rem 2.5rem;
+}
+
+.card-pack {
+  row-gap: 4rem;
+}
+.role-cards .card {
+  padding-bottom: 3rem;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+  ;
+}
+
+.landing-nav {
+  background-color: white;
+  justify-content: initial;
+}
+.landing-nav .nav-toggler {
+  padding: 0 2rem;
+  cursor: pointer;
+}
+.landing-nav .nav-toggler.auth-open {
+  margin-left: auto;
+}
+
+.landing-nav ul, .landing-nav .auth-buttons {
+  display: none;
+}
+
+.landing-nav ul li {
+  margin-right: 0;
+}
+.landing-nav .nav-collapse {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: max(25rem, 32%);
+  height: 100%;
+  background-color: white;
+  z-index: 1000;
+  margin: 0 -30px;
+}
+.landing-nav .nav-collapse .close {
+  position: absolute;
+  top: 2rem;
+  right: 4rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.landing-nav .nav-collapse-links .close {
+  left: 4rem;
+}
+
+.landing-nav.open .nav-collapse-links {
+  display: initial;
+} 
+.landing-nav.open-auth .nav-collapse-buttons {
+  display: flex;
+  align-items: center;
+} 
+
+.landing-nav.open-auth .btn {
+  border-radius: 1rem;
+  padding: .5rem 3rem;
+}
+
+
+.nav-collapse .nav-collapse-buttons {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: max(25rem, 32%);
+  height: 100%;
+  background-color: white;
+  z-index: 1000;
+  margin: 0 -30px;
+}
+
+.landing-nav .nav-collapse.nav-collapse-buttons {
+  right: 0;
+  left: initial;
+}
+
+.brand-logo img {
+  max-width: 5rem;
+}
+
+
+
+
+
+.nav-collapse-buttons .btn-login {
+  margin-top: 6rem;
+}
+
+/* .button-group-collapse .btn {
+  padding: 1rem 2rem;
+
+} */
+
+footer {
+  background-color: black;
+  font-family: 'Nunito', sans-serif;
+  color: white;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: left;
+
+}
+
+.footer-container {
+  flex-direction: column;
+ text-align: left;
+ align-items: center;
+  padding: 0 2rem;
+}
+
+.footer-container h2 {
+  font-weight: 300;
+  font-size: 1.9rem;
+}
+.footer-container a  {
+  color: white;
+  font-size: 1.2rem;
+}
+
+
+@media screen and (min-width: 980px) {
+  .landing-nav.open .nav-collapse {
+    display: none;
+  } 
+  .landing-nav {
+    justify-content: space-between;
+    padding: 2rem 2rem;
+    
+  }
+
+ 
+  .landing-nav ul {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: initial;
+/*     
+    width: max(25%, 30%); */
+    
+  }
+
+  .landing-nav ul li {
+    margin-right: max(1rem, 2rem);
+  }
+  .landing-nav .auth-buttons {
+    display: inline-block;
+  }
+  .landing-nav {
+    background-color: initial;
+  }
+  .nav-toggler {
+    display: none;
+  } 
+
+  .brand-logo img {
+    max-width: 10rem;
+  }
+
+  .banner {
+    height: 90vh;
+    background-image: url("../img/banner-image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: center; */
+    position: relative;
+    margin-top: -4rem;
+  }
+ 
+
+  .footer-container {
+    flex-direction: row;
+    text-align: left;
+  }
+
+
+
+
+
+ 
+}
+
+@media screen and (min-width: 1509px) {
+  .landing-nav.open .nav-collapse {
+    display: none;
+  } 
+  .navbar {
+    padding: 2rem 10rem;
+  }
+
+  .nav-links {
+    padding-left: max(10px, 28px);
+    width: max(10%, 15%);
+  }
+
+  
+
+  .navbar-nav {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .brand-logo img {
+    max-width: 100%;
+  }
+  
+  .landing-nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .landing-nav ul li {
+    margin-right: max(1rem, 8rem);
+  }
+  .landing-nav .btn-login {
+    display: initial;
+  }
+
+  
+  .btn-started {
+    align-self: flex-start;
+    border-radius: 2rem;
+    background-color: #005387;
+    color: #fff;
+    padding: 1rem 7rem;
+    display: block;
+  }
+  
+  .hero {
+    padding: 2rem 10rem;
+  }
+
+  .description-container {
+    order: 1;
+  }
+  .description-image {
+    order: 2;
+  }
+  
+  .hero span {
+    display: block;
+  }
+
+
+  .page-description {
+    text-align: left;
+    font-weight: 300;
+    font-size: 2.4rem;
+  }
+
+  .hero-container {
+    flex-direction: row;
+  }
+  .hero-container img {
+    display: block;
+  }
+
+  .heading-primary{
+    margin-top: 5rem;
+    text-align: left;
+    font-weight: 500;
+    font-size: 4rem;
+  }
+  
+  
+  .strong-span {
+    font-weight: 600;
+    font-size: 5rem;
+    display: inline-block;
+    color: #005387;
+  }
+ 
+  
+  header {
+    background-color: #CBF3F0;
+    background-image: url('../img/hero-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+  .demarcate img {
+    display: block;
+    width: 1000px;
+  }
+  
+
+  .employer-part {
+    background-color: #fff;
+    position: absolute;
+    top: 80%;
+    left: -50%;
+    right: -50%;
+    padding: 4rem 2rem;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+  ;
+  }
+
+  .employer-part h2 {
+    text-align: left;
+    
+  }
+
+  .employer-part h3 {
+    font-weight: 400;
+    font-size: 1.6rem;
+  }
+  .employer-part img {
+    margin-right: 1;
+  }
+  .employer-part li {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    font-size: 1.3rem;
+    list-style-type: disc;
+  }
+
+    
+  .detail-div {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    row-gap: 2rem;
+    column-gap: 1rem;
+    text-align: left;
+  }
+  
+  .detail-div h3 {
+    text-align: left;
+  }
+  
+  
+
+  .how-it-works {
+    padding: 10rem 4rem;
+    padding-top: 2rem;
+    position: relative;
+  }
+  
+
+  .student-part {
+    flex-direction: row;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+  ;
+    padding: 4rem 4rem;
+    background-color: white;
+    text-align: left;
+    position: absolute;
+    right: 5%;
+    left: 5%;
+    top: 55%;
+    
+    z-index: 2;
+}
+
+.student-part h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #005387;
+  padding-bottom: 1rem;
+  text-align: left;
+  
+}
+.student-part h3 {
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+.student-part p {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  font-size: 1.3rem;
+}
+
+.banner {
+  height: 90vh;
+  background-image: url("../img/banner-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-top: 0;
+}
+
+.role-cards {
+  position: relative;
+  padding: 35rem 0;
+  padding-bottom: 20rem;
+}
+
+.card-body p {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.footer-container {
+  text-align: left;
+  flex-direction: row;
+}
+
+ 
+}
+
+
