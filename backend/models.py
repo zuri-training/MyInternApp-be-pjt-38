@@ -27,6 +27,7 @@ class StudentRegistration(models.Model):
         return str(self.general_info)
 
 
+
 class EmployerRegistration(models.Model):
     general_info = models.OneToOneField(GeneralRegistration, on_delete=models.CASCADE, null=True)
     email = models.EmailField(max_length=250)
