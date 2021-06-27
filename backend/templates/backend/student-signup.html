@@ -31,7 +31,7 @@
 									<h3 class="fs-4">MyIntern</h3>
 								</div>
 								<div class="mb-5 d-flex flex-column">
-									<h3 class="fw-normal mt-3">Welcome to MyIntern</h3>
+									<h3 class="fw-normal mt-3">Welcome to MyIntern - Student Sign Up</h3>
 									<p class="fx-6 fw-light mt-4">
 										Already have an account?
 										<a
@@ -46,17 +46,29 @@
 									</span>
 								</div>
 								<div>
-									<form id="signup_form" class="row g-3">
+
+
+									<form action="." id="signup_form" class="row g-3" method="POST">
+										{% csrf_token %}
+										
+										<!-- {% for error in errors %}
+											<p>{{ error }}</p>
+										{% endfor %} -->
+										{{ errors }}
+
+										<!-- {{ user_form.as_p }} -->
+											
 										<div class="col-12">
 											<div class="mb-3 form-input-container">
 												<label for="email" class="form-label fw-bold">
 													Email <span class="text-tertiary">*</span>
 												</label>
 												<input
-													type="text"
+													type="email"
 													class="form-control"
 													id="email"
 													placeholder="email@email.com"
+													name="email"
 												/>
 												<div class="fw-light error-message"></div>
 											</div>
@@ -72,9 +84,10 @@
 													</span>
 													<input
 														id="phone"
-														type="text"
+														type="tel"
 														class="form-control d-block"
 														placeholder="810-123-4567"
+														name="phone"
 													/>
 													<div
 														class="fw-light d-block w-100 error-message"
@@ -87,8 +100,8 @@
 												<label for="country" class="form-label fw-bold"
 													>Country <span class="text-tertiary">*</span></label
 												>
-												<select id="country" class="form-select">
-													<option value="" selected hidden>
+												<select id="country" class="form-select" name="country">
+													<option value="" selected hidden >
 														Select country
 													</option>
 													<option value="Nigeria">Nigeria</option>
@@ -106,6 +119,7 @@
 												class="form-control"
 												id="city"
 												placeholder="Abuja"
+												name="city"
 											/>
 											<div class="fw-light error-message"></div>
 										</div>
@@ -119,6 +133,7 @@
 													class="form-control"
 													id="school"
 													placeholder="Name of your school"
+													name="school"
 												/>
 												<div class="fw-light error-message"></div>
 											</div>
@@ -128,7 +143,7 @@
 												<label for="level" class="form-label fw-bold"
 													>Level <span class="text-tertiary">*</span></label
 												>
-												<select id="level" class="form-select">
+												<select id="level" class="form-select" name="level">
 													<option value="" selected hidden>Select Level</option>
 													<option value="100L">100L</option>
 													<option value="200L">200L</option>
@@ -149,6 +164,7 @@
 												class="form-control"
 												id="skill"
 												placeholder="Type your skills here"
+												name="skills"
 											/>
 											<div class="fw-light error-message"></div>
 										</div>
@@ -162,6 +178,7 @@
 													class="form-control"
 													id="password"
 													placeholder="******"
+													name="password1"
 												/><i
 													class="bi bi-eye fw-bold btn text-left eye-icon"
 												></i>
@@ -179,6 +196,7 @@
 													class="form-control w-100"
 													id="password2"
 													placeholder="******"
+													name="password2"
 												/><i
 													class="bi bi-eye fw-bold btn text-left eye-icon"
 												></i>
@@ -199,6 +217,9 @@
 											</p>
 										</div>
 									</form>
+
+
+
 								</div>
 							</div>
 						</div>

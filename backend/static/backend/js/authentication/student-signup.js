@@ -10,7 +10,7 @@ const password = document.getElementById("password");
 const password2 = document.getElementById("password2");
 
 form.addEventListener("submit", (e) => {
-	e.preventDefault();
+	// e.preventDefault();
 
 	// Validate form inputs
 	validateForm();

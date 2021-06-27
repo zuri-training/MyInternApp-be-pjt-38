@@ -5,7 +5,7 @@ from django.db import models
 class GeneralRegistration(models.Model):
     first_name = models.CharField(max_length=250)
     last_name = models.CharField(max_length=250)
-    occupation = models.CharField(max_length=250)
+    user_type = models.CharField(max_length=250)
     gender = models.CharField(max_length=50)
 
     def __str__(self) -> str:
@@ -13,20 +13,22 @@ class GeneralRegistration(models.Model):
 
 
 class StudentRegistration(models.Model):
+    general_info = models.OneToOneField(GeneralRegistration, on_delete=models.CASCADE, null=True)
     email = models.EmailField(max_length=200)
     phone = models.IntegerField()
     country = models.CharField(max_length=100)
     city = models.CharField(max_length=250)
     school = models.CharField(max_length=250)
-    level = models.PositiveIntegerField()
-    interest = models.CharField(max_length=250)
+    level = models.CharField(max_length=250)
+    skills = models.TextField()
 
 
     def __str__(self):
-        return self.email
+        return str(self.general_info)
 
 
 class EmployerRegistration(models.Model):
+    general_info = models.OneToOneField(GeneralRegistration, on_delete=models.CASCADE, null=True)
     email = models.EmailField(max_length=250)
     phone = models.IntegerField()
     country = models.CharField(max_length=250)
