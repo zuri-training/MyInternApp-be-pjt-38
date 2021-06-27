@@ -31,7 +31,7 @@
 									<h3 class="fs-4">MyIntern</h3>
 								</div>
 								<div class="mb-5 d-flex flex-column">
-									<h3 class="fw-normal mt-3">Welcome to MyIntern</h3>
+									<h3 class="fw-normal mt-3">Welcome to MyIntern - Employer Sign Up</h3>
 									<p class="fx-6 fw-light mt-4">
 										Already have an account?
 										<a
@@ -46,7 +46,10 @@
 									</span>
 								</div>
 								<div>
-									<form id="signup_form" class="row g-3">
+
+									<form id="signup_form" class="row g-3" method="POST">
+										{% csrf_token %}
+
 										<div class="col-12">
 											<div class="mb-3 form-input-container">
 												<label for="email" class="form-label fw-bold">
@@ -57,10 +60,12 @@
 													class="form-control"
 													id="email"
 													placeholder="email@email.com"
+													name="email"
 												/>
 												<div class="fw-light error-message"></div>
 											</div>
 										</div>
+
 										<div class="col-12">
 											<div class="mb-3">
 												<label for="phone" class="form-label fw-bold">
@@ -75,6 +80,7 @@
 														type="text"
 														class="form-control d-block"
 														placeholder="810-123-4567"
+														name="phone"
 													/>
 													<div
 														class="fw-light d-block w-100 error-message"
@@ -82,12 +88,13 @@
 												</div>
 											</div>
 										</div>
+
 										<div class="col-md-6">
 											<div class="mb-3 form-input-container">
 												<label for="country" class="form-label fw-bold"
 													>Country <span class="text-tertiary">*</span></label
 												>
-												<select id="country" class="form-select">
+												<select id="country" class="form-select" name="country">
 													<option value="" selected hidden>
 														Select country
 													</option>
@@ -97,6 +104,7 @@
 												<div class="fw-light error-message"></div>
 											</div>
 										</div>
+
 										<div class="col-md-6 form-input-container">
 											<label for="city" class="form-label fw-bold"
 												>City <span class="text-tertiary">*</span></label
@@ -106,9 +114,11 @@
 												class="form-control"
 												id="city"
 												placeholder="Abuja"
+												name="city"
 											/>
 											<div class="fw-light error-message"></div>
 										</div>
+
 										<div class="col-12">
 											<div class="mb-3 form-input-container">
 												<label for="business" class="form-label fw-bold"
@@ -120,6 +130,7 @@
 													class="form-control"
 													id="business"
 													placeholder="Name of your business/organization"
+													name="business_name"
 												/>
 												<div class="fw-light error-message"></div>
 											</div>
@@ -129,7 +140,7 @@
 												<label for="role" class="form-label fw-bold"
 													>Your Role <span class="text-tertiary">*</span></label
 												>
-												<select id="role" class="form-select">
+												<select id="role" class="form-select" name="role">
 													<option value="" selected hidden>Select Role</option>
 													<option value="HR">HR Manager</option>
 												</select>
@@ -146,6 +157,7 @@
 												class="form-control"
 												id="address"
 												placeholder="Type address here"
+												name="address"
 											/>
 											<div class="fw-light error-message"></div>
 										</div>
@@ -159,12 +171,14 @@
 													class="form-control"
 													id="password"
 													placeholder="******"
+													name="password1"
 												/><i
 													class="bi bi-eye fw-bold btn text-left eye-icon"
 												></i>
 												<div class="fw-light error-message"></div>
 											</div>
 										</div>
+
 										<div class="col-12">
 											<div class="col-12 mb-3 form-input-container">
 												<label for="password2" class="form-label fw-bold"
@@ -176,12 +190,14 @@
 													class="form-control w-100"
 													id="password2"
 													placeholder="******"
+													name="password2"
 												/><i
 													class="bi bi-eye fw-bold btn text-left eye-icon"
 												></i>
 												<div class="fw-light error-message"></div>
 											</div>
 										</div>
+
 										<div class="col-12 mt-3">
 											<button
 												type="submit"
