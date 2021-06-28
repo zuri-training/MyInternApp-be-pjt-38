@@ -50,7 +50,7 @@
 
 			<div class="button-group auth-buttons">
 				<a href="authentication/login.html" class="btn btn-login">Login</a>
-				<a href="uthentication/signup.html" class="btn btn-signup">Signup</a>
+				<a href="{% url 'signup-url' %}" class="btn btn-signup">Signup</a>
 			</div>
 			<span onclick="signupLoginBtnOpen()" class="nav-toggler auth-open">
 				<svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,8 +97,10 @@
 						We connect you with employers and help you find jobs that fit your
 						schedule.
 					</p>
-
-					<button class="btn btn-started mt-5">Get Started</button>
+					
+					<a href="{% url 'signup-url' %}">
+					<button class="btn btn-started mt-5">Get Started </button>
+					</a>
 				</div>
 			</div>
 		</section>
