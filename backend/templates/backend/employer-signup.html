@@ -45,6 +45,11 @@
 										<i class="bi bi-circle-fill text-tertiary m-2"></i>
 									</span>
 								</div>
+								
+								{% for error in employer_form_errors %}
+									{{ employer_form_errors }}
+								{% endfor %}
+									
 								<div>
 
 									<form id="signup_form" class="row g-3" method="POST">
@@ -237,6 +242,6 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="{% static 'backend/js/script.js' %}"></script>
-		<script src="{% static 'backend/js/authentication/employer-signup.js' %}"></script>
+		<!-- <script src="{% static 'backend/js/authentication/employer-signup.js' %}"></script> -->
 	</body>
 </html>
