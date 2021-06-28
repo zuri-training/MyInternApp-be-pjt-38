@@ -117,6 +117,7 @@ def employer_signup_view(request):
                 user.groups.add(employer_group)
                 
                 print('User has been added to group')
+                return redirect('login-url')
             else:
                 print(user_form.errors)
 
