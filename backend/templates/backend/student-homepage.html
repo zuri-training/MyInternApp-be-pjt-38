@@ -1,0 +1,421 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+		/>
+		<link rel="stylesheet" href="{% static 'backend/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'backend/css/student-homepage.css' %}" />
+		<title>MyIntern</title>
+	</head>
+	<body>
+		<!-- T O P    N A V    S T A R T S   -->
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top top-bar">
+			<div class="container-fluid d-flex align-items-center">
+				<a class="navbar-brand" href="#">
+					<img src="{% static 'backend/img/logo-light.svg' %}" alt="" class="align-self-center" />
+
+					<span class="fw-bold fs-4">MyIntern</span>
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarText"
+					aria-controls="navbarText"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarText">
+					<div class="container pt-2 d-md-flex justify-content-around">
+						<div class="top-nav-search">
+							<form class="d-flex flex-column justify-content-center">
+								<input
+									class="form-control ps-5"
+									type="search"
+									placeholder="Search"
+									aria-label="Search"
+								/>
+								<button class="btn top-nav-search-btn" type="submit">
+									<i class="bi bi-search text-muted"></i>
+								</button>
+							</form>
+						</div>
+						<ul class="navbar-nav mb-2 mb-lg-0 top-nav-item">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#">Home</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a
+									class="nav-link dropdown-toggle text-light"
+									href="#"
+									id="navbarDropdown"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Explore
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<li><a class="dropdown-item" href="#">Students</a></li>
+									<li><a class="dropdown-item" href="#">Jobs</a></li>
+									<li><hr class="dropdown-divider" /></li>
+									<li>
+										<a class="dropdown-item" href="#">More</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#"
+									><img
+										src="{% static 'backend/img/top-bar-caret.svg' %}"
+										class="img-fluid fs-6"
+										alt=""
+								/></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#"
+									><h4><i class="bi bi-bell-fill"></i></h4
+								></a>
+							</li>
+							<li class="nav-item">
+								<div class="dropdown">
+									<img
+										src="{% static 'backend/img/user-img.svg' %}"
+										class="btn dropdown-toggle user-img-dropdown"
+										role="button"
+										id="user_img_dropdown"
+										data-bs-toggle="dropdown"
+										aria-expanded="false"
+										alt=""
+									/>
+									<ul class="dropdown-menu" aria-labelledby="user_img_dropdown">
+										<li><a class="dropdown-item" href="{% url 'logout-url' %}">Logout</a></li>
+										<!-- <li>
+											<a class="dropdown-item" href="#">Another action</a>
+										</li> -->
+										<!-- <li>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</li> -->
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<!-- T O P    N A V    E N D S -->
+		<!-- M A I N     C O N T E N T   S T A R T S -->
+		<section class="main-container">
+			<div class="container-fluid p-5">
+				<div class="d-lg-flex justify-content-between">
+					<h2 class="fw-bold user-title">Welcome, {{ user }}</h2>
+					<div class="search-jobs w-25">
+						<form class="d-flex flex-column justify-content-start">
+							<input
+								class="form-control ps-5"
+								type="search"
+								placeholder="Search jobs"
+								aria-label="Search"
+							/>
+							<button class="btn job-search-submit-btn" type="submit">
+								<i class="bi bi-search text-muted"></i>
+							</button>
+						</form>
+					</div>
+				</div>
+				<div class="row mt-4 gy-2 main justify-content-between">
+					<div class="col-xs-12 col-md-2">
+						<div class="card my-feed">
+							<div
+								class="
+									card-body
+									rounded-top
+									justify-content-center
+									align-items-center
+								"
+							>
+								<h5 class="card-title">My Feed</h5>
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<a href="" class="text-decoration-none">
+										<p
+											class="
+												item-title
+												mb-0
+												fs-6
+												fw-bold
+												d-inline-block
+												text-dark
+											"
+										>
+											Categories
+										</p>
+										<span>
+											<i class="bi bi-pencil-square text-dark"></i>
+										</span>
+										<p class="item-description">Graphics & Design</p>
+									</a>
+								</li>
+								<li class="list-group-item fw-bold">Recommended</li>
+								<li class="list-group-item">
+									<a href="" class="text-decoration-none">
+										<p
+											class="
+												item-title
+												mb-0
+												fs-6
+												fw-bold
+												d-inline-block
+												text-dark text-nowrap
+											"
+										>
+											Recent Searches
+										</p>
+										<p class="item-description mb-0">Social media</p>
+										<p class="item-description">Designer</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-8">
+						<div class="new-jobs w-100">
+							<form class="d-flex flex-column justify-content-start">
+								<button class="btn new-jobs-btn">New Jobs. Refresh</button>
+							</form>
+						</div>
+						<div class="card my-feed mt-3">
+							<div
+								class="
+									card-body
+									rounded-top
+									justify-content-center
+									align-items-center
+								"
+							>
+								<h5 class="card-title">My Feed</h5>
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<h5 class="card-title">Graphic Designer for Fb Banner</h5>
+									<p class="fw-light my-feed-article">
+										I’m looking for a graphic designer who can create 100
+										facebook banner in a week. He/she must be a professional.
+									</p>
+									<nav aria-label="breadcrumb">
+										<ol class="breadcrumb breadcrumb-text">
+											<li
+												class="pe-2 border-end border-dark fw-light text-muted"
+											>
+												Hourly
+											</li>
+											<li class="px-2 border-end border-dark fw-light">
+												&#36;25:00
+											</li>
+											<li class="px-2 border-end border-dark fw-light">
+												Intermediate
+											</li>
+											<li class="fw-light px-2">
+												Duration: 1week, 2 hrs weekly
+											</li>
+										</ol>
+									</nav>
+									<p class="fw-light fs-6 text-muted">
+										Proposal: <span class="fw-bold text-secondary">4</span>
+									</p>
+									<div
+										class="
+											d-flex
+											flex-column flex-sm-row
+											justify-content-between
+										"
+									>
+										<p class="fw-light fs-6 text-muted">
+											Location:
+											<span class="fw-bold text-secondary">Nigeria</span>
+										</p>
+										<p class="fw-light fs-6 text-muted">
+											Posted: <span class="text-green">2 days ago</span>
+										</p>
+									</div>
+									<div>
+										<span class="badge fw-light">Adobe Illustrator</span>
+										<span class="badge fw-light">Canva</span>
+										<span class="badge fw-light">Figma</span>
+										<span class="badge fw-light">Adobe Photoshop</span>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<h5 class="card-title">Data Analyst</h5>
+									<p class="fw-light my-feed-article">
+										Looking for a data anayst that can analyse our business data
+										and breakdown each data and give recoommendation.
+									</p>
+									<nav aria-label="breadcrumb">
+										<ol class="breadcrumb breadcrumb-text">
+											<li
+												class="pe-2 border-end border-dark fw-light text-muted"
+											>
+												Hourly
+											</li>
+											<li class="px-2 border-end border-dark fw-light">
+												&#36;50:00
+											</li>
+											<li class="px-2 border-end border-dark fw-light">
+												Expert
+											</li>
+											<li class="fw-light px-2">
+												Duration: 1-6 months, 2 hrs weekly
+											</li>
+										</ol>
+									</nav>
+									<p class="fw-light fs-6 text-muted">
+										Proposal: <span class="fw-bold text-secondary">0</span>
+									</p>
+									<div
+										class="
+											d-flex
+											flex-column flex-sm-row
+											justify-content-between
+										"
+									>
+										<p class="fw-light fs-6 text-muted">
+											Location:
+											<span class="fw-bold text-secondary"
+												>Location: Germany</span
+											>
+										</p>
+										<p class="fw-light fs-6 text-muted">
+											Posted: <span class="text-green">2 days ago</span>
+										</p>
+									</div>
+									<div>
+										<span class="badge fw-light">Data Analyst</span>
+										<span class="badge fw-light">Python</span>
+										<span class="badge fw-light">SQL</span>
+										<span class="badge fw-light">Power Bi</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-2">
+						<div class="card my-feed">
+							<div class="card-body align-items-start rounded-top">
+								<div class="d-flex justify-content-start align-items-start">
+									<img
+										src="{% static 'backend/img/user-img.svg' %}"
+										class="w-25 d-inline-block"
+										alt=""
+									/>
+									<div class="ms-1">
+										<p class="text-light mb-0">Tayo Kemi</p>
+										<p class="text-green online">online</p>
+									</div>
+								</div>
+								<div class="">
+									<a class="btn d-flex justify-content-start p-0 text-light">
+										<i class="bi bi-eye-fill"></i>
+										<p class="fw-bold d-inline-block text-nowrap ms-2">
+											View Profile
+										</p>
+									</a>
+								</div>
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<a href="" class="text-decoration-none">
+										<p
+											class="
+												item-title
+												mb-0
+												fs-6
+												fw-bold
+												d-inline-block
+												text-dark
+											"
+										>
+											Visibility
+										</p>
+										<span>
+											<i class="bi bi-pencil-square text-dark"></i>
+										</span>
+									</a>
+									<p class="item-description text-dark fw-light">
+										<i class="bi bi-globe me-1 text-primary"></i> Public
+									</p>
+								</li>
+								<li class="list-group-item">
+									<a href="" class="text-decoration-none">
+										<p
+											class="
+												item-title
+												mb-0
+												fs-6
+												fw-bold
+												d-inline-block
+												text-dark
+											"
+										>
+											Hours
+										</p>
+										<span>
+											<i class="bi bi-pencil-square text-dark"></i>
+										</span>
+									</a>
+									<p class="item-description text-dark fw-light">
+										<i class="bi bi-clock me-1"></i> 3 hours daily
+									</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- M A I N    C O N T E N T     E N D S -->
+		<!-- F O O T E R     S T A R T S-->
+		<section class="container-fluid bg-dark text-light footer">
+			<div class="container">
+				<div class="row gy-3">
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">MyInternApp</p>
+						<p>About</p>
+						<p>How it works</p>
+					</div>
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">Post Job Ads</p>
+						<p>Find Talent</p>
+					</div>
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">Showcase Talent</p>
+						<p>Projects</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- F O O T E R     E  N D S -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

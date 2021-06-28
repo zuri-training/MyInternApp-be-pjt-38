@@ -26,7 +26,10 @@
 						<img class="me-2 img-fluid" src="{% static 'backend/img/logo.svg' %}" alt="" />
 						<h3 class="fs-4">MyIntern</h3>
 					</div>
-					<form id="login_form" class="p-5 py-5 login-form-container">
+
+
+					<form id="login_form" class="p-5 py-5 login-form-container" method="POST">
+						{% csrf_token %}
 						<div class="d-flex justify-content-between">
 							<p class="fw-light">Sign in</p>
 							<a href="#" class="forgot-password">Forgot password?</a>
@@ -37,6 +40,7 @@
 									type="text"
 									class="form-control login-form-control"
 									id="login_email"
+									name="email"
 								/>
 								<div class="fw-light error-message"></div>
 								<i class="bi bi-envelope-fill btn login-input-icon"></i>
@@ -48,6 +52,7 @@
 									type="password"
 									class="form-control login-form-control"
 									id="login_password"
+									name="password"
 								/>
 								<div class="fw-light error-message"></div>
 								<i class="bi bi-lock-fill btn login-input-icon"></i>
@@ -62,6 +67,8 @@
 							</button>
 						</div>
 					</form>
+
+
 					<button
 						type="submit"
 						id="login"
@@ -115,6 +122,6 @@
 			crossorigin="anonymous"
 		></script>
 		<!-- <script src="../js/script.js"></script> -->
-		<script src="{% static 'backend/js/authentication/login.js' %}"></script>
+		<!-- <script src="{% static 'backend/js/authentication/login.js' %}"></script> -->
 	</body>
 </html>

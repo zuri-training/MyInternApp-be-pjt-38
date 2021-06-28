@@ -1,20 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap");
 
-
-*{
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+* {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
-html, body {
-  overflow-x: hidden;
-  box-sizing: border-box;
-  background-color: #E5E5E5;
+html,
+body {
+	box-sizing: border-box;
+	background-color: #e5e5e5;
 }
 
-a{
-  
-  text-decoration: none;
+a {
+	text-decoration: none;
+}
+
+.top-bar {
+	background-color: #2ec4b6;
+	color: #ffffff;
+}
+
+.top-nav-search,
+.new-jobs {
+	position: relative;
+}
+
+.top-nav-search input {
+	width: 250px;
+}
+
+.top-nav-search input {
+	border: none;
+	border-radius: 5px;
+}
+
+.top-nav-search-btn {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+img.user-img-dropdown {
+	width: 55px;
+	height: 55px;
+	margin-left: -10px;
+}
+
+@media (min-width: 1128px) {
+	.top-nav-item li {
+		margin-left: 3rem;
+	}
+
+	img.user-img-dropdown {
+		width: 55px;
+		height: 55px;
+		margin-top: -5px;
+	}
 }
