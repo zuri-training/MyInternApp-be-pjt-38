@@ -9,15 +9,17 @@ const address = document.getElementById("address");
 const password = document.getElementById("password");
 const password2 = document.getElementById("password2");
 
-// form.addEventListener("submit", (e) => {
-// 	alert('submit clicked')
-// 	e.preventDefault();
+form.addEventListener("submit", (e) => {
+	alert('submit clicked')
+	e.preventDefault();
 
-// 	// Validate form inputs
-// 	validateForm();
+	// Validate form inputs
+	validateForm();
 	
-// 	$(this).unbind('submit').submit()
-// });
+	
+});
+// $(this).unbind('submit').submit()
+
 
 // Validate Form Inputs Function
 // form.onsubmit(function(e){s
