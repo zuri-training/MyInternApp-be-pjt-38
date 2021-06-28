@@ -123,3 +123,8 @@ def employer_signup_view(request):
     }
     return render(request, "backend/employer-signup.html", context)
 
+def login_view(request):
+    context = {
+
+    }
+    return render(request, "backend/login.html", context)
