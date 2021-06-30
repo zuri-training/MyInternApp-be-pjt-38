@@ -1,4 +1,6 @@
 const form = document.getElementById("signup_form");
+const firstName = document.getElementById("first_name");
+const lastName = document.getElementById("last_name");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 const country = document.getElementById("country");
@@ -8,28 +10,21 @@ const role = document.getElementById("role");
 const address = document.getElementById("address");
 const password = document.getElementById("password");
 const password2 = document.getElementById("password2");
+const genders = document.getElementsByName("gender");
+const genderInput = document.querySelector(".gender-input");
 
 form.addEventListener("submit", (e) => {
-	alert('submit clicked')
 	e.preventDefault();
 
 	// Validate form inputs
 	validateForm();
-	
-	
 });
-// $(this).unbind('submit').submit()
-
 
 // Validate Form Inputs Function
-// form.onsubmit(function(e){s
-// 	e.preventDefault();
-// 	validateForm();
-// 	$(this).unbind('submit').submit()
-// })
-
 function validateForm() {
 	// get the values from the inputs
+	const firstNameValue = firstName.value.trim();
+	const lastNameValue = lastName.value.trim();
 	const emailValue = email.value.trim();
 	const phoneValue = phone.value.trim();
 	const countryValue = country.value.trim();
@@ -40,6 +35,20 @@ function validateForm() {
 	const passwordValue = password.value.trim();
 	const password2Value = password2.value.trim();
 
+	// Check Firstname
+	if (firstNameValue === "") {
+		setErrorFor(firstName, "First name cannot be blank");
+	} else {
+		setSuccessFor(firstName);
+	}
+
+	// Check Firstname
+	if (lastNameValue === "") {
+		setErrorFor(lastName, "Last name cannot be blank");
+	} else {
+		setSuccessFor(lastName);
+	}
+
 	// Check Email
 	if (emailValue === "") {
 		setErrorFor(email, "Email cannot be blank");
@@ -48,7 +57,7 @@ function validateForm() {
 	} else {
 		setSuccessFor(email);
 	}
-	
+
 	// Check Number
 	if (phoneValue === "") {
 		setErrorFor(phone, "Phone number cannot be blank");
@@ -104,7 +113,20 @@ function validateForm() {
 	} else if (password2Value !== passwordValue) {
 		setErrorFor(password2, "Passwords do not match");
 	} else {
-		setSuccessFor(password2);
+		setSuccessFor(password);
+	}
+
+	if (genders[0].checked === true) {
+		setSuccessFor(genderInput);
+		return true;
+	} else if (genders[1].checked === true) {
+		setSuccessFor(genderInput);
+
+		return true;
+	} else {
+		// no checked
+		setErrorFor(genderInput, "Please select a gender");
+		return false;
 	}
 }
 

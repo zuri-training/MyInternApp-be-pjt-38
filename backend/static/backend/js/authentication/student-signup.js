@@ -1,4 +1,6 @@
 const form = document.getElementById("signup_form");
+const firstName = document.getElementById("first_name");
+const lastName = document.getElementById("last_name");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 const country = document.getElementById("country");
@@ -8,9 +10,11 @@ const level = document.getElementById("level");
 const skill = document.getElementById("skill");
 const password = document.getElementById("password");
 const password2 = document.getElementById("password2");
+const genders = document.getElementsByName("gender");
+const genderInput = document.querySelector(".gender-input");
 
 form.addEventListener("submit", (e) => {
-	// e.preventDefault();
+	e.preventDefault();
 
 	// Validate form inputs
 	validateForm();
@@ -19,6 +23,8 @@ form.addEventListener("submit", (e) => {
 // Validate Form Inputs Function
 function validateForm() {
 	// get the values from the inputs
+	const firstNameValue = firstName.value.trim();
+	const lastNameValue = lastName.value.trim();
 	const emailValue = email.value.trim();
 	const phoneValue = phone.value.trim();
 	const countryValue = country.value.trim();
@@ -28,6 +34,20 @@ function validateForm() {
 	const skillValue = skill.value.trim();
 	const passwordValue = password.value.trim();
 	const password2Value = password2.value.trim();
+
+	// Check Firstname
+	if (firstNameValue === "") {
+		setErrorFor(firstName, "First name cannot be blank");
+	} else {
+		setSuccessFor(firstName);
+	}
+
+	// Check Firstname
+	if (lastNameValue === "") {
+		setErrorFor(lastName, "Last name cannot be blank");
+	} else {
+		setSuccessFor(lastName);
+	}
 
 	// Check Email
 	if (emailValue === "") {
@@ -96,6 +116,19 @@ function validateForm() {
 		setErrorFor(password2, "Passwords do not match");
 	} else {
 		setSuccessFor(password2);
+	}
+
+	if (genders[0].checked === true) {
+		setSuccessFor(genderInput);
+		return true;
+	} else if (genders[1].checked === true) {
+		setSuccessFor(genderInput);
+
+		return true;
+	} else {
+		// no checked
+		setErrorFor(genderInput, "Please select a gender");
+		return false;
 	}
 }
 

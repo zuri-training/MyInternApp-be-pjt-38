@@ -3,7 +3,7 @@ const email = document.getElementById("login_email");
 const password = document.getElementById("login_password");
 
 form.addEventListener("submit", (e) => {
-	// e.preventDefault();
+	e.preventDefault();
 
 	validateForm();
 });
