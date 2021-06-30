@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -18,9 +19,9 @@
 			crossorigin="anonymous"
 		/>
 
-		<link rel="stylesheet" href="css/landing-page.css" />
+		<link rel="stylesheet" href="{% static 'backend/css/landing-page.css' %}" />
 
-		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="{% static 'backend/css/main.css' %}" />
 		<title>MyIntern App Landing Page</title>
 	</head>
 
@@ -57,19 +58,19 @@
 				</span>
 				<ul class="navbar-nav nav-links">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Student</a>
+						<a class="nav-link" href="#student_section">Student</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Employer</a>
+						<a class="nav-link" href="#employer_section">Employer</a>
 					</li>
 				</ul>
 				<div class="brand-logo">
-					<img src="img/landing-logo.svg" alt="" srcset="" />
-					<img src="img/MyIntern.svg" alt="" srcset="" />
+					<img src="{% static 'backend/img/landing-logo.svg' %}" alt="" srcset="" />
+					<img src="{% static 'bakend/img/MyIntern.svg' %}" alt="" srcset="" />
 				</div>
 
 				<div class="button-group auth-buttons">
-					<a href="authentication/login.html" class="btn btn-login">Login</a>
+					<a href="{% url 'login-url' %}" class="btn btn-login">Login</a>
 					<a href="#signup_section" class="btn btn-signup">Signup</a>
 				</div>
 				<span onclick="signupLoginBtnOpen()" class="nav-toggler auth-open">
@@ -91,10 +92,10 @@
 					<span class="close" onclick="closeNav()">&#x2715;</span>
 					<ul class="nav-links-collapse d-flex">
 						<li class="nav-item active">
-							<a class="nav-link" href="#">Student</a>
+							<a class="nav-link" href="#student_section"">Student</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Employer</a>
+							<a class="nav-link" href="#employer_section">Employer</a>
 						</li>
 					</ul>
 				</div>
@@ -121,21 +122,21 @@
 							schedule.
 						</p>
 
-						<button class="btn btn-started mt-5">Get Started</button>
+						<a href="#signup_section"><button class="btn btn-started mt-5">Get Started</button></a>
 					</div>
 					<div class="col-md-6 description-image">
-						<img src="img/hero-img.svg" alt="hero-image" srcset="" />
+						<img src="{% static 'backend/img/hero-img.svg' %}" alt="hero-image" srcset="" />
 					</div>
 				</div>
 			</section>
 		</header>
 
 		<main>
-			<section class="how-it-works">
+			<section class="how-it-works" id="#student_section">
 				<h2 class="text-center">How it Works</h2>
 
 				<div class="demarcate d-flex justify-content-around mb-5">
-					<img src="img/demarcate.svg" alt="" srcset="" />
+					<img src="{% static 'backend/img/demarcate.svg' %}" alt="" srcset="" />
 				</div>
 
 				<div
@@ -175,7 +176,7 @@
 				<div class="employer-part container">
 					<h2>For Employers</h2>
 					<div class="detail-div d-flex my-4 mx-4">
-						<img src="img/presentation.svg" alt="" srcset="" />
+						<img src="{% static 'backend/img/presentation.svg' %}" alt="" srcset="" />
 						<div class="details">
 							<h3>Describe your ideal candidate</h3>
 							<ul>
@@ -187,7 +188,7 @@
 						</div>
 					</div>
 					<div class="detail-div d-flex my-4 mx-4">
-						<img src="img/interview.svg" alt="" srcset="" />
+						<img src="{% static 'backend/img/interview.svg' %}" alt="" srcset="" />
 						<div class="details">
 							<h3>Recruit diverse talent from anywhere in the country</h3>
 							<ul>
@@ -202,7 +203,7 @@
 					</div>
 
 					<div class="detail-div d-flex my-4 mx-4">
-						<img src="img/card.svg" alt="" srcset="" />
+						<img src="{% static 'backend/img/card.svg' %}" alt="" srcset="" />
 						<div class="details">
 							<h3>Secure Payment</h3>
 							<ul>
@@ -221,7 +222,7 @@
 				<h2 class="text-center">Choose your Role</h2>
 
 				<div class="demarcate d-flex justify-content-around mb-5">
-					<img src="img/demarcate.svg" alt="" srcset="" />
+					<img src="{% static 'backend/img/demarcate.svg' %}" alt="" srcset="" />
 				</div>
 
 				<div class="row d-flex justify-content-around card-pack">
@@ -229,7 +230,7 @@
 						<div class="card text-center">
 							<img
 								class="card-img-top"
-								src="img/student.svg"
+								src="{% static 'backend/img/student.svg' %}"
 								alt="Card image cap"
 							/>
 							<div class="card-body">
@@ -239,7 +240,7 @@
 									range of jobs perfect to help you gain necessary skills.
 								</p>
 								<a
-									href="./authentication/student-signup.html"
+									href="{% url 'student-signup-url' %}"
 									class="btn btn-primary"
 									>Sign up</a
 								>
@@ -250,7 +251,7 @@
 						<div class="card text-center">
 							<img
 								class="card-img-top"
-								src="img/employer.svg"
+								src="{% static 'backend/img/employer.svg' %}"
 								alt="Card image cap"
 							/>
 							<div class="card-body">
@@ -260,7 +261,7 @@
 									and find amazing students to work with your company!
 								</p>
 								<a
-									href="./authentication/employer-signup.html"
+									href="{% url 'employer-signup-url' %}"
 									class="btn btn-primary"
 									>Sign up</a
 								>
@@ -303,7 +304,7 @@
 			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 			crossorigin="anonymous"
 		></script>
-		<script src="js/script.js"></script>
-		<script src="js/landing-page.js"></script>
+		<script src="{% static 'backend/js/script.js' %}"></script>
+		<script src="{% static 'backend/js/landing-page.js' %}"></script>
 	</body>
 </html>
