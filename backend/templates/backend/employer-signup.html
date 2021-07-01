@@ -31,12 +31,12 @@
 									<h3 class="fs-4">MyIntern</h3>
 								</div>
 								<div class="mb-5 d-flex flex-column">
-									<h3 class="fw-normal mt-3">Welcome to MyIntern</h3>
+									<h3 class="fw-normal mt-3">Employer Signup</h3>
 									<p class="fx-6 fw-light mt-4">
 										Already have an account?
 										<a
 											class="text-tertiary text-decoration-none login-link"
-											href="../authentication/login.html"
+											href="{% url 'login-url' %}' %}"
 											>Login</a
 										>
 									</p>
@@ -46,7 +46,92 @@
 									</span>
 								</div>
 								<div>
-									<form id="signup_form" class="row g-3">
+									<form id="signup_form" class="row g-3" method="POST">
+										{% csrf_token %}
+										<div class="col-md-6">
+											<div class="mb-3 form-input-container">
+												<label for="first_name" class="form-label fw-bold"
+													>First name
+													<span class="text-tertiary">*</span></label
+												>
+												<input
+													type="text"
+													class="form-control"
+													name="first_name"
+													id="first_name"
+													placeholder="John"
+												/>
+												<div class="fw-light error-message"></div>
+											</div>
+										</div>
+										<div class="col-md-6 form-input-container">
+											<label for="last_name" class="form-label fw-bold"
+												>Last name <span class="text-tertiary">*</span></label
+											>
+											<input
+												type="text"
+												class="form-control"
+												name="last_name"
+												id="last_name"
+												placeholder="Doe"
+											/>
+											<div class="fw-light error-message"></div>
+										</div>
+										<div class="col-12">
+											<label for="gender" class="form-label fw-bold"
+												>Gender<span class="text-tertiary">*</span></label
+											>
+											<div
+												class="
+													row
+													d-flex
+													justify-content-around
+													form-input-container
+												"
+											>
+												<div
+													class="
+														col-md-5
+														rounded
+														p-1
+														gender-input
+														form-input-container
+													"
+												>
+													<div class="form-check ms-3">
+														<input
+															class="form-check-input"
+															type="radio"
+															name="gender"
+															id="radio_male"
+															value="male"
+														/>
+														<label
+															class="form-check-label fw-bold fs-6 mx-3"
+															for="radio_male"
+															>Male
+														</label>
+													</div>
+												</div>
+												<div class="col-md-5 rounded p-1 gender-input">
+													<div class="form-check ms-3">
+														<input
+															class="form-check-input"
+															type="radio"
+															name="gender"
+															id="radio_female"
+															value="female"
+														/>
+														<label
+															class="form-check-label fw-bold fs-6 mx-2"
+															for="radio_female"
+															>Female
+														</label>
+													</div>
+												</div>
+												<div class="fw-light ps-4 error-message"></div>
+											</div>
+										</div>
 										<div class="col-12">
 											<div class="mb-3 form-input-container">
 												<label for="email" class="form-label fw-bold">
@@ -55,6 +140,7 @@
 												<input
 													type="text"
 													class="form-control"
+													name="email"
 													id="email"
 													placeholder="email@email.com"
 												/>
@@ -71,6 +157,7 @@
 														+234
 													</span>
 													<input
+														name="phone"
 														id="phone"
 														type="text"
 														class="form-control d-block"
@@ -87,7 +174,7 @@
 												<label for="country" class="form-label fw-bold"
 													>Country <span class="text-tertiary">*</span></label
 												>
-												<select id="country" class="form-select">
+												<select id="country" name="country" class="form-select">
 													<option value="" selected hidden>
 														Select country
 													</option>
@@ -104,6 +191,7 @@
 											<input
 												type="text"
 												class="form-control"
+												name="city"
 												id="city"
 												placeholder="Abuja"
 											/>
@@ -118,18 +206,20 @@
 												<input
 													type="text"
 													class="form-control"
+													name="business_name"
 													id="business"
 													placeholder="Name of your business/organization"
 												/>
 												<div class="fw-light error-message"></div>
 											</div>
 										</div>
+
 										<div class="col-md-6">
 											<div class="mb-3 form-input-container">
 												<label for="role" class="form-label fw-bold"
 													>Your Role <span class="text-tertiary">*</span></label
 												>
-												<select id="role" class="form-select">
+												<select name="role" id="role" class="form-select">
 													<option value="" selected hidden>Select Role</option>
 													<option value="HR">HR Manager</option>
 												</select>
@@ -144,6 +234,7 @@
 											<input
 												type="text"
 												class="form-control"
+												name="address"
 												id="address"
 												placeholder="Type address here"
 											/>
@@ -158,6 +249,7 @@
 													type="password"
 													class="form-control"
 													id="password"
+													name="password1"
 													placeholder="******"
 												/><i
 													class="bi bi-eye fw-bold btn text-left eye-icon"
@@ -174,6 +266,7 @@
 												<input
 													type="password"
 													class="form-control w-100"
+													name="password2"
 													id="password2"
 													placeholder="******"
 												/><i
@@ -221,6 +314,6 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="{% static 'backend/js/script.js' %}"></script>
-		<script src="{% static 'backend/js/authentication/employer-signup.js' %}"></script>
+		<!-- <script src="{% static 'backend/js/authentication/employer-signup.js' %}"></script> -->
 	</body>
 </html>

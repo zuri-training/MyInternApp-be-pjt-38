@@ -1,0 +1,104 @@
+html,
+body {
+	overflow-x: hidden;
+}
+.main-container {
+	margin-top: 6rem;
+	background-color: #e5e5e5;
+}
+
+.account-setting p {
+	font-weight: 200;
+	margin-top: 10px !important;
+	margin-bottom: 5px;
+}
+
+.account-setting label {
+	font-weight: 600;
+}
+
+.account-setting textarea {
+	background-color: #f7f7f7;
+}
+
+.account-setting-title {
+	font-size: 4rem;
+	font-weight: 180;
+}
+
+button.nav-link {
+	color: #eb996e !important;
+	margin-right: 20px !important;
+}
+
+button.nav-link.active {
+	border: none !important;
+	color: #000000 !important;
+	font-weight: 600 !important;
+}
+
+.nav-tabs {
+	border-bottom: 2px solid #d9d9d9 !important;
+}
+
+img.avatar-img {
+	width: 60px;
+	height: 60px;
+	border: none;
+	border-radius: 50%;
+}
+
+.update-info-btn {
+	background-color: #2ec4b6;
+	color: #ffffff;
+}
+
+::placeholder {
+	color: #88858593;
+	font-size: 0.8rem;
+	font-weight: normal;
+	opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #88858593;
+	font-size: 0.8rem;
+	font-weight: normal;
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: #88858593;
+	font-size: 0.8rem;
+	font-weight: normal;
+}
+
+.input-file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.input-file + label {
+	padding: 10px 20px;
+	font-size: 1rem;
+	font-weight: 400;
+	color: #005387;
+	background-color: #ffffff;
+	display: inline-block;
+	border-radius: 6px;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.input-file:focus + label,
+.input-file + label:hover {
+	background-color: #ffffff;
+}
+
+.input-file + label {
+	cursor: pointer; /* "hand" cursor */
+}
