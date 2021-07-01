@@ -55,45 +55,37 @@ def student_signup_view(request):
 
 def employer_signup_view(request):
     if request.POST:
-
-        general_info={}
-        updated_request = request.POST.copy()
-        updated_request.update({'general_info' : general_info})
-        print(request.POST)
-        form = EmployerRegistrationForm(updated_request)
-        
-        print('this is the last' + str(general_info))
-        user_form = CreateUserForm()
+        data = request.POST
+        form = EmployerRegistrationForm(data)
         if form.is_valid():
-            form.save()
-            print('New User saved')
+            
 
-            user_details = {
-                'username': request.POST['email'],
-                'email': request.POST['email'],
-                'password1': request.POST['password1'],
-                'password2': request.POST['password2'],
+            user_creation_details = {
+                'username'  : data.get('email'),
+                'email'     : data.get('email'),
+                'password1' : data.get('password1'),
+                'password2' : data.get('password2')
             }
 
-            user_form = CreateUserForm(user_details)
+            user_creation_form = CreateUserForm(user_creation_details)
+            if user_creation_form.is_valid():
+                user_creation_form.save()
+                print('New User Created')
 
-            if user_form.is_valid():
-                user_form.save()
-                print('A user has been created')
+                form.save()
+                print('New Employer registered')
 
-                user = User.objects.get(email = user_details['email'])
+                user = User.objects.get(username=user_creation_details['username'])
                 employer_group = Group.objects.get(name='employer')
-                
                 user.groups.add(employer_group)
-                
-                print('User has been added to group')
-            else:
-                print(user_form.errors)
+                print('Employer added to employer group')
 
+                messages.success(request, 'Account created, please login in')
+                return redirect('login-url')
+            else:
+                print(user_creation_form.errors)
         else:
-            employer_form_errors = form.errors
-            print(employer_form_errors)
-            print('Student not saved')
+            print(form.errors)       
     
     context = {
         # 'employer_form_errors':employer_form_errors,
@@ -138,10 +130,14 @@ def student_homepage_view(request):
     return render(request, "backend/student-homepage.html", context)
 
 def employer_homepage_view(request):
-    user = request.user
-    user_detail = User.objects.get(email = user.email)
+    # Get the logged in Employer email
+    employer_email = request.user.email
+    
+    # use the email to search for student details in the StudentRegistration
+    employer_detail = EmployerRegistration.objects.get(email = employer_email)
+
     context= {
-        'user':user_detail,
+        'employer_detail':employer_detail,
     }
     return render(request, "backend/employer-homepage.html", context)
 
