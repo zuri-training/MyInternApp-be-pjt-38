@@ -23,12 +23,12 @@ class StudentRegistration(models.Model):
 class EmployerRegistration(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    gender = models.CharField(max_length=10)
     email = models.EmailField(max_length=200, unique=True)
     phone = models.CharField(max_length=100)
     country = models.CharField(max_length=250)
     city = models.CharField(max_length=250)
     business_name = models.CharField(max_length=250)
-    gender = models.CharField(max_length=10)
     role = models.CharField(max_length=250)
     address = models.TextField()
     
