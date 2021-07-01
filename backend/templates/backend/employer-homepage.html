@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -15,8 +14,8 @@
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
 		/>
-		<link rel="stylesheet" href="{% static 'backend/css/main.css' %}" />
-		<link rel="stylesheet" href="{% static 'backend/css/employer-homepage.css' %}" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../css/employer-homepage.css" />
 		<title>MyIntern</title>
 	</head>
 	<body>
@@ -24,7 +23,7 @@
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top top-bar">
 			<div class="container-fluid d-flex align-items-center">
 				<a class="navbar-brand" href="#">
-					<img src="{% static 'backend/img/logo-light.svg' %}" alt="" class="align-self-center" />
+					<img src="../img/logo-light.svg" alt="" class="align-self-center" />
 
 					<span class="fw-bold fs-4">MyIntern</span>
 				</a>
@@ -81,7 +80,7 @@
 							<li class="nav-item">
 								<a class="nav-link active" aria-current="page" href="#"
 									><img
-										src="{% static 'backend/img/top-bar-caret.svg' %}"
+										src="../img/top-bar-caret.svg"
 										class="img-fluid fs-6"
 										alt=""
 								/></a>
@@ -94,7 +93,7 @@
 							<li class="nav-item">
 								<div class="dropdown">
 									<img
-										src="{% static 'backend/img/user-img.svg' %}"
+										src="../img/user-img.svg"
 										class="btn dropdown-toggle user-img-dropdown"
 										role="button"
 										id="user_img_dropdown"
@@ -103,13 +102,13 @@
 										alt=""
 									/>
 									<ul class="dropdown-menu" aria-labelledby="user_img_dropdown">
-										<li><a class="dropdown-item" href="{% url 'logout-url' %}">Logout</a></li>
-										<!-- <li>
+										<li><a class="dropdown-item" href="#">Action</a></li>
+										<li>
 											<a class="dropdown-item" href="#">Another action</a>
 										</li>
 										<li>
 											<a class="dropdown-item" href="#">Something else here</a>
-										</li> -->
+										</li>
 									</ul>
 								</div>
 							</li>
@@ -123,7 +122,7 @@
 		<!-- M A I N     C O N T E N T   S T A R T S -->
 		<div class="container-fluid page-container">
 			<div class="container">
-				<h2 class="welcome">Welcome {{ user }} </h2>
+				<h2 class="welcome">Welcome John Ade!</h2>
 				<div
 					class="
 						col-md-6
@@ -302,7 +301,7 @@
 											<div class="d-flex">
 												<div class="d-flex flex-column">
 													<img
-														src="{% static 'backend/img/user-img.svg' %}"
+														src="../img/user-img.svg"
 														class="img-fluid"
 														alt=""
 														style="width: 50px; height: 50px"
@@ -345,7 +344,7 @@
 						<div class="card">
 							<div class="card-header d-flex justify-content-between fs-5">
 								Payments
-								<span><img src="{% static 'backend/img/eye-lash.svg' %}" alt="" /></span>
+								<span><img src="../img/eye-lash.svg" alt="" /></span>
 							</div>
 							<ul class="list-group list-group-flush">
 								<li class="list-group-item">
@@ -405,7 +404,7 @@
 										</div>
 										<div class="">
 											<img
-												src="{% static 'backend/img/user2-img.svg' %}"
+												src="../img/user2-img.svg"
 												style="width: 40px; height: 40px"
 												alt=""
 											/>
@@ -420,7 +419,7 @@
 										</div>
 										<div class="">
 											<img
-												src="{% static 'backend/img/user3-img.svg' %}"
+												src="../img/user3-img.svg"
 												style="width: 40px; height: 40px"
 												alt=""
 											/>

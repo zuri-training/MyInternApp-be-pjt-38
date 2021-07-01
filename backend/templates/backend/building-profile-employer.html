@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+		/>
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../css/building-profile.css" />
+		<title>MyIntern</title>
+	</head>
+	<body>
+		<!-- T O P    N A V    S T A R T S   -->
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top top-bar">
+			<div class="container-fluid d-flex align-items-center">
+				<a class="navbar-brand" href="#">
+					<img src="../img/logo-light.svg" alt="" class="align-self-center" />
+
+					<span class="fw-bold fs-4">MyIntern</span>
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarText"
+					aria-controls="navbarText"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarText">
+					<div class="container pt-2 d-md-flex justify-content-around">
+						<div class="top-nav-search">
+							<form class="d-flex flex-column justify-content-center">
+								<input
+									class="form-control ps-5"
+									type="search"
+									placeholder="Search"
+									aria-label="Search"
+								/>
+								<button class="btn top-nav-search-btn" type="submit">
+									<i class="bi bi-search text-muted"></i>
+								</button>
+							</form>
+						</div>
+						<ul class="navbar-nav mb-2 mb-lg-0 top-nav-item">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#">Home</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a
+									class="nav-link dropdown-toggle text-light"
+									href="#"
+									id="navbarDropdown"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Explore
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<li><a class="dropdown-item" href="#">Students</a></li>
+									<li><a class="dropdown-item" href="#">Jobs</a></li>
+									<li><hr class="dropdown-divider" /></li>
+									<li>
+										<a class="dropdown-item" href="#">More</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#"
+									><img
+										src="../img/top-bar-caret.svg"
+										class="img-fluid fs-6"
+										alt=""
+								/></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#"
+									><h4><i class="bi bi-bell-fill"></i></h4
+								></a>
+							</li>
+							<li class="nav-item">
+								<div class="dropdown">
+									<img
+										src="../img/user-img.svg"
+										class="btn dropdown-toggle user-img-dropdown"
+										role="button"
+										id="user_img_dropdown"
+										data-bs-toggle="dropdown"
+										aria-expanded="false"
+										alt=""
+									/>
+									<ul class="dropdown-menu" aria-labelledby="user_img_dropdown">
+										<li><a class="dropdown-item" href="#">Action</a></li>
+										<li>
+											<a class="dropdown-item" href="#">Another action</a>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- T O P    N A V    E N D S -->
+		<section class="main-container">
+			<div class="container pt-4">
+				<div class="col-12 col-md-10 m-auto account-setting">
+					<h2 class="account-setting-title mb-0">Account settings</h2>
+					<p class="">
+						Update your profile info, payment method, and notification settings
+					</p>
+					<div>
+						<nav>
+							<div class="nav nav-tabs" id="nav-tab" role="tablist">
+								<button
+									class="nav-link active"
+									id="main-settings-tab"
+									data-bs-toggle="tab"
+									data-bs-target="#main-settings"
+									type="button"
+									role="tab"
+									aria-controls="main-settings"
+									aria-selected="true"
+								>
+									Main Settings
+								</button>
+								<button
+									class="nav-link"
+									id="payment-agreement-tab"
+									data-bs-toggle="tab"
+									data-bs-target="#payment-agreement"
+									type="button"
+									role="tab"
+									aria-controls="payment-agreement"
+									aria-selected="false"
+								>
+									Payment Agreement
+								</button>
+								<button
+									class="nav-link"
+									id="notification-setting-tab"
+									data-bs-toggle="tab"
+									data-bs-target="#notification-setting"
+									type="button"
+									role="tab"
+									aria-controls="notification-setting"
+									aria-selected="false"
+								>
+									Notification Settings
+								</button>
+							</div>
+						</nav>
+						<div class="tab-content" id="nav-tabContent">
+							<div
+								class="tab-pane fade show active"
+								id="main-settings"
+								role="tabpanel"
+								aria-labelledby="main-settings-tab"
+							>
+								<p class="mt-3">Personal Information</p>
+								<div>
+									<form
+										action=""
+										name="personal_information_form"
+										class="row g-3 d-flex justify-content-between"
+									>
+										<div class="col-md-5 mb-3">
+											<label for="first_name" class="form-label"
+												>First name</label
+											>
+											<input
+												itemid="first_name"
+												type="text"
+												class="form-control"
+												id="first_name"
+												name="first_name"
+												placeholder="Your firstname"
+											/>
+										</div>
+										<div class="col-md-5 mb-3">
+											<label for="last_name" class="form-label"
+												>Last name</label
+											>
+											<input
+												itemid="last_name"
+												type="text"
+												class="form-control"
+												id="last_name"
+												name="last_name"
+												placeholder="Your lastname"
+											/>
+										</div>
+										<div class="col-md-12 mb-3">
+											<label for="email" class="form-label">Email</label>
+											<input
+												itemid="email"
+												type="text"
+												class="form-control"
+												id="email"
+												name="email"
+												placeholder="name@example.com"
+											/>
+										</div>
+										<div class="col-12 mb-3">
+											<label
+												for="exampleFormControlTextarea1"
+												class="form-label"
+												>About</label
+											>
+											<textarea
+												class="form-control"
+												id="exampleFormControlTextarea1"
+												rows="5"
+												placeholder="A few sentences about yourself......"
+											></textarea>
+										</div>
+										<p class="">Verify your identity</p>
+										<div class="col-md-5 mt-0 mb-3">
+											<label for="company_name" class="form-label"
+												>Company Name</label
+											>
+											<input
+												itemid="company_name"
+												type="text"
+												class="form-control"
+												id="company_name"
+												name="company_name"
+												placeholder="Your company_name"
+											/>
+										</div>
+										<div class="col-md-5 mb-3">
+											<label for="website" class="form-label">Website</label>
+											<input
+												itemid="website"
+												type="text"
+												class="form-control"
+												id="website"
+												name="website"
+												placeholder="Your website"
+											/>
+										</div>
+										<div class="col-md-5 mb-3">
+											<label for="rc_number" class="form-label"
+												>RC Number</label
+											>
+											<input
+												itemid="rc_number"
+												type="text"
+												class="form-control"
+												id="rc_number"
+												name="rc_number"
+												placeholder="Your RC Number"
+											/>
+										</div>
+										<div class="col-md-5 mb-3">
+											<label for="area_of_interest" class="form-label"
+												>Area of interest</label
+											>
+											<input
+												itemid="area_of_interest"
+												type="text"
+												class="form-control"
+												id="area_of_interest"
+												name="area_of_interest"
+											/>
+										</div>
+										<div class="col-md-5 mb-3">
+											<label for="" class="form-label d-block">Avatar</label>
+											<img
+												src="../img/user4-img.svg"
+												class="avatar-img"
+												alt=""
+											/>
+											<input
+												type="file"
+												name="avatar"
+												id="avatar"
+												class="input-file"
+											/>
+											<label for="avatar" class="ms-5">Upload photo</label>
+										</div>
+										<p>Social networks</p>
+
+										<div class="col-12 mb-3">
+											<label for="twitter_handle" class="form-label"
+												>Twitter handle (Username)</label
+											>
+											<input
+												itemid="twitter_handle"
+												type="text"
+												class="form-control"
+												id="twitter_handle"
+												name="twitter_handle"
+												placeholder="Your school ID"
+											/>
+										</div>
+										<div class="col-12 mb-3">
+											<label for="linkedin_page" class="form-label"
+												>LinkedIn page</label
+											>
+											<input
+												itemid="linkedin_page"
+												type="text"
+												class="form-control"
+												id="linkedin_page"
+												name="linkedin_page"
+												placeholder="Your school ID"
+											/>
+										</div>
+										<div class="col-12 mb-3">
+											<label for="linkedin_page" class="form-label"
+												>Others</label
+											>
+											<input
+												itemid="linkedin_page"
+												type="text"
+												class="form-control"
+												id="linkedin_page"
+												name="linkedin_page"
+												placeholder="paste url"
+											/>
+										</div>
+										<div class="col-12 d-flex flex-row-reverse my-5">
+											<input
+												type="submit"
+												id="update_user_info_btn"
+												name="update_user_info_btn"
+												value="Update Information"
+												class="btn w-25 update-info-btn"
+											/>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div
+								class="tab-pane fade"
+								id="payment-agreement"
+								role="tabpanel"
+								aria-labelledby="payment-agreement-tab"
+							>
+								Payment settings
+							</div>
+							<div
+								class="tab-pane fade"
+								id="notification-setting"
+								role="tabpanel"
+								aria-labelledby="notification-setting-tab"
+							>
+								Notification
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Main Section Ends -->
+		<!-- F O O T E R     S T A R T S-->
+		<section class="container-fluid bg-dark text-light footer">
+			<div class="container">
+				<div class="row gy-3">
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">MyInternApp</p>
+						<p>About</p>
+						<p>How it works</p>
+					</div>
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">Post Job Ads</p>
+						<p>Find Talent</p>
+					</div>
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">Showcase Talent</p>
+						<p>Projects</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- F O O T E R     E  N D S -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

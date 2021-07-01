@@ -12,6 +12,7 @@ body {
 	overflow-x: hidden;
 	box-sizing: border-box;
 	background-color: #e5e5e5;
+	
 }
 
 a {
@@ -102,14 +103,12 @@ header {
 
 .heading-primary {
 	font-weight: 608;
-	font-size: 4rem;
 	color: rgba(0, 0, 0, 0.8);
 	opacity: 0.8;
 }
 
 .heading-primary p {
 	font-weight: 608;
-	font-size: 4rem;
 }
 
 .strong-span {
@@ -474,7 +473,6 @@ footer {
 		margin-top: 5rem;
 		text-align: left;
 		font-weight: 500;
-		font-size: 4rem;
 	}
 
 	.strong-span {
@@ -608,5 +606,11 @@ footer {
 	.footer-container {
 		text-align: left;
 		flex-direction: row;
+	}
+}
+
+@media (min-width: 540px) {
+	.heading-primary {
+		font-size: 4rem;
 	}
 }

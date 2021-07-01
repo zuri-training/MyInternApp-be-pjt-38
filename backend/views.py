@@ -1,6 +1,6 @@
-from backend.models import GeneralRegistration, StudentRegistration
+from backend.models import StudentRegistration, EmployerRegistration
 from django.shortcuts import render, redirect
-from .forms import GeneralRegistrationForm, StudentRegistrationForm, EmployerRegistrationForm, CreateUserForm
+from .forms import StudentRegistrationForm, EmployerRegistrationForm, CreateUserForm
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -13,31 +13,9 @@ def home_view(request):
     return render(request, "backend/index.html", context)
 
 
-def signup_view(request):
-    if request.POST:
-        general_user_info = request.POST
-        form = GeneralRegistrationForm(general_user_info)
-        if form.is_valid():
-            form.save()
-            print('user saved')
-        else:
-            print(form.errors)
-            print('There was an error')
-        print('View finished')
-
-        if request.POST['user_type'] == 'Student':
-            return redirect('student-signup-url')
-        else:
-            return redirect('employer-signup-url')
-        
-
-    context={}
-    return render(request, "backend/signup.html", context)
-
-
 def student_signup_view(request):
     if request.POST:
-        general_info=GeneralRegistration.objects.all().last()
+        general_info={}
         # general_info_first_name = general_info.first_name
         # general_info_last_name = general_info.last_name
         updated_request = request.POST.copy()
@@ -86,7 +64,7 @@ def student_signup_view(request):
 def employer_signup_view(request):
     if request.POST:
 
-        general_info=GeneralRegistration.objects.all().last()
+        general_info={}
         updated_request = request.POST.copy()
         updated_request.update({'general_info' : general_info})
         print(request.POST)
