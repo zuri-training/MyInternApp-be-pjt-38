@@ -31,8 +31,15 @@
 						class="p-5 py-5 login-form-container"
 						method="POST"
 					>
+					{% csrf_token %}
+					
+					{% for message in messages %}
+						<p style="color: green;">{{ message }}</p>
+					{% endfor %}
+						
 						<div class="d-flex justify-content-between">
 							<p class="fw-light">Sign in</p>
+							
 							<a href="#" class="forgot-password">Forgot password?</a>
 						</div>
 						<div class="mb-4">
@@ -40,7 +47,8 @@
 								<input
 									type="text"
 									class="form-control login-form-control"
-									id="login_email"
+									id="email"
+									name="email"
 								/>
 								<div class="fw-light error-message"></div>
 								<i class="bi bi-envelope-fill btn login-input-icon"></i>
@@ -51,7 +59,8 @@
 								<input
 									type="password"
 									class="form-control login-form-control"
-									id="login_password"
+									id="password"
+									name="password"
 								/>
 								<div class="fw-light error-message"></div>
 								<i class="bi bi-lock-fill btn login-input-icon"></i>
@@ -155,7 +164,7 @@
 			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
 			crossorigin="anonymous"
 		></script>
-		<script src="../js/script.js"></script>
-		<script src="../js/authentication/login.js"></script>
+		<script src="{% static 'backend/js/script.js' %}"></script>
+		<!-- <script src="{% static 'backend/js/authentication/login.js' %}"></script> -->
 	</body>
 </html>

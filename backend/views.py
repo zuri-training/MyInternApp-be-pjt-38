@@ -1,3 +1,5 @@
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.messages.api import error
 from backend.models import StudentRegistration, EmployerRegistration
 from django.shortcuts import render, redirect
 from .forms import StudentRegistrationForm, EmployerRegistrationForm, CreateUserForm
@@ -15,48 +17,36 @@ def home_view(request):
 
 def student_signup_view(request):
     if request.POST:
-        general_info={}
-        # general_info_first_name = general_info.first_name
-        # general_info_last_name = general_info.last_name
-        updated_request = request.POST.copy()
-        updated_request.update({'general_info' : general_info})
-        print(request.POST)
-        form = StudentRegistrationForm(updated_request)
-        
-        print('this is the last' + str(general_info))
-        user_form = CreateUserForm()
+        data = request.POST
+        form = StudentRegistrationForm(data)
         if form.is_valid():
             form.save()
-            print('Student Saved')
+            print('New student registered')
 
-            user_details = {
-                'username': request.POST['email'],
-                'email': request.POST['email'],
-                # 'first_name': general_info_first_name,
-                # 'last_name': general_info_last_name,
-                'password1': request.POST['password1'],
-                'password2': request.POST['password2'],
+            user_creation_details = {
+                'username'  : data.get('email'),
+                'email'     : data.get('email'),
+                'password1' : data.get('password1'),
+                'password2' : data.get('password2')
             }
 
-            user_form = CreateUserForm(user_details)
+            user_creation_form = UserCreationForm(user_creation_details)
+            if user_creation_form.is_valid():
+                user_creation_form.save()
+                print('New User Created')
 
-            if user_form.is_valid():
-                user_form.save()
-                print('A user has been created')
-
-                user = User.objects.get(email = user_details['email'])
+                user = User.objects.get(username=user_creation_details['username'])
                 student_group = Group.objects.get(name='student')
-                
                 user.groups.add(student_group)
-                
-                print('User has been added to group')
+                print('Student added to student group')
+
+                messages.success(request, 'Account created, please login in')
                 return redirect('login-url')
             else:
-                print(user_form.errors)
-
+                print(user_creation_form.errors)
         else:
             print(form.errors)
-            print('Student not saved')
+
     context = {
     }
     return render(request, "backend/student-signup.html", context)
@@ -112,6 +102,8 @@ def login_view(request):
     if request.method == "POST":
         user_email = request.POST.get('email')
         user_password = request.POST.get('password')
+        print(user_email)
+        print(user_password)
 
         user = authenticate(request, username=user_email, password=user_password)
         
@@ -132,11 +124,11 @@ def login_view(request):
 
 
 def student_homepage_view(request):
-    user = request.user
-    user_detail = User.objects.get(email = user.email)
-    print(user_detail)
+    # user = request.user
+    # user_detail = User.objects.get(email = user.email)
+    # print(user_detail)
     context= {
-        'user':user_detail,
+        # 'user':user_detail,
     }
     return render(request, "backend/student-homepage.html", context)
 
