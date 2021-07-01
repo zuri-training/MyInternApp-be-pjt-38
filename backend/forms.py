@@ -4,10 +4,7 @@ from django.forms import ModelForm
 from django.contrib.auth.models import User
 from .models import *
 
-class GeneralRegistrationForm(ModelForm):
-	class Meta:
-		model = GeneralRegistration
-		fields = '__all__'
+
 
 class StudentRegistrationForm(ModelForm):
 	class Meta:

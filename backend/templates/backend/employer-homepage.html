@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+		/>
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../css/employer-homepage.css" />
+		<title>MyIntern</title>
+	</head>
+	<body>
+		<!-- T O P    N A V    S T A R T S   -->
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top top-bar">
+			<div class="container-fluid d-flex align-items-center">
+				<a class="navbar-brand" href="#">
+					<img src="../img/logo-light.svg" alt="" class="align-self-center" />
+
+					<span class="fw-bold fs-4">MyIntern</span>
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarText"
+					aria-controls="navbarText"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarText">
+					<div class="container pt-2 d-md-flex justify-content-around">
+						<div class="top-nav-search">
+							<form class="d-flex flex-column justify-content-center">
+								<input
+									class="form-control ps-5"
+									type="search"
+									placeholder="Search"
+									aria-label="Search"
+								/>
+								<button class="btn top-nav-search-btn" type="submit">
+									<i class="bi bi-search text-muted"></i>
+								</button>
+							</form>
+						</div>
+						<ul class="navbar-nav mb-2 mb-lg-0 top-nav-item">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#">Home</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a
+									class="nav-link dropdown-toggle text-light"
+									href="#"
+									id="navbarDropdown"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Explore
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<li><a class="dropdown-item" href="#">Students</a></li>
+									<li><a class="dropdown-item" href="#">Jobs</a></li>
+									<li><hr class="dropdown-divider" /></li>
+									<li>
+										<a class="dropdown-item" href="#">More</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#"
+									><img
+										src="../img/top-bar-caret.svg"
+										class="img-fluid fs-6"
+										alt=""
+								/></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#"
+									><h4><i class="bi bi-bell-fill"></i></h4
+								></a>
+							</li>
+							<li class="nav-item">
+								<div class="dropdown">
+									<img
+										src="../img/user-img.svg"
+										class="btn dropdown-toggle user-img-dropdown"
+										role="button"
+										id="user_img_dropdown"
+										data-bs-toggle="dropdown"
+										aria-expanded="false"
+										alt=""
+									/>
+									<ul class="dropdown-menu" aria-labelledby="user_img_dropdown">
+										<li><a class="dropdown-item" href="#">Action</a></li>
+										<li>
+											<a class="dropdown-item" href="#">Another action</a>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<!-- T O P    N A V    E N D S -->
+		<!-- M A I N     C O N T E N T   S T A R T S -->
+		<div class="container-fluid page-container">
+			<div class="container">
+				<h2 class="welcome">Welcome John Ade!</h2>
+				<div
+					class="
+						col-md-6
+						d-flex
+						justify-content-between
+						align-items-center
+						px-3
+						my-3
+						rounded
+					"
+				>
+					<p class="text-light lead fw-bold mt-2 align-self-center">
+						Post a job today
+					</p>
+					<button class="btn post-btn" type="button">Post</button>
+				</div>
+				<div class="row row-cols-1 row-cols-md-2 g-4">
+					<div class="col">
+						<div class="card">
+							<div class="card-header fs-5">My Posts</div>
+							<div class="card-body">
+								<nav>
+									<div class="nav nav-tabs" id="nav-tab" role="tablist">
+										<button
+											class="nav-link active"
+											id="nav-active-tab"
+											data-bs-toggle="tab"
+											data-bs-target="#nav-active"
+											type="button"
+											role="tab"
+											aria-controls="nav-active"
+											aria-selected="true"
+										>
+											Active
+										</button>
+										<button
+											class="nav-link"
+											id="nav-filled-tab"
+											data-bs-toggle="tab"
+											data-bs-target="#nav-filled"
+											type="button"
+											role="tab"
+											aria-controls="nav-filled"
+											aria-selected="false"
+										>
+											Filled
+										</button>
+										<button
+											class="nav-link"
+											id="nav-drafted-tab"
+											data-bs-toggle="tab"
+											data-bs-target="#nav-drafted"
+											type="button"
+											role="tab"
+											aria-controls="nav-drafted"
+											aria-selected="false"
+										>
+											Drafted
+										</button>
+									</div>
+								</nav>
+								<div class="tab-content" id="nav-tabContent">
+									<div
+										class="tab-pane fade show active"
+										id="nav-active"
+										role="tabpanel"
+										aria-labelledby="nav-active-tab"
+									>
+										<div class="d-flex flex-column justify-content-start">
+											<div class="d-flex mt-3 justify-content-between">
+												<p class="fw-bold">Product Manager</p>
+												<h3 class="text-secondary">
+													<i class="bi bi-three-dots"></i>
+												</h3>
+											</div>
+											<div class="table-responsive">
+												<table class="table table-borderless posts-table">
+													<thead>
+														<tr>
+															<th scope="col">Date</th>
+															<th scope="col">Applied</th>
+															<th scope="col">Message</th>
+															<th scope="col">Hired</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td scope="row">2/1/111</td>
+															<td>1</td>
+															<td>4</td>
+															<td>0</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div
+										class="tab-pane fade"
+										id="nav-filled"
+										role="tabpanel"
+										aria-labelledby="nav-filled-tab"
+									>
+										...
+									</div>
+									<div
+										class="tab-pane fade"
+										id="nav-drafted"
+										role="tabpanel"
+										aria-labelledby="nav-drafted-tab"
+									>
+										...
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card">
+							<div class="card-header fs-5">My Contracts</div>
+							<div class="card-body">
+								<nav>
+									<div class="nav nav-tabs" id="nav-tab" role="tablist">
+										<button
+											class="nav-link active"
+											id="nav-ongoing-tab"
+											data-bs-toggle="tab"
+											data-bs-target="#nav-ongoing"
+											type="button"
+											role="tab"
+											aria-controls="nav-ongoing"
+											aria-selected="true"
+										>
+											Ongoing
+										</button>
+										<button
+											class="nav-link"
+											id="nav-completed-tab"
+											data-bs-toggle="tab"
+											data-bs-target="#nav-completed"
+											type="button"
+											role="tab"
+											aria-controls="nav-completed"
+											aria-selected="false"
+										>
+											Completed
+										</button>
+										<button
+											class="nav-link"
+											id="nav-cancelled-tab"
+											data-bs-toggle="tab"
+											data-bs-target="#nav-cancelled"
+											type="button"
+											role="tab"
+											aria-controls="nav-cancelled"
+											aria-selected="false"
+										>
+											Cancelled
+										</button>
+									</div>
+								</nav>
+								<div class="tab-content" id="nav-tabContent">
+									<div
+										class="tab-pane fade show active"
+										id="nav-ongoing"
+										role="tabpanel"
+										aria-labelledby="nav-ongoing-tab"
+									>
+										<div class="d-flex flex-column justify-content-start">
+											<div class="d-flex mt-3 justify-content-between">
+												<p class="fw-bold">Product Manager</p>
+												<h3 class="text-secondary">
+													<i class="bi bi-three-dots"></i>
+												</h3>
+											</div>
+											<div class="d-flex">
+												<div class="d-flex flex-column">
+													<img
+														src="../img/user-img.svg"
+														class="img-fluid"
+														alt=""
+														style="width: 50px; height: 50px"
+													/>
+													<div class="d-flex align-items-center">
+														<h2 class="fw-light fs-5">Online</h2>
+														<h2 class="fw-bold online-icon">
+															<i class="bi bi-dot h2"></i>
+														</h2>
+													</div>
+												</div>
+												<div>
+													<p class="fs-5 product-manager-name">John Ade</p>
+													<small class="fw-light">Lagos, Nigeria</small>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div
+										class="tab-pane fade"
+										id="nav-completed"
+										role="tabpanel"
+										aria-labelledby="nav-completed-tab"
+									>
+										...
+									</div>
+									<div
+										class="tab-pane fade"
+										id="nav-cancelled"
+										role="tabpanel"
+										aria-labelledby="nav-contact-tab"
+									>
+										...
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card">
+							<div class="card-header d-flex justify-content-between fs-5">
+								Payments
+								<span><img src="../img/eye-lash.svg" alt="" /></span>
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<div class="d-flex justify-content-between">
+										<div class="py-0">
+											<p class="payer-name">John Ade</p>
+											<small class="fw-light">2/21/2021</small>
+										</div>
+										<div class="pe-3">
+											<p class="me-2 payer-name">#25,000</p>
+											<small
+												class="
+													fw-light
+													payment-baddge payment-success
+													d-flex
+													flex-row-reverse
+												"
+												><i class="bi bi-stop-fill ps-3"> </i>
+											</small>
+										</div>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div class="d-flex justify-content-between">
+										<div class="py-0">
+											<p class="payer-name">John Ade</p>
+											<small class="fw-light">2/21/2021</small>
+										</div>
+										<div class="pe-3">
+											<p class="me-2 payer-name">#25,000</p>
+											<small
+												class="
+													fw-light
+													payment-baddge payment-pending
+													d-flex
+													flex-row-reverse
+												"
+												><i class="bi bi-stop-fill ps-3"> </i>
+											</small>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card">
+							<div class="card-header d-flex justify-content-between fs-5">
+								Favorites
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<div class="d-flex justify-content-between">
+										<div class="py-0">
+											<p class="payer-name">John Ade</p>
+											<small class="fw-light">Product Manager</small>
+										</div>
+										<div class="">
+											<img
+												src="../img/user2-img.svg"
+												style="width: 40px; height: 40px"
+												alt=""
+											/>
+										</div>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div class="d-flex justify-content-between">
+										<div class="py-0">
+											<p class="payer-name">John Ade</p>
+											<small class="fw-light">Product Manager</small>
+										</div>
+										<div class="">
+											<img
+												src="../img/user3-img.svg"
+												style="width: 40px; height: 40px"
+												alt=""
+											/>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- M A I N    C O N T E N T     E N D S -->
+		<!-- F O O T E R     S T A R T S-->
+		<section class="container-fluid bg-dark text-light">
+			<div class="container">
+				<div class="row justify-content-around gy-3">
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">MyInternApp</p>
+						<p>About</p>
+						<p>How it works</p>
+					</div>
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">Post Job Ads</p>
+						<p>Find Talent</p>
+					</div>
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">Showcase Talent</p>
+						<p>Projects</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- F O O T E R     E  N D S -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

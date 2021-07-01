@@ -6,7 +6,7 @@ const genders = document.getElementsByName("gender");
 const genderInput = document.querySelector(".gender-input");
 
 form.addEventListener("submit", (e) => {
-	// e.preventDefault();
+	e.preventDefault();
 
 	// Validate form inputs
 	validateForm();
@@ -38,7 +38,7 @@ function validateForm() {
 		setErrorFor(userType, "Please select a type of user");
 	} else {
 		setSuccessFor(userType);
-		// nextPage(userTypeValue);
+		nextPage(userTypeValue);
 	}
 
 	// Check for Gender of User
@@ -81,18 +81,18 @@ function setSuccessFor(input) {
 	formInputContainer.classList.remove("error");
 }
 
-// // Next page
-// function nextPage(userType) {
-// 	switch (userType) {
-// 		case "Student":
-// 			window.location = "./student-signup.html";
-// 			break;
-// 		case "Employer":
-// 			window.location = "./employer-signup.html";
-// 			break;
+// Next page
+function nextPage(userType) {
+	switch (userType) {
+		case "Student":
+			window.location = "./student-signup.html";
+			break;
+		case "Employer":
+			window.location = "./employer-signup.html";
+			break;
 
-// 		default:
-// 			window.location = "signup.html";
-// 			break;
-// 	}
-// }
+		default:
+			window.location = "signup.html";
+			break;
+	}
+}

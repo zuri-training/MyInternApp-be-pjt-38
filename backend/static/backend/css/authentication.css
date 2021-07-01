@@ -22,6 +22,10 @@ body {
 	color: #2ec4b6;
 }
 
+a.text-tertiary:hover {
+	color: #0f8377;
+}
+
 select:focus,
 .form-control:focus,
 .form-control:active {
@@ -195,4 +199,10 @@ select.form-control:focus {
 	color: #88858593;
 	font-size: 0.8rem;
 	font-weight: normal;
+}
+
+@media (width: 768px) {
+	.login-house {
+		width: 100%;
+	}
 }
