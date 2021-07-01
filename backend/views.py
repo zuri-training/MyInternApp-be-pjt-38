@@ -20,8 +20,7 @@ def student_signup_view(request):
         data = request.POST
         form = StudentRegistrationForm(data)
         if form.is_valid():
-            form.save()
-            print('New student registered')
+            
 
             user_creation_details = {
                 'username'  : data.get('email'),
@@ -30,10 +29,13 @@ def student_signup_view(request):
                 'password2' : data.get('password2')
             }
 
-            user_creation_form = UserCreationForm(user_creation_details)
+            user_creation_form = CreateUserForm(user_creation_details)
             if user_creation_form.is_valid():
                 user_creation_form.save()
                 print('New User Created')
+
+                form.save()
+                print('New student registered')
 
                 user = User.objects.get(username=user_creation_details['username'])
                 student_group = Group.objects.get(name='student')
@@ -124,11 +126,14 @@ def login_view(request):
 
 
 def student_homepage_view(request):
-    # user = request.user
-    # user_detail = User.objects.get(email = user.email)
-    # print(user_detail)
+    # Get the logged in in student email
+    student_email = request.user.email
+    
+    # use the email to search for student details in the StudentRegistration
+    student_detail = StudentRegistration.objects.get(email = student_email)
+    
     context= {
-        # 'user':user_detail,
+        'student_detail': student_detail,
     }
     return render(request, "backend/student-homepage.html", context)
 
