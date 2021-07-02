@@ -14,8 +14,8 @@
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
 		/>
-		<link rel="stylesheet" href="../css/main.css" />
-		<link rel="stylesheet" href="../css/building-profile.css" />
+		<link rel="stylesheet" href="{% static 'backend/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'backend/css/building-profile.css' %}" />
 		<title>MyIntern</title>
 	</head>
 	<body>
@@ -23,7 +23,7 @@
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top top-bar">
 			<div class="container-fluid d-flex align-items-center">
 				<a class="navbar-brand" href="#">
-					<img src="../img/logo-light.svg" alt="" class="align-self-center" />
+					<img src="{% static 'backend/img/logo-light.svg' %}" alt="" class="align-self-center" />
 
 					<span class="fw-bold fs-4">MyIntern</span>
 				</a>
@@ -80,7 +80,7 @@
 							<li class="nav-item">
 								<a class="nav-link active" aria-current="page" href="#"
 									><img
-										src="../img/top-bar-caret.svg"
+										src="{% static 'backend/img/top-bar-caret.svg' %}"
 										class="img-fluid fs-6"
 										alt=""
 								/></a>
@@ -93,7 +93,7 @@
 							<li class="nav-item">
 								<div class="dropdown">
 									<img
-										src="../img/user-img.svg"
+										src="{% static 'backend/img/user-img.svg' %}"
 										class="btn dropdown-toggle user-img-dropdown"
 										role="button"
 										id="user_img_dropdown"
@@ -295,7 +295,7 @@
 										<div class="col-md-5 mb-3">
 											<label for="" class="form-label d-block">Avatar</label>
 											<img
-												src="../img/user-img.svg"
+												src="{% static 'backend/img/user-img.svg' %}"
 												class="avatar-img"
 												alt=""
 											/>
