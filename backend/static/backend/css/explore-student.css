@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+*{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  background-color: #F5F7FB;
+}
+
+a{
+  
+  text-decoration: none;
+}
+
+.input-group-append  {
+  background-color: #1A6493;
+}
+
+.input-group-append .fa-search {
+  color: white;
+}
+
+.input-group-search {
+  margin-right: 1rem;
+}
+
+.search-filter {
+  margin: 2rem 0;
+}
+
+.main-container {
+  padding: 2rem max(.5rem, 4rem);
+}
+.input-group-append .btn {
+  background-color: #1A6493;
+}
+
+.fa-search {
+  color: white;
+}
+
+.search-filter .input-group-search {
+  margin-right: 1rem;
+}
+
+.search-filter .filter-icon {
+  margin-right: 1rem;
+}
+
+.searchandsort {
+  margin-top: 2rem;
+}
+
+.student-profile {
+  column-gap: 1rem;
+}
+.student-profile .avatar-student {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
+}
+
+.student-info .student-course {
+  /* padding: 0; */
+  margin: 0;
+}
+.student-info .student-school {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+.student-skills {
+  padding-bottom: 1rem;
+}
+.student-skills span {
+  background-color: #688f8b;
+  padding: .6rem 1rem;
+  border-radius: .6rem;
+
+}
+
+.cta-action-btn-group {
+  margin-bottom: 1rem;
+}
+.cta-action-btn-group .btn {
+  color: #E5E5E5;
+  background-color: #1A6493;
+  border-radius: .5rem;
+  
+}
+
+
+.category-dropdown .btn-category {
+  padding-right: 8rem;
+}
+
+.search-category {
+  position: relative;
+  border-bottom: 2px solid grey;
+  display: block;
+  width: 15rem;
+  margin-bottom: 2rem;
+}
+.search-category-btn i {
+  position: absolute;
+  top: -28px;
+  left: 20px;
+  color: black;
+}
+
+.sort-dropdown {
+  display: none;
+}
+
+.student-explore-aside {
+  display: none;
+}
+
+
+.student-profile {
+  flex-wrap: wrap;
+}
+
+.avatar-description {
+  column-gap: 2rem;
+}
+
+.student-profile {
+  padding: 1rem;
+  border-bottom: 1px solid grey;
+  padding-bottom: 2rem;
+}
+
+.student-profile .cta-action-btn-group{
+  margin-left: 5rem;
+}
+
+
+footer {
+  background-color: black;
+  font-family: 'Nunito', sans-serif;
+  color: white;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: left;
+
+}
+
+.footer-container {
+  flex-direction: column;
+ text-align: left;
+ align-items: center;
+  padding: 0 2rem;
+}
+
+.footer-container h2 {
+  font-weight: 300;
+  font-size: 1.9rem;
+}
+.footer-container a  {
+  color: white;
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 768px) {
+
+  .sort-dropdown {
+    display: none;
+  }
+  
+  .student-explore-aside {
+    display: none;
+  }
+
+}
+@media screen and (min-width: 998px) {
+  .student-explore {
+    padding: 2rem max(5rem, 10rem);
+  }
+  .student-explore-container {
+    padding: 4rem 10rem;
+    padding-right: max(7rem, 15rem) ;
+    row-gap: 2rem;
+  }
+
+  .searchandsort {
+    margin-top: 0;
+  }
+
+  .sort-dropdown {
+    display: none;
+  }
+  
+  .student-explore-aside {
+    display: none;
+  }
+
+  .student-profile {
+    margin-bottom: 2rem;
+  }
+  .student-profile .student-descriptions {
+    text-align: justify;
+    font-size: 1.5rem;
+    max-width: 40rem;
+  }
+  .footer-container {
+    text-align: left;
+    flex-direction: row;
+  }
+  .student-explore-aside {
+    display: block;
+  }
+
+  .searchandsort {
+    align-items: center;
+    column-gap: 2rem;
+    max-width: 70rem;
+  }
+
+  .sort-dropdown {
+    padding: 0;
+    display: inline-block;
+    background-color: #fff;
+  }
+
+
+  .project-completed-dropdown .btn-project-completed {
+    padding-right: 3.5rem;
+  }
+
+  .project-checkboxes {
+    border-bottom: 2px solid grey;
+    margin-bottom: 2rem;
+  }
+
+  .rating-dropdown .btn-rating {
+    padding-right: 8rem;
+  }
+
+  .student-profiles-container {
+    max-width: 70rem;
+
+    background-color: #fff;
+  }
+
+  .student-profile {
+    padding: 1rem;
+    border-bottom: 1px solid grey;
+    padding-bottom: 2rem;
+  }
+  .student-profile .cta-action-btn-group{
+    margin-left: 2rem;
+  }
+
+  .avatar-description {
+    column-gap: 0;
+  }
+ 
+}

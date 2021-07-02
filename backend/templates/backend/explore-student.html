@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+
+
+  <link rel="stylesheet" href="{% static 'backend/css/main.css' %}" />
+  <link rel="stylesheet" href="{% static 'backend/css/explore-student.css' %}">
+  <title>MyIntern App Landing Page</title>
+</head>
+
+<body>
+  <header>
+    <!-- T O P    N A V    S T A R T S   -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top top-bar">
+      <div class="container-fluid d-flex align-items-center">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'backend/img/logo-light.svg' %}" alt="" class="align-self-center" />
+
+          <span class="fw-bold fs-4">MyIntern</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <div class="container pt-2 d-md-flex justify-content-around">
+            <div class="top-nav-search">
+              <form class="d-flex flex-column justify-content-center">
+                <input class="form-control ps-5" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn top-nav-search-btn" type="submit">
+                  <i class="bi bi-search text-muted"></i>
+                </button>
+              </form>
+            </div>
+            <ul class="navbar-nav mb-2 mb-lg-0 top-nav-item">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Explore
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Students</a></li>
+                  <li><a class="dropdown-item" href="#">Jobs</a></li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">More</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"><img src="{% static 'backend/img/top-bar-caret.svg' %}"
+                    class="img-fluid fs-6" alt="" /></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                  <h4><i class="bi bi-bell-fill"></i></h4>
+                </a>
+              </li>
+              <li class="nav-item">
+                <div class="dropdown">
+                  <img src="{% static 'backend/img/user-img.svg' %}" class="btn dropdown-toggle user-img-dropdown" role="button"
+                    id="user_img_dropdown" data-bs-toggle="dropdown" aria-expanded="false" alt="" />
+                  <ul class="dropdown-menu" aria-labelledby="user_img_dropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="student-explore-container d-flex justify-content-between mt-4">
+      <div class="filter-aside student-explore-aside">
+        <h6>Filter by</h6>
+        <div class="btn-group category-dropdown">
+          <button type="button" class="btn btn-category">Category</button>
+          <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
+        <div class="input-group search-category">
+          <form class="d-flex flex-column justify-content-center">
+            <input class="form-control ps-5" type="search" placeholder="Search Categories" aria-label="Search" />
+            <button class="btn search-category-btn" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+        </div>
+
+        <div class="btn-group project-completed-dropdown">
+          <button type="button" class="btn btn-project-completed">Project completed</button>
+          <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+
+        </div>
+
+        <div class="project-checkboxes pt-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              0%
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              50% & up
+            </label>
+          </div>
+
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Rising Talent
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Top Rated
+            </label>
+          </div>
+        </div>
+
+
+        <div class="btn-group rating-dropdown">
+          <button type="button" class="btn btn-rating">Rating</button>
+          <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+
+        </div>
+
+        <div class="project-checkboxes pt-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+              <img src="{% static 'backend/img/rating-star.svg' %}" alt="" srcset="">
+
+            </label>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+      <div class="student-explore-main container">
+
+        <div class="searchandsort d-flex justify-content-between">
+          <div class="search-filter d-flex justify-content-around col">
+            <div class="input-group input-group-search">
+              <div class="input-group-append">
+                <button class="btn " type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+              <input type="text" class="form-control " placeholder="Search">
+            </div>
+            <img class="filter-icon" src="{% static 'backend/img/filter-icon.svg' %}" alt="filter-icon">
+            <img src="{% static 'backend/img/updownarrow.svg' %}" alt="updown-arrow" srcset="">
+          </div>
+
+          <div class="btn-group sort-dropdown">
+            <button type="button" class="btn sort-btn">Sort by: <span>Most recent</span></button>
+            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="student-profiles-container">
+          <div class="student-profile d-flex">
+            <div class="avatar-description d-flex">
+              <div class="avatar-student">
+                <img src="{% static 'backend/img/Ellipse.png' %}" alt="" srcset="">
+              </div>
+              <div class="student-info">
+                <h3 class="student-name">Nathan J.</h3>
+                <p class="student-course">Electrical Engineering <span class="student-school">University of lagos</span>
+                </p>
+
+                <p class="student-descriptions">
+                  I am in my final year at the University of Lagos. I am looking to gain experience and therefore desire
+                  to
+                  work at a cuttingedge firm as an intern while putting my skills to test and growing my network.
+                </p>
+                <div class="student-skills">
+                  <span>Engineering</span>
+                  <span>DJ</span>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="cta-action-btn-group">
+              <button class="btn">Invite to Job</button>
+              <button class="btn">Check profile</button>
+            </div>
+          </div>
+
+          <div class="student-profile d-flex">
+            <div class="avatar-description d-flex">
+              <div class="avatar-student">
+                <img src="{% static 'backend/img/Ellipse.png' %}" alt="" srcset="">
+              </div>
+              <div class="student-info">
+                <h3 class="student-name">Raphael G.</h3>
+                <p class="student-course">Computer Engineering <span class="student-school">University of Nigeria</span>
+                </p>
+
+                <p class="student-descriptions">
+                  Hello! I am Raphael. I am skilled in IT. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
+                  in
+                  praesent et purus tortor tristique congue. Nibh accumsan eu a, ridiculus arcu. Gravida morbi molestie
+                  mattis tincidunt.
+                </p>
+                <div class="student-skills">
+                  <span>Data Analyst</span>
+                  <span>Python</span>
+                  <span>SQL</span>
+                  <span>Power BI</span>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="cta-action-btn-group">
+              <button class="btn">Invite to Job</button>
+              <button class="btn">Check profile</button>
+            </div>
+          </div>
+
+          <div class="student-profile d-flex">
+            <div class="avatar-description d-flex">
+              <div class="avatar-student">
+                <img src="{% static 'backend/img/Ellipse.png' %}" alt="" srcset="">
+              </div>
+              <div class="student-info">
+                <h3 class="student-name">Cynthia S.</h3>
+                <p class="student-course">Library & Information Tech. <span class="student-school">University of
+                    Lagos</span>
+                </p>
+
+                <p class="student-descriptions">
+                  I am in my final year at the University of Lagos. I am looking to gain experience and therefore desire
+                  to
+                  work at a cuttingedge firm as an intern while putting my skills to test and growing my network.
+                </p>
+                <div class="student-skills">
+                  <span>Content Creator</span>
+                  <span>Marketting</span>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="cta-action-btn-group">
+              <button class="btn">Invite to Job</button>
+              <button class="btn">Check profile</button>
+            </div>
+          </div>
+
+          <div class="student-profile d-flex">
+            <div class="avatar-description d-flex">
+              <div class="avatar-student">
+                <img src="{% static 'backend/img/Ellipse.png' %}" alt="" srcset="">
+              </div>
+              <div class="student-info">
+                <h3 class="student-name">Jola T.</h3>
+                <p class="student-course">Sociology <span class="student-school">University of Uyo</span>
+                </p>
+
+                <p class="student-descriptions">
+                  Hello! I am Jola. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit in praesent et purus
+                  tortor tristique congue. Nibh accumsan eu a, ridiculus arcu. Gravida morbi molestie mattis tincidunt.
+                </p>
+                <div class="student-skills">
+                  <span>Social Media</span>
+                  <span>Microsoft Tools</span>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="cta-action-btn-group">
+              <button class="btn">Invite to Job</button>
+              <button class="btn">Check profile</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </main>
+  <footer class="pt-5 pb-5 d-flex justify-content-center">
+    <div class="row container footer-container d-flex justify-content-center">
+      <div class="col d-flex flex-column mb-5">
+        <h2>MyInternApp</h2>
+        <a href="#">About</a>
+        <a href="#">How it Works</a>
+      </div>
+      <div class="col d-flex flex-column mb-5">
+        <h2>Post Job Ads</h2>
+        <a href="#">Find Talent</a>
+      </div>
+      <div class="col d-flex flex-column mb-5">
+        <h2>Showcase Talent</h2>
+        <a href="#">Projects</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'backend/js/script.js' %}"></script>
+  <script src="{% static 'backend/js/landing-page.js' %}"></script>
+</body>
+
+</html>
