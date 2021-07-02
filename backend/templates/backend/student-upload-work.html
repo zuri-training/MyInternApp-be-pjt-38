@@ -14,8 +14,8 @@
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
 		/>
-		<link rel="stylesheet" href="../css/main.css" />
-		<link rel="stylesheet" href="../css/student-upload-work.css" />
+		<link rel="stylesheet" href="{% static 'backend/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'backend/css/student-upload-work.css' %}" />
 		<title>MyIntern</title>
 	</head>
 	<body>
@@ -23,7 +23,7 @@
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top top-bar">
 			<div class="container-fluid d-flex align-items-center">
 				<a class="navbar-brand" href="#">
-					<img src="../img/logo-light.svg" alt="" class="align-self-center" />
+					<img src="{% static 'backend/img/logo-light.svg' %}" alt="" class="align-self-center" />
 
 					<span class="fw-bold fs-4">MyIntern</span>
 				</a>
@@ -80,7 +80,7 @@
 							<li class="nav-item">
 								<a class="nav-link active" aria-current="page" href="#"
 									><img
-										src="../img/top-bar-caret.svg"
+										src="{% static 'backend/img/top-bar-caret.svg' %}"
 										class="img-fluid fs-6"
 										alt=""
 								/></a>
@@ -93,7 +93,7 @@
 							<li class="nav-item">
 								<div class="dropdown">
 									<img
-										src="../img/user-img.svg"
+										src="{% static 'backend/img/user-img.svg' %}"
 										class="btn dropdown-toggle user-img-dropdown"
 										role="button"
 										id="user_img_dropdown"
@@ -173,7 +173,7 @@
 												<i class="bi bi-type-bold lead me-sm-3"></i>
 												<i class="bi bi-type-italic lead me-sm-3"></i>
 												<img
-													src="../img/double-quote.svg"
+													src="{% static 'backend/img/double-quote.svg' %}"
 													class="me-3"
 													alt=""
 												/>
@@ -192,7 +192,7 @@
 											class="btn btn-lg mt-1 upload-work-student-btn"
 										>
 											<img
-												src="../img/upload-work-student.svg"
+												src="{% static 'backend/img/upload-work-student.svg' %}"
 												class="text-dark"
 												alt=""
 											/>
@@ -205,11 +205,11 @@
 									<hr />
 									<div class="d-md-flex">
 										<div class="d-flex mb-3 me-4 img-student-upload">
-											<img src="../img/sample-img1.svg" class="w-100" alt="" />
+											<img src="{% static 'backend/img/sample-img1.svg' %}" class="w-100" alt="" />
 											<i class="bi bi-x text-muted h4" role="button"></i>
 										</div>
 										<div class="d-flex mb-3 me-4 img-student-upload">
-											<img src="../img/sample-img2.svg" class="w-100" alt="" />
+											<img src="{% static 'backend/img/sample-img2.svg' %}" class="w-100" alt="" />
 											<i class="bi bi-x text-muted h4" role="button"></i>
 										</div>
 									</div>
@@ -225,7 +225,7 @@
 											placeholder="add a minimum of 1 tag"
 											aria-describedby="emailHelp"
 										/>
-										<img src="../img/input-tag.svg" class="tag-icon" alt="" />
+										<img src="{% static 'backend/img/input-tag.svg' %}" class="tag-icon" alt="" />
 									</div>
 								</form>
 							</div>
