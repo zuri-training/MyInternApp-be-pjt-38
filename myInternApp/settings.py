@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     #django rest framework
     'rest_framework',
+    'markdown',
 ]
 
 MIDDLEWARE = [
