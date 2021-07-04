@@ -10,4 +10,7 @@ urlpatterns = [
 
     #rest framework url
     path('api-auth/', include('rest_framework.urls')),
+
+    #register
+    path('api/', include('api.urls')),
 ]
