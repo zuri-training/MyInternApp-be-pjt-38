@@ -1,8 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.messages.api import error
-from backend.models import StudentRegistration, EmployerRegistration
+from backend.models import StudentRegistration, EmployerRegistration, StudentProfile
 from django.shortcuts import render, redirect
-from .forms import StudentRegistrationForm, EmployerRegistrationForm, CreateUserForm
+from .forms import StudentProfileForm, StudentRegistrationForm, EmployerRegistrationForm, CreateUserForm
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -32,15 +32,27 @@ def student_signup_view(request):
             user_creation_form = CreateUserForm(user_creation_details)
             if user_creation_form.is_valid():
                 user_creation_form.save()
-                print('New User Created')
+                print('New User Created ----------point 1')
 
                 form.save()
-                print('New student registered')
+                print('New student registered ------- point 2')
 
+                #create a user out of the registration
                 user = User.objects.get(username=user_creation_details['username'])
                 student_group = Group.objects.get(name='student')
                 user.groups.add(student_group)
-                print('Student added to student group')
+                print('Student added to student group ---------point 3')
+
+                #create a profile for the user
+                student_profile_creation_details = {
+                    'student_reg_info':StudentRegistration.objects.get(email=user_creation_details['email']),
+                }
+                create_student_profile = StudentProfileForm(student_profile_creation_details)
+                if create_student_profile.is_valid():
+                    create_student_profile.save()
+                    print('New student profile created ------------ point 4')
+                else:
+                    print(create_student_profile.errors)
 
                 messages.success(request, 'Account created, please login in')
                 return redirect('login-url')
