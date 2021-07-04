@@ -103,13 +103,13 @@
 										alt=""
 									/>
 									<ul class="dropdown-menu" aria-labelledby="user_img_dropdown">
-										<li><a class="dropdown-item" href="#">Action</a></li>
+										<li><a class="dropdown-item" href="{% url 'student-profile-url' %}">Profile</a></li>
 										<li>
-											<a class="dropdown-item" href="#">Another action</a>
+											<a class="dropdown-item" href="{% url 'logout-url' %}">Logout</a>
 										</li>
-										<li>
+										<!-- <li>
 											<a class="dropdown-item" href="#">Something else here</a>
-										</li>
+										</li> -->
 									</ul>
 								</div>
 							</li>
@@ -331,7 +331,7 @@
 									</div>
 								</div>
 								<div class="">
-									<a class="btn d-flex justify-content-start p-0 text-light">
+									<a class="btn d-flex justify-content-start p-0 text-light" href="{% url 'student-profile-url' %}">
 										<i class="bi bi-eye-fill"></i>
 										<p class="fw-bold d-inline-block text-nowrap ms-2">
 											View Profile

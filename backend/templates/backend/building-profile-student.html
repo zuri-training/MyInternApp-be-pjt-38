@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -121,7 +122,7 @@
 		<section class="main-container">
 			<div class="container pt-4">
 				<div class="col-12 col-md-10 m-auto account-setting">
-					<h2 class="account-setting-title mb-0">Account settings</h2>
+					<h2 class="account-setting-title mb-0">Student Account settings</h2>
 					<p class="">
 						Update your profile info, payment method, and notification settings
 					</p>
@@ -191,6 +192,8 @@
 												id="first_name"
 												name="first_name"
 												placeholder="Your firstname"
+												value="{{user_reg_details.first_name}}"
+												readonly
 											/>
 										</div>
 										<div class="col-md-5 mb-3">
@@ -203,7 +206,9 @@
 												class="form-control"
 												id="last_name"
 												name="last_name"
+												value="{{user_reg_details.last_name}}"
 												placeholder="Your lastname"
+												readonly
 											/>
 										</div>
 										<div class="col-md-5 mb-3">
@@ -214,7 +219,9 @@
 												class="form-control"
 												id="email"
 												name="email"
+												value="{{ user_reg_details.email }}"
 												placeholder="name@example.com"
+												readonly
 											/>
 										</div>
 										<div class="col-md-5 mb-3">
@@ -227,6 +234,8 @@
 												class="form-control"
 												id="tags_input"
 												name="tags_input"
+												placeholder="{{ user_reg_details.skills }}"
+												readonly
 											/>
 										</div>
 										<div class="col-12 mb-3">
@@ -251,7 +260,9 @@
 												class="form-control"
 												id="school"
 												name="school"
+												value="{{ user_reg_details.school }}"
 												placeholder="Your school"
+												readonly
 											/>
 										</div>
 										<div class="col-md-5 mb-3">
@@ -289,7 +300,9 @@
 												class="form-control"
 												id="level"
 												name="level"
+												value="{{ user_reg_details.level }}"
 												placeholder="Your level"
+												readonly
 											/>
 										</div>
 										<div class="col-md-5 mb-3">
