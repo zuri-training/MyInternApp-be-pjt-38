@@ -145,3 +145,27 @@ def employer_homepage_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login-url')
+
+
+
+# Profile views
+def student_profile_view(request):
+    user_email = request.user.email
+
+    #bring out uneitable details from regisration
+    user_reg_details = StudentRegistration.objects.get(email=user_email)
+
+    context={
+        'user_reg_details':user_reg_details,
+    }
+    return render(request, "backend/building-profile-student.html", context)
+
+def employer_profile_view(request):
+    context={}
+    return render(request, "backend/building-profile-employer.html", context)
+
+
+#explore student view
+def explore_student_view(request):
+    context={}
+    return render(request, "backend/explore-student.html", context)
