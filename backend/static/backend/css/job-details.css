@@ -1,0 +1,56 @@
+.main-container {
+	margin-top: 5rem;
+	min-height: 920px;
+}
+
+th,
+.th {
+	color: #5b5966 !important;
+	font-size: 1.3rem;
+	font-weight: 400;
+}
+
+.language {
+	margin-left: 4.8rem;
+}
+
+.badge {
+	background: rgba(46, 196, 182, 0.2);
+	color: #5b5966;
+}
+
+.submit-proposal-btn,
+.save-job-btn {
+	width: 250px;
+	font-size: 1.5rem;
+	font-weight: 500;
+	padding-top: 14px;
+	padding-bottom: 14px;
+	border-radius: 50px;
+}
+
+.submit-proposal-btn {
+	background-color: #005387;
+	border: none;
+	color: #ffffff;
+}
+.submit-proposal-btn:hover {
+	background-color: #0d6ca7;
+	border: none;
+	color: #e9e6e6;
+}
+
+.save-job-btn {
+	background-color: #ffffff;
+	color: #005387;
+	border: 1px solid #005387;
+}
+.save-job-btn:hover {
+	background-color: #e9e6e6;
+	color: #005387;
+	border: 1px solid #005387;
+}
+
+.verify {
+	color: #005387;
+}
