@@ -17,5 +17,7 @@ urlpatterns = [
 
     #explore-student
     path('explore-student/', explore_student_view, name='explore-student-url'),
+
+    path("upload-job/", upload_job_view, name="upload-job-url"),
 ]
 
