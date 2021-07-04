@@ -1,6 +1,5 @@
-from django.urls.conf import include
-from django.urls import path
-include
+from django.conf.urls import url
+from django.urls import path, include
 from .aci import RegisterApi
 
 urlpatterns = [
