@@ -16,7 +16,7 @@ class StudentRegistration(models.Model):
 
 
     def __str__(self):
-        return self.first_name + ' - ' + self.email 
+        return self.first_name + ' - ' + self.email  + ' student'
 
 
 
@@ -34,4 +34,17 @@ class EmployerRegistration(models.Model):
     
 
     def __str__(self):
-        return self.business_name + ' ' + self.email
+        return self.business_name + ' ' + self.email + ' employer'
+
+class StudentProfile(models.Model):
+    student_reg_info = models.OneToOneField(StudentRegistration, on_delete=models.CASCADE)
+    about = models.TextField(null=True, blank=True)
+    course = models.CharField(max_length=100, null=True, blank=True)
+    school_id = models.ImageField(blank=True, null=True)
+    profile_pic = models.ImageField(blank=True, null=True)
+    twitter_handle = models.CharField(max_length=100)
+    linkedin_link = models.CharField(max_length=500)
+
+    def __str__(self) -> str:
+        return str(self.student_reg_info)
+
