@@ -3,6 +3,7 @@ from django.contrib.messages.api import error
 from backend.models import StudentRegistration, EmployerRegistration, StudentProfile
 from django.shortcuts import render, redirect
 from .forms import StudentProfileForm, StudentRegistrationForm, EmployerRegistrationForm, CreateUserForm
+from .forms import JobPostForm
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -181,3 +182,18 @@ def employer_profile_view(request):
 def explore_student_view(request):
     context={}
     return render(request, "backend/explore-student.html", context)
+
+
+def upload_job_view(request):
+    form = JobPostForm
+    if request.method == "POST":
+        form = JobPostForm(request.POST)
+        if form.is_valid():
+            employer = EmployerRegistration.objects.filter(email=request.user.email).first()
+            form.save(employer)
+            messages.success(request, 'Job upload was successful')
+            return redirect('upload-job-url')
+    context = {
+        "form": form
+    }
+    return render(request, "backend/employer-upload-job.html", context)
