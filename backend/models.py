@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -37,6 +38,7 @@ class EmployerRegistration(models.Model):
         return self.business_name + ' ' + self.email + ' employer'
 
 class StudentProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     student_reg_info = models.OneToOneField(StudentRegistration, on_delete=models.CASCADE)
     about = models.TextField(null=True, blank=True)
     course = models.CharField(max_length=100, null=True, blank=True)

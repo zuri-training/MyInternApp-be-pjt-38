@@ -126,8 +126,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/profile_pics/'
 STATICFILES_DIRS = []
 STATIC_ROOT = str(BASE_DIR / "static")
+MEDIA_ROOT = str(BASE_DIR / "backend/static/backend/profile_pics")
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
