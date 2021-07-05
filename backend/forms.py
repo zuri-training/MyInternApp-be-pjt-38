@@ -25,3 +25,9 @@ class StudentProfileForm(ModelForm):
 	class Meta:
 		model = StudentProfile
 		fields = ('student_reg_info',)
+
+class StudentProfileUpdateForm(ModelForm):
+	class Meta:
+		model = StudentProfile
+		fields = '__all__'
+		exclude = ['user','student_reg_info']

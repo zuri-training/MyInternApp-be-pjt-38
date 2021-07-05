@@ -23,7 +23,7 @@
 		<!-- T O P    N A V    S T A R T S   -->
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top top-bar">
 			<div class="container-fluid d-flex align-items-center">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="{% url 'student-homepage-url' %}">
 					<img src="{% static 'backend/img/logo-light.svg' %}" alt="" class="align-self-center" />
 
 					<span class="fw-bold fs-4">MyIntern</span>
@@ -94,21 +94,22 @@
 							<li class="nav-item">
 								<div class="dropdown">
 									<img
+									{% if request.user.studentprofile.profile_pic.url %}
+										src="{{ request.user.studentprofile.profile_pic.url }}"
+									{% else %}
 										src="{% static 'backend/img/user-img.svg' %}"
+									{% endif %}
 										class="btn dropdown-toggle user-img-dropdown"
 										role="button"
 										id="user_img_dropdown"
 										data-bs-toggle="dropdown"
 										aria-expanded="false"
-										alt=""
+										alt=""  
 									/>
 									<ul class="dropdown-menu" aria-labelledby="user_img_dropdown">
-										<li><a class="dropdown-item" href="#">Action</a></li>
+										<li><a class="dropdown-item" href="{% url 'student-profile-url' %}">Profile</a></li>
 										<li>
-											<a class="dropdown-item" href="#">Another action</a>
-										</li>
-										<li>
-											<a class="dropdown-item" href="#">Something else here</a>
+											<a class="dropdown-item" href="{% url 'logout-url' %}">Logout</a>
 										</li>
 									</ul>
 								</div>
@@ -180,7 +181,10 @@
 										action=""
 										name="personal_information_form"
 										class="row g-3 d-flex justify-content-between"
+										method="POST"
+										enctype="multipart/form-data"
 									>
+										{% csrf_token %}
 										<div class="col-md-5 mb-3">
 											<label for="first_name" class="form-label"
 												>First name</label
@@ -248,8 +252,9 @@
 												class="form-control"
 												id="exampleFormControlTextarea1"
 												rows="5"
-												placeholder="A few sentences about yourself......"
-											></textarea>
+												placeholder="{{ student_profile.about}}"												
+												name="about"
+											>{{ student_profile.about}}</textarea>
 										</div>
 										<p class="">Verify your identity</p>
 										<div class="col-md-5 mt-0 mb-3">
@@ -274,8 +279,9 @@
 												type="text"
 												class="form-control"
 												id="course_of_study"
-												name="course_of_study"
-												placeholder="Your course of study"
+												name="course"
+												placeholder="{{ student_profile.course }}"
+												value="{{ student_profile.course }}"
 											/>
 										</div>
 										<div class="col-md-5 mb-3">
@@ -308,13 +314,19 @@
 										<div class="col-md-5 mb-3">
 											<label for="" class="form-label d-block">Avatar</label>
 											<img
-												src="{% static 'backend/img/user-img.svg' %}"
+												
+												{% if request.user.studentprofile.profile_pic.url %}
+													src="{{ request.user.studentprofile.profile_pic.url }}"
+												{% else %}
+													src="{% static 'backend/img/user-img.svg' %}"
+												{% endif %}
+													
 												class="avatar-img"
 												alt=""
 											/>
 											<input
 												type="file"
-												name="avatar"
+												name="profile_pic"
 												id="avatar"
 												class="input-file"
 											/>
@@ -332,7 +344,8 @@
 												class="form-control"
 												id="twitter_handle"
 												name="twitter_handle"
-												placeholder="Your school ID"
+												placeholder="{{ student_profile.twitter_handle }}"
+												value="{{ student_profile.twitter_handle }}"
 											/>
 										</div>
 										<div class="col-12 mb-3">
@@ -343,12 +356,13 @@
 												itemid="linkedin_page"
 												type="text"
 												class="form-control"
-												id="linkedin_page"
-												name="linkedin_page"
-												placeholder="Your school ID"
+												id="linkedin_link"
+												name="linkedin_link"
+												value="{{ student_profile.linkedin_link }}"
+
 											/>
 										</div>
-										<div class="col-12 mb-3">
+										<!-- <div class="col-12 mb-3">
 											<label for="linkedin_page" class="form-label"
 												>Others</label
 											>
@@ -360,15 +374,15 @@
 												name="linkedin_page"
 												placeholder="paste url"
 											/>
-										</div>
+										</div> -->
 										<div class="col-12 d-flex flex-row-reverse my-5">
-											<input
+											<button 
 												type="submit"
 												id="update_user_info_btn"
-												name="update_user_info_btn"
-												value="Update Information"
 												class="btn w-25 update-info-btn"
-											/>
+											>
+												Update Information
+											</button>
 										</div>
 									</form>
 								</div>
