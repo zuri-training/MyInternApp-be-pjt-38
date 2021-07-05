@@ -94,7 +94,11 @@
 							<li class="nav-item">
 								<div class="dropdown">
 									<img
+									{% if request.user.studentprofile.profile_pic.url %}
+										src="{{ request.user.studentprofile.profile_pic.url }}"
+									{% else %}
 										src="{% static 'backend/img/user-img.svg' %}"
+									{% endif %}
 										class="btn dropdown-toggle user-img-dropdown"
 										role="button"
 										id="user_img_dropdown"
@@ -321,7 +325,11 @@
 							<div class="card-body align-items-start rounded-top">
 								<div class="d-flex justify-content-start align-items-start">
 									<img
+									{% if request.user.studentprofile.profile_pic.url %}
+										src="{{ request.user.studentprofile.profile_pic.url }}"
+									{% else %}
 										src="{% static 'backend/img/user-img.svg' %}"
+									{% endif %}
 										class="w-25 d-inline-block"
 										alt=""
 									/>

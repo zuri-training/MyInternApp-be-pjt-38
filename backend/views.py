@@ -2,8 +2,12 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.messages.api import error
 from backend.models import StudentRegistration, EmployerRegistration, StudentProfile
 from django.shortcuts import render, redirect
+<<<<<<< HEAD
+from .forms import *
+=======
 from .forms import StudentProfileForm, StudentRegistrationForm, EmployerRegistrationForm, CreateUserForm
 from .forms import JobPostForm
+>>>>>>> 160dcb65993eed647a8f074c0512b7915cdf76a8
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -46,7 +50,9 @@ def student_signup_view(request):
 
                 #create a profile for the user
                 student_profile_creation_details = {
+                    'user': user,
                     'student_reg_info':StudentRegistration.objects.get(email=user_creation_details['email']),
+
                 }
                 create_student_profile = StudentProfileForm(student_profile_creation_details)
                 if create_student_profile.is_valid():
@@ -167,9 +173,19 @@ def student_profile_view(request):
 
     #bring out uneitable details from regisration
     user_reg_details = StudentRegistration.objects.get(email=user_email)
-
+    student_profile = StudentProfile.objects.get(student_reg_info = user_reg_details)
+    
+    if request.method == 'POST':
+        form = StudentProfileUpdateForm(request.POST, request.FILES, instance=student_profile)
+        if form.is_valid():
+            form.save()
+            return redirect('student-profile-url')
+        else:
+            print(form.errors)
+    
     context={
         'user_reg_details':user_reg_details,
+        'student_profile':student_profile,
     }
     return render(request, "backend/building-profile-student.html", context)
 
