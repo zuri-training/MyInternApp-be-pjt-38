@@ -50,3 +50,18 @@ class StudentProfile(models.Model):
     def __str__(self) -> str:
         return str(self.student_reg_info)
 
+
+class JobPost(models.Model):
+    author = models.ForeignKey(EmployerRegistration, on_delete=models.CASCADE)
+    title = models.CharField(max_length=250)
+    description = models.TextField(null=True, blank=True)
+    reference_image = models.ImageField(null=True, blank=True)
+    category = models.CharField(max_length=100)
+    tags = models.CharField(max_length=100)
+    start_date = models.DateField(null=True)
+    end_date = models.DateField(null=True)
+    budget = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return self.title
+

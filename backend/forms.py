@@ -31,3 +31,14 @@ class StudentProfileUpdateForm(ModelForm):
 		model = StudentProfile
 		fields = '__all__'
 		exclude = ['user','student_reg_info']
+		
+class JobPostForm(ModelForm):
+    class Meta:
+        model = JobPost
+        exclude = ("author",)
+
+    def save(self, author, *args, **kwargs):
+        job_post = super(JobPostForm, self).save(commit=False)
+        job_post.author = author
+        job_post.save()
+        return job_post

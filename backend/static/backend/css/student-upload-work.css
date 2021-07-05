@@ -42,6 +42,83 @@ img.tag-icon {
 	height: 18px;
 }
 
+.drag-drop {
+	position: relative;
+	height: 140px;
+	background: #f7f7f7;
+	border: 1px solid #d9d9d9;
+	border-radius: 6px;
+}
+
+.drag-drop span {
+	font-size: 0.8rem;
+	font-weight: 200;
+	color: #898d8f;
+}
+
+.drag-drop-label {
+	display: inline-block;
+	margin-top: 20px;
+	margin-bottom: -10px;
+}
+
+.input-file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.input-file + label {
+	padding: 10px 20px;
+	font-size: 1rem;
+	font-weight: 400;
+	color: #ffffff;
+	background-color: #2ec4b6;
+	display: inline-block;
+	border-radius: 6px;
+}
+
+.input-file:focus + label,
+.input-file + label:hover {
+	background-color: #147e73;
+}
+
+.input-file + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.input-group-text {
+	background: #f7f7f7 !important;
+	border-right: none !important;
+}
+
+.input-group-text-sort label {
+	background: #ffffff !important;
+	font-weight: 500 !important;
+	border-right: 0 !important;
+}
+
+.input-group-text-sort input {
+	font-style: normal !important;
+}
+
+.terms-conditions {
+	color: #2ec4b6;
+}
+
+.btn-submit {
+	background: #2ec4b6;
+	color: #ffffff;
+}
+
+.btn-submit:hover {
+	background: #147e73;
+	color: #ffffff;
+}
+
 ::placeholder {
 	color: #88858593;
 	font-size: 0.75rem;

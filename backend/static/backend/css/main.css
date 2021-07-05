@@ -31,6 +31,10 @@ a {
 	width: 250px;
 }
 
+.text-tertiary {
+	color: #2ec4b6;
+}
+
 .top-nav-search input {
 	border: none;
 	border-radius: 5px;

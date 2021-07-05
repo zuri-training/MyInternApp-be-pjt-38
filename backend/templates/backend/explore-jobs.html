@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+		/>
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../css/explore-jobs.css" />
+		<title>MyIntern</title>
+	</head>
+	<body>
+		<!-- T O P    N A V    S T A R T S   -->
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top top-bar">
+			<div class="container-fluid d-flex align-items-center">
+				<a class="navbar-brand" href="#">
+					<img src="../img/logo-light.svg" alt="" class="align-self-center" />
+
+					<span class="fw-bold fs-4">MyIntern</span>
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarText"
+					aria-controls="navbarText"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarText">
+					<div class="container pt-2 d-md-flex justify-content-around">
+						<div class="top-nav-search">
+							<form class="d-flex flex-column justify-content-center">
+								<input
+									class="form-control ps-5"
+									type="search"
+									placeholder="Search"
+									aria-label="Search"
+								/>
+								<button class="btn top-nav-search-btn" type="submit">
+									<i class="bi bi-search text-muted"></i>
+								</button>
+							</form>
+						</div>
+						<ul class="navbar-nav mb-2 mb-lg-0 top-nav-item">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#">Home</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a
+									class="nav-link dropdown-toggle text-light"
+									href="#"
+									id="navbarDropdown"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Explore
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<li><a class="dropdown-item" href="#">Students</a></li>
+									<li><a class="dropdown-item" href="#">Jobs</a></li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#"
+									><img
+										src="../img/top-bar-caret.svg"
+										class="img-fluid fs-6"
+										alt=""
+								/></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#"
+									><h4><i class="bi bi-bell-fill"></i></h4
+								></a>
+							</li>
+							<li class="nav-item">
+								<div class="dropdown">
+									<img
+										src="../img/user-img.svg"
+										class="btn dropdown-toggle user-img-dropdown"
+										role="button"
+										id="user_img_dropdown"
+										data-bs-toggle="dropdown"
+										aria-expanded="false"
+										alt=""
+									/>
+									<ul class="dropdown-menu" aria-labelledby="user_img_dropdown">
+										<li><a class="dropdown-item" href="#">Action</a></li>
+										<li>
+											<a class="dropdown-item" href="#">Another action</a>
+										</li>
+										<li>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- T O P    N A V    E N D S -->
+		<!-- Main Content Starts -->
+		<section class="container-fluid mb-5 main">
+			<div class="container">
+				<div class="row g-3">
+					<div class="col-sm-3">
+						<p class="h4">Filter by</p>
+						<div class="mb-5 filter-wrapper">
+							<div class="col-12 d-flex justify-content-between filter-title">
+								<p class="d-inline-flex">Category</p>
+								<span class="">
+									<i class="bi bi-chevron-down"></i>
+								</span>
+							</div>
+							<div class="col-12 mb-3 category-search-container">
+								<form name="category_search_form" action="" method="post">
+									<div class="">
+										<input
+											type="text"
+											class="form-control p-2 px-5"
+											placeholder="Search Categories"
+										/>
+										<i class="bi bi-search"></i>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="mb-5 filter-wrapper">
+							<div class="col-12 d-flex justify-content-between filter-title">
+								<p class="h6 d-inline-flex">Job Type</p>
+								<span class="h6">
+									<i class="bi bi-chevron-down"></i>
+								</span>
+							</div>
+							<div class="col-12 mb-3 job-type-wrapper">
+								<form name="category_search_form" action="" method="post">
+									<div class="form-check">
+										<input
+											class="form-check-input"
+											type="checkbox"
+											name="hourly"
+											id="hourly"
+										/>
+										<label class="form-check-label" for="flexCheckDefault">
+											Hourly
+										</label>
+										<div class="row">
+											<div class="col-6 form-check ps-5">
+												<input
+													class="form-check-input"
+													type="checkbox"
+													name="hourly_rate"
+													id="min"
+												/>
+												<label class="form-check-label" for="flexCheckDefault">
+													<small class="hourly-item">
+														<span><img src="../img/dollar.svg" alt="" /></span>
+														Min
+													</small>
+													/hr
+												</label>
+											</div>
+											<div class="col-6 form-check ps-5">
+												<input
+													class="form-check-input"
+													type="checkbox"
+													name="hourly_rate"
+													id="max"
+												/>
+												<label class="form-check-label" for="flexCheckDefault">
+													<small class="hourly-item">
+														<span><img src="../img/dollar.svg" alt="" /></span>
+														Max
+													</small>
+													/hr
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="form-check mt-3">
+										<input
+											class="form-check-input"
+											type="checkbox"
+											name="fixed_price"
+											id="fixed_price"
+										/>
+										<label class="form-check-label" for="flexCheckDefault">
+											Fixed price
+										</label>
+										<div class="form-check ps-5">
+											<input
+												class="form-check-input"
+												type="checkbox"
+												name="hundred"
+												id="hundred"
+											/>
+											<label class="form-check-label" for="flexCheckDefault">
+												Less than $100
+											</label>
+										</div>
+										<div class="form-check ps-5">
+											<input
+												class="form-check-input"
+												type="checkbox"
+												name="hundred_500"
+												id="hundred_500"
+											/>
+											<label class="form-check-label" for="flexCheckDefault">
+												$100 - $500
+											</label>
+										</div>
+										<div class="form-check ps-5">
+											<input
+												class="form-check-input"
+												type="checkbox"
+												name="plus_500"
+												id="plus_500"
+											/>
+											<label class="form-check-label" for="flexCheckDefault">
+												$500+
+											</label>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="mb-3">
+							<div
+								class="
+									col-12
+									d-flex
+									justify-content-between
+									filter-title
+									project-length
+								"
+							>
+								<p class="h6 d-inline-flex">Project length</p>
+								<span class="h6">
+									<i class="bi bi-chevron-down"></i>
+								</span>
+							</div>
+							<div class="col-12">
+								<form
+									name="project_length_form"
+									id="project_length_form"
+									action=""
+									method="POST"
+								>
+									<div class="form-check">
+										<input
+											class="form-check-input"
+											type="checkbox"
+											value=""
+											id="flexCheckDefault"
+										/>
+										<label class="form-check-label" for="flexCheckDefault">
+											1 - 5 days
+										</label>
+									</div>
+									<div class="form-check">
+										<input
+											class="form-check-input"
+											type="checkbox"
+											value=""
+											id="flexCheckDefault"
+										/>
+										<label class="form-check-label" for="flexCheckDefault">
+											Less than 1 week
+										</label>
+									</div>
+									<div class="form-check">
+										<input
+											class="form-check-input"
+											type="checkbox"
+											value=""
+											id="flexCheckDefault"
+										/>
+										<label class="form-check-label" for="flexCheckDefault">
+											1 - 2months
+										</label>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-8 ms-sm-4">
+						<div class="search-jobs mb-3">
+							<form name="search_job" id="search_jobs" action="" method="POST">
+								<div class="row d-flex justify-content-between">
+									<div class="col-7">
+										<div class="input-group">
+											<span class="input-group-text" id=""
+												><i class="bi bi-search text-light"></i
+											></span>
+											<input
+												name="search-jobs"
+												id="search_job"
+												type="text"
+												class="form-control"
+												placeholder="Search"
+												aria-label="Username"
+												aria-describedby="basic-addon1"
+											/>
+										</div>
+									</div>
+
+									<div class="col-12 col-sm-4">
+                                        <div class="input-group mb-3 input-group-text-sort">
+                                            <label class="input-group-text" for="sort_recent">Sort by:  </label>
+                                            <select class="form-select" name="sort_recent" id="sort_recent">
+                                              <option value="2" selected>Most Recent</option>
+                                              <option value="1"> Recent</option>
+                                              <option value="3">Old</option>
+                                            </select>
+                                          </div>
+                                    </div>
+								</div>
+							</form>
+						</div>
+						<div class="job">
+							<div class="card p-3">
+								<div class="card-body">
+									<h5 class="card-title">Graphic Designer for Fb Banner</h5>
+									<p class="fw-light my-feed-article">
+										I’m looking for a graphic designer who can create 100
+										facebook banner in a week. He/she must be a professional.
+									</p>
+									<nav aria-label="breadcrumb">
+										<ol class="breadcrumb breadcrumb-text">
+											<li
+												class="pe-2 border-end border-dark fw-light text-muted"
+											>
+												Hourly
+											</li>
+											<li class="px-2 border-end border-dark fw-light">
+												&#36;25:00
+											</li>
+											<li class="px-2 border-end border-dark fw-light">
+												Intermediate
+											</li>
+											<li class="fw-light px-2">
+												Duration: 1week, 2 hrs weekly
+											</li>
+										</ol>
+									</nav>
+									<p class="fw-light fs-6 text-muted">
+										Proposal: <span class="fw-bold text-secondary">4</span>
+									</p>
+									<div
+										class="
+											d-flex
+											flex-column flex-sm-row
+											justify-content-between
+										"
+									>
+										<p class="fw-light fs-6 text-muted">
+											Location:
+											<span class="fw-bold text-secondary">Nigeria</span>
+										</p>
+										<p class="fw-light fs-6 text-muted">
+											Posted: <span class="text-green">2 days ago</span>
+										</p>
+									</div>
+									<div>
+										<span class="badge fw-light">Adobe Illustrator</span>
+										<span class="badge fw-light">Canva</span>
+										<span class="badge fw-light">Figma</span>
+										<span class="badge fw-light">Adobe Photoshop</span>
+									</div>
+									<hr />
+									<h5 class="card-title">Data Analyst</h5>
+									<p class="fw-light my-feed-article">
+										Looking for a data anayst that can analyse our business data
+										and breakdown each data and give recoommendation.
+									</p>
+									<nav aria-label="breadcrumb">
+										<ol class="breadcrumb breadcrumb-text">
+											<li
+												class="pe-2 border-end border-dark fw-light text-muted"
+											>
+												Hourly
+											</li>
+											<li class="px-2 border-end border-dark fw-light">
+												&#36;50:00
+											</li>
+											<li class="px-2 border-end border-dark fw-light">
+												Expert
+											</li>
+											<li class="fw-light px-2">
+												Duration: 2021/06/18 - 2021/06/25
+											</li>
+										</ol>
+									</nav>
+									<p class="fw-light fs-6 text-muted">
+										Proposal: <span class="fw-bold text-secondary">0</span>
+									</p>
+									<div
+										class="
+											d-flex
+											flex-column flex-sm-row
+											justify-content-between
+										"
+									>
+										<p class="fw-light fs-6 text-muted">
+											Location:
+											<span class="fw-bold text-secondary"
+												>Location: Germany</span
+											>
+										</p>
+										<p class="fw-light fs-6 text-muted">
+											Posted: <span class="text-green">24 hrs ago</span>
+										</p>
+									</div>
+									<div>
+										<span class="badge fw-light">Data Analyst</span>
+										<span class="badge fw-light">Python</span>
+										<span class="badge fw-light">SQL</span>
+										<span class="badge fw-light">Power Bi</span>
+									</div>
+									<hr />
+									<h5 class="card-title">3D Architectural design</h5>
+									<p class="fw-light my-feed-article">
+										3D Atchitect design of a 3 storey building. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+									</p>
+									<nav aria-label="breadcrumb">
+										<ol class="breadcrumb breadcrumb-text">
+											<li
+												class="pe-2 border-end border-dark fw-light text-muted"
+											>
+												Hourly
+											</li>
+											<li class="px-2 border-end border-dark fw-light">
+												&#36;25:00
+											</li>
+											<li class="px-2 border-end border-dark fw-light">
+												Intermediate
+											</li>
+											<li class="fw-light px-2">
+												Duration: 2021/06/18 - 2021/06/25
+											</li>
+										</ol>
+									</nav>
+									<p class="fw-light fs-6 text-muted">
+										Proposal: <span class="fw-bold text-secondary">4</span>
+									</p>
+									<div
+										class="
+											d-flex
+											flex-column flex-sm-row
+											justify-content-between
+										"
+									>
+										<p class="fw-light fs-6 text-muted">
+											Location:
+											<span class="fw-bold text-secondary"
+												>Nigeria</span
+											>
+										</p>
+										<p class="fw-light fs-6 text-muted">
+											Posted: <span class="text-green">2 days ago</span>
+										</p>
+									</div>
+									<div>
+										<span class="badge fw-light">Adobe Illustrator</span>
+										<span class="badge fw-light">Canva</span>
+										<span class="badge fw-light">Figma</span>
+										<span class="badge fw-light">Adobe Photoshop</span>
+									</div>
+                                    <hr>
+                                    <h5 class="card-title">Graphic Designer for Fb Banner</h5>
+									<p class="fw-light my-feed-article">
+										I’m looking for a graphic designer who can create 100
+										facebook banner in a week. He/she must be a professional.
+									</p>
+									<nav aria-label="breadcrumb">
+										<ol class="breadcrumb breadcrumb-text">
+											<li
+												class="pe-2 border-end border-dark fw-light text-muted"
+											>
+												Hourly
+											</li>
+											<li class="px-2 border-end border-dark fw-light">
+												&#36;25:00
+											</li>
+											<li class="px-2 border-end border-dark fw-light">
+												Intermediate
+											</li>
+											<li class="fw-light px-2">
+												Duration: 1week, 2 hrs weekly
+											</li>
+										</ol>
+									</nav>
+									<p class="fw-light fs-6 text-muted">
+										Proposal: <span class="fw-bold text-secondary">4</span>
+									</p>
+									<div
+										class="
+											d-flex
+											flex-column flex-sm-row
+											justify-content-between
+										"
+									>
+										<p class="fw-light fs-6 text-muted">
+											Location:
+											<span class="fw-bold text-secondary">Nigeria</span>
+										</p>
+										<p class="fw-light fs-6 text-muted">
+											Posted: <span class="text-green">2 days ago</span>
+										</p>
+									</div>
+									<div>
+										<span class="badge fw-light">Adobe Illustrator</span>
+										<span class="badge fw-light">Canva</span>
+										<span class="badge fw-light">Figma</span>
+										<span class="badge fw-light">Adobe Photoshop</span>
+									</div>
+                                </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Main Content Ends -->
+        <!-- F O O T E R     S T A R T S-->
+		<section class="container-fluid bg-dark text-light">
+			<div class="container">
+				<div class="row gy-3">
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">MyInternApp</p>
+						<p>About</p>
+						<p>How it works</p>
+					</div>
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">Post Job Ads</p>
+						<p>Find Talent</p>
+					</div>
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">Showcase Talent</p>
+						<p>Projects</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- F O O T E R     E  N D S -->
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
