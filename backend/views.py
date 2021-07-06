@@ -210,3 +210,17 @@ def upload_job_view(request):
         "form": form
     }
     return render(request, "backend/employer-upload-job.html", context)
+
+def upload_work_view(request):
+    form = StudentWorkPostForm
+    if request.method == "POST":
+        form = StudentWorkPostForm(request.POST)
+        if form.is_valid():
+            student = StudentRegistration.objects.filter(email=request.user.email).first()
+            form.save(student)
+            messages.success(request, 'Work upload was successful')
+            return redirect('student-upload-work-url')
+    context = {
+        "form": form
+    }
+    return render(request, "backend/student-upload-work.html", context)
