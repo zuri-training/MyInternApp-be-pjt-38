@@ -23,7 +23,14 @@
 		<!-- T O P    N A V    S T A R T S   -->
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top top-bar">
 			<div class="container-fluid d-flex align-items-center">
-				<a class="navbar-brand" href="#">
+        
+        {% if active_user_group == "student" %}
+          <a class="navbar-brand" href="{% url 'student-homepage-url' %}">
+        {% else %}
+        <a class="navbar-brand" href="{% url 'employer-homepage-url' %}">
+        {% endif %}
+          
+				
 					<img src="{% static 'backend/img/logo-light.svg' %}" alt="" class="align-self-center" />
 
 					<span class="fw-bold fs-4">MyIntern</span>
@@ -56,7 +63,12 @@
 						</div>
 						<ul class="navbar-nav mb-2 mb-lg-0 top-nav-item">
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="#">Home</a>
+                
+                {% if active_user_group == "student" %}
+                  <a class="nav-link active" aria-current="page" href="{% url 'student-homepage-url' %}">Home</a>
+                {% else %}
+                  <a class="nav-link active" aria-current="page" href="{% url 'employer-homepage-url' %}">Home</a>
+                {% endif %}
 							</li>
 							<li class="nav-item dropdown">
 								<a
@@ -70,8 +82,8 @@
 									Explore
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<li><a class="dropdown-item" href="#">Students</a></li>
-									<li><a class="dropdown-item" href="#">Jobs</a></li>
+									<li><a class="dropdown-item" href="{% url 'explore-student-url' %}">Students</a></li>
+									<li><a class="dropdown-item" href="{% url 'explore-job-url' %}">Jobs</a></li>
 									<li><hr class="dropdown-divider" /></li>
 									<li>
 										<a class="dropdown-item" href="#">More</a>
@@ -94,7 +106,11 @@
 							<li class="nav-item">
 								<div class="dropdown">
 									<img
-										src="{% static 'backend/img/user-img.svg' %}"
+                    {% if request.user.studentprofile.profile_pic.url %}
+                      src="{{ request.user.studentprofile.profile_pic.url }}"
+                    {% else %}
+                      src="{% static 'backend/img/user-img.svg' %}"
+                    {% endif %}
 										class="btn dropdown-toggle user-img-dropdown"
 										role="button"
 										id="user_img_dropdown"
@@ -103,13 +119,18 @@
 										alt=""
 									/>
 									<ul class="dropdown-menu" aria-labelledby="user_img_dropdown">
-										<li><a class="dropdown-item" href="#">Action</a></li>
+                    
+                    {% if active_user_group == "student" %}
+                      <li><a class="dropdown-item" href="{% url 'student-profile-url' %}">Profile</a></li>
+                    {% else %}
+                    <li><a class="dropdown-item" href="{% url 'employer-profile-url' %}">Profile</a></li>
+                    {% endif %}
 										<li>
-											<a class="dropdown-item" href="#">Another action</a>
+											<a class="dropdown-item" href="{% url 'logout-url' %}">Logout</a>
 										</li>
-										<li>
+										<!-- <li>
 											<a class="dropdown-item" href="#">Something else here</a>
-										</li>
+										</li> -->
 									</ul>
 								</div>
 							</li>
@@ -317,8 +338,8 @@
 													</div>
 												</div>
 												<div>
-													<p class="fs-5 product-manager-name">John Ade</p>
-													<small class="fw-light">Lagos, Nigeria</small>
+													<p class="fs-5 product-manager-name">{{ employer_detail.first_name }} {{ employer_detail.last_name }}</p>
+													<small class="fw-light">{{ employer_detail.city }}, {{ employer_detail.country }}</small>
 												</div>
 											</div>
 										</div>

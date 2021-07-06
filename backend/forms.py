@@ -31,6 +31,17 @@ class StudentProfileUpdateForm(ModelForm):
 		model = StudentProfile
 		fields = '__all__'
 		exclude = ['user','student_reg_info']
+
+class EmployerProfileForm(ModelForm):
+	class Meta:
+		model = EmployerProfile
+		fields = ('employer_reg_info',)
+
+class EmployerProfileUpdateForm(ModelForm):
+	class Meta:
+		model = EmployerProfile
+		fields = '__all__'
+		exclude = ['user','employer_reg_info']
 		
 class JobPostForm(ModelForm):
     class Meta:
