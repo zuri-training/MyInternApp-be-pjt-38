@@ -157,6 +157,9 @@
 						</p>
 						<div class="card">
 							<div class="card-body p-4">
+								{% for message in messages %}
+									<p style="color: green;">{{ message }}</p>
+								{% endfor %}
 								<form action="" class="p-2 px-3 student-upload-work-form" method="POST">
 									{% csrf_token %}
 
