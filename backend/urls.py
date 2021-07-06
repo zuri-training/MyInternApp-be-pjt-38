@@ -18,6 +18,9 @@ urlpatterns = [
     #explore-student
     path('explore-student/', explore_student_view, name='explore-student-url'),
 
+    #explore-job
+    path('explore-job/', explore_job_view, name='explore-job-url'),
+
     path("upload-job/", upload_job_view, name="upload-job-url"),
     path("student-upload-work/", upload_work_view, name="student-upload-work-url"),
 ]

@@ -44,11 +44,25 @@ class StudentProfile(models.Model):
     course = models.CharField(max_length=100, null=True, blank=True)
     school_id = models.ImageField(blank=True, null=True)
     profile_pic = models.ImageField(blank=True, null=True)
-    twitter_handle = models.CharField(max_length=100)
-    linkedin_link = models.CharField(max_length=500)
+    twitter_handle = models.CharField(max_length=100, blank=True, null=True)
+    linkedin_link = models.CharField(max_length=500, blank=True, null=True)
 
     def __str__(self) -> str:
         return str(self.student_reg_info)
+
+class EmployerProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+    employer_reg_info = models.OneToOneField(EmployerRegistration, on_delete=models.CASCADE)
+    about = models.TextField(null=True, blank=True)
+    website = models.CharField(max_length=100, null=True, blank=True)
+    rc_number = models.CharField(max_length=100, null=True, blank=True)
+    profile_pic = models.ImageField(blank=True, null=True)
+    interest = models.CharField(max_length=100, null=True, blank=True)
+    twitter_handle = models.CharField(max_length=100, blank=True, null=True)
+    linkedin_link = models.CharField(max_length=500, blank=True, null=True)
+
+    def __str__(self) -> str:
+        return str(self.employer_reg_info)
 
 
 class JobPost(models.Model):
@@ -60,6 +74,7 @@ class JobPost(models.Model):
     tags = models.CharField(max_length=100)
     start_date = models.DateField(null=True)
     end_date = models.DateField(null=True)
+    day_posted = models.DateField(auto_now_add=True,blank=True, null=True)
     budget = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
