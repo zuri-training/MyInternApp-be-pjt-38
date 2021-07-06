@@ -31,6 +31,17 @@ class StudentProfileUpdateForm(ModelForm):
 		model = StudentProfile
 		fields = '__all__'
 		exclude = ['user','student_reg_info']
+
+class EmployerProfileForm(ModelForm):
+	class Meta:
+		model = EmployerProfile
+		fields = ('employer_reg_info',)
+
+class EmployerProfileUpdateForm(ModelForm):
+	class Meta:
+		model = EmployerProfile
+		fields = '__all__'
+		exclude = ['user','employer_reg_info']
 		
 class JobPostForm(ModelForm):
     class Meta:
@@ -42,3 +53,14 @@ class JobPostForm(ModelForm):
         job_post.author = author
         job_post.save()
         return job_post
+
+class StudentWorkPostForm(ModelForm):
+    class Meta:
+        model = StudentWorkPost
+        exclude = ("student",)
+
+    def save(self, student, *args, **kwargs):
+        student_work = super(StudentWorkPostForm, self).save(commit=False)
+        student_work.student = student
+        student_work.save()
+        return student_work
