@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -48,7 +50,9 @@
 				<div class="collapse navbar-collapse" id="navbarText">
 					<div class="container pt-2 d-md-flex justify-content-around">
 						<div class="top-nav-search">
-							<form class="d-flex flex-column justify-content-center">
+							<form class="d-flex flex-column justify-content-center" method="POST">
+								{% csrf_token %}
+
 								<input
 									class="form-control ps-5"
 									type="search"
@@ -153,28 +157,30 @@
 						</p>
 						<div class="card">
 							<div class="card-body p-4">
-								<form action="" class="p-2 px-3 student-upload-work-form">
+								<form action="" class="p-2 px-3 student-upload-work-form" method="POST">
+									{% csrf_token %}
+
 									<div class="d-md-flex justify-content-between mb-2">
 										<div class="col-md-6">
-											<label for="new_post_title" class="form-label"
+											<label for="title" class="form-label"
 												>Title <span class="text-danger">*</span></label
 											>
 											<input
 												type="text"
 												class="form-control"
-												name="new_post_title"
+												name="title"
 												id="new_post_title"
 												placeholder="Type here...."
 												aria-describedby="emailHelp"
 											/>
 										</div>
 										<div class="col-sm-4">
-											<label for="new_post_category" class="form-label"
+											<label for="category" class="form-label"
 												>Category
 											</label>
 											<select
 												id="new_post_category"
-												name="new_post_category"
+												name="category"
 												class="form-select"
 												aria-label="Default select example"
 											>
@@ -204,7 +210,7 @@
 										</div>
 										<textarea
 											class="form-control"
-											name="new_post_description"
+											name="description"
 											id="new_post_description"
 											rows="5"
 										></textarea>
@@ -235,19 +241,21 @@
 										</div>
 									</div>
 									<div class="col m-3 tag-input-wrapper">
-										<label for="new_post_tags" class="form-label"
+										<label for="tags" class="form-label"
 											>Tags<span class="text-danger">*</span></label
 										>
 										<input
 											type="text"
 											class="form-control"
-											name="new_post_tags"
+											name="tags"
 											id="new_post_tags"
 											placeholder="add a minimum of 1 tag"
 											aria-describedby="emailHelp"
 										/>
 										<img src="{% static 'backend/img/input-tag.svg' %}" class="tag-icon" alt="" />
 									</div>
+
+									<button type="submit">Save</button>
 								</form>
 							</div>
 						</div>

@@ -53,3 +53,14 @@ class JobPostForm(ModelForm):
         job_post.author = author
         job_post.save()
         return job_post
+
+class StudentWorkPostForm(ModelForm):
+    class Meta:
+        model = StudentWorkPost
+        exclude = ("student",)
+
+    def save(self, student, *args, **kwargs):
+        student_work = super(StudentWorkPostForm, self).save(commit=False)
+        student_work.student = student
+        student_work.save()
+        return student_work

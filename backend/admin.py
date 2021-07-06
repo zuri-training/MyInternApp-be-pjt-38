@@ -6,5 +6,10 @@ from .models import *
 admin.site.register(EmployerRegistration)
 admin.site.register(StudentRegistration)
 admin.site.register(StudentProfile)
-admin.site.register(EmployerProfile)
+
 admin.site.register(JobPost)
+admin.site.register(StudentWorkPost)
+
+admin.site.register(EmployerProfile)
+
+

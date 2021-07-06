@@ -80,3 +80,14 @@ class JobPost(models.Model):
     def __str__(self):
         return self.title
 
+
+class StudentWorkPost(models.Model):
+    student = models.ForeignKey(StudentRegistration, on_delete=models.CASCADE)
+    title = models.CharField(max_length=250)
+    category = models.CharField(max_length=100)
+    description = models.TextField(null=True, blank=True)
+    work_sample = models.FileField(null=True, blank=True)
+    tags = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
