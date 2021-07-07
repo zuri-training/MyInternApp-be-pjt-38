@@ -122,16 +122,24 @@
                     
                     {% if active_user_group == "student" %}
                       <li><a class="dropdown-item" href="{% url 'student-profile-url' %}">Profile</a></li>
+					  <li>
+						<a class="dropdown-item" href="#">Publish</a>
+					</li>
                     {% else %}
                     <li><a class="dropdown-item" href="{% url 'employer-profile-url' %}">Profile</a></li>
                     {% endif %}
-										<li>
-											<a class="dropdown-item" href="{% url 'logout-url' %}">Logout</a>
-										</li>
-										<!-- <li>
-											<a class="dropdown-item" href="#">Something else here</a>
-										</li> -->
-									</ul>
+
+					<li>
+						<a class="dropdown-item" href="{% url 'student-upload-work-url' %}">Publish</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="{% url 'logout-url' %}">Logout</a>
+					</li>
+					
+					
+						
+					
+				</ul>
 								</div>
 							</li>
 						</ul>
@@ -139,6 +147,7 @@
 				</div>
 			</div>
 		</nav>
+
 		<!-- T O P    N A V    E N D S -->
 		<!-- Main Content Starts -->
 		<section class="container-fluid mb-5 main">
