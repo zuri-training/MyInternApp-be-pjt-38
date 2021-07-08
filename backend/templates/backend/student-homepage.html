@@ -255,7 +255,7 @@
 								{% for job in jobs  %}
 									
 									<li class="list-group-item">
-										<a href="{% url 'job-detail-url' %}" style="color: black;">
+										<a href="{% url 'job-detail-url' job_id=job.id %}" style="color: black;">
 											<h5 class="card-title">
 												{{job.title}}
 											</h5>

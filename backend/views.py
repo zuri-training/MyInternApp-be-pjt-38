@@ -293,6 +293,10 @@ def upload_work_view(request):
     }
     return render(request, "backend/student-upload-work.html", context)
 
-def job_detail_view(request):
-    context = {}
+def job_detail_view(request, job_id):
+    job = JobPost.objects.get(id=job_id)
+
+    context = {
+        'job':job,
+    }
     return render(request, "backend/job-details.html", context)
