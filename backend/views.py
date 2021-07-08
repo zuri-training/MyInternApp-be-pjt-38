@@ -75,6 +75,8 @@ def student_signup_view(request):
     return render(request, "backend/student-signup.html", context)
 
 def employer_signup_view(request):
+    form = EmployerRegistrationForm()
+    user_creation_form = CreateUserForm()
     if request.POST:
         data = request.POST
         form = EmployerRegistrationForm(data)
@@ -122,7 +124,8 @@ def employer_signup_view(request):
             print(form.errors)       
     
     context = {
-        # 'employer_form_errors':employer_form_errors,
+        'reg_form_errors':form.errors,
+        'user_creation_errors': user_creation_form.errors,
     }
     return render(request, "backend/employer-signup.html", context)
 

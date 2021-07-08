@@ -32,11 +32,15 @@
 								</div>
 								<div class="mb-5 d-flex flex-column">
 									<h3 class="fw-normal mt-3">Employer Signup</h3>
+									<h6 style="color: red;">
+										{{ reg_form_errors }}
+										{{ user_creation_errors }}
+									</h6>
 									<p class="fx-6 fw-light mt-4">
 										Already have an account?
 										<a
 											class="text-tertiary text-decoration-none login-link"
-											href="{% url 'login-url' %}' %}"
+											href="{% url 'login-url' %}"
 											>Login</a
 										>
 									</p>
