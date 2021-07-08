@@ -1,0 +1,75 @@
+.page-container {
+	margin-top: 6rem;
+	min-height: 900px;
+}
+
+.online-icon {
+	color: #34a853;
+}
+
+.welcome {
+	color: #005387;
+}
+
+.welcome + div {
+	background-color: #005387;
+}
+
+.post-btn {
+	background-color: #e3ebf7;
+	width: 100px;
+}
+
+.card-header {
+	background-color: #ffffff;
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 1.5px 0px !important;
+}
+
+button.nav-link {
+	color: #000000 !important;
+	margin-right: 20px !important;
+}
+
+button.nav-link.active {
+	border: none !important;
+	border-bottom: 2px solid #34a853 !important;
+	color: #34a853 !important;
+}
+
+table.posts-table th,
+table.posts-table td {
+	font-size: 0.9rem;
+	font-weight: 100;
+}
+
+.product-manager-name {
+	margin-bottom: -10px;
+}
+
+.product-manager-name + small {
+	font-size: 0.7rem;
+}
+
+.payer-name {
+	margin-bottom: -6px;
+}
+
+.payment-baddge {
+	margin-right: -8px;
+}
+
+.payer-name + small {
+	font-size: 0.7rem;
+}
+
+.payment-success {
+	color: #34a853;
+}
+
+.payment-pending {
+	color: #ffcb21;
+}
+
+.payment-failed {
+	color: #fb3838;
+}

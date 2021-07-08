@@ -1,0 +1,400 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+		/>
+		<link rel="stylesheet" href="{% static 'backend/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'backend/css/student-upload-work.css' %}" />
+		<title>MyIntern</title>
+	</head>
+	<body>
+		<!-- T O P    N A V    S T A R T S   -->
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top top-bar">
+			<div class="container-fluid d-flex align-items-center">
+        
+        {% if active_user_group == "student" %}
+          <a class="navbar-brand" href="{% url 'student-homepage-url' %}">
+        {% else %}
+        <a class="navbar-brand" href="{% url 'employer-homepage-url' %}">
+        {% endif %}
+          
+				
+					<img src="{% static 'backend/img/logo-light.svg' %}" alt="" class="align-self-center" />
+
+					<span class="fw-bold fs-4">MyIntern</span>
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarText"
+					aria-controls="navbarText"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarText">
+					<div class="container pt-2 d-md-flex justify-content-around">
+						<div class="top-nav-search">
+							<form class="d-flex flex-column justify-content-center">
+								<input
+									class="form-control ps-5"
+									type="search"
+									placeholder="Search"
+									aria-label="Search"
+								/>
+								<button class="btn top-nav-search-btn" type="submit">
+									<i class="bi bi-search text-muted"></i>
+								</button>
+							</form>
+						</div>
+						<ul class="navbar-nav mb-2 mb-lg-0 top-nav-item">
+							<li class="nav-item">
+                
+                {% if active_user_group == "student" %}
+                  <a class="nav-link active" aria-current="page" href="{% url 'student-homepage-url' %}">Home</a>
+                {% else %}
+                  <a class="nav-link active" aria-current="page" href="{% url 'employer-homepage-url' %}">Home</a>
+                {% endif %}
+							</li>
+							<li class="nav-item dropdown">
+								<a
+									class="nav-link dropdown-toggle text-light"
+									href="#"
+									id="navbarDropdown"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Explore
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<li><a class="dropdown-item" href="{% url 'explore-student-url' %}">Students</a></li>
+									<li><a class="dropdown-item" href="{% url 'explore-job-url' %}">Jobs</a></li>
+									<li><hr class="dropdown-divider" /></li>
+									<li>
+										<a class="dropdown-item" href="#">More</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#"
+									><img
+										src="{% static 'backend/img/top-bar-caret.svg' %}"
+										class="img-fluid fs-6"
+										alt=""
+								/></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#"
+									><h4><i class="bi bi-bell-fill"></i></h4
+								></a>
+							</li>
+							<li class="nav-item">
+								<div class="dropdown">
+									<img
+                    {% if request.user.studentprofile.profile_pic.url %}
+                      src="{{ request.user.studentprofile.profile_pic.url }}"
+                    {% else %}
+                      src="{% static 'backend/img/user-img.svg' %}"
+                    {% endif %}
+										class="btn dropdown-toggle user-img-dropdown"
+										role="button"
+										id="user_img_dropdown"
+										data-bs-toggle="dropdown"
+										aria-expanded="false"
+										alt=""
+									/>
+									<ul class="dropdown-menu" aria-labelledby="user_img_dropdown">
+                    
+                    {% if active_user_group == "student" %}
+                      <li><a class="dropdown-item" href="{% url 'student-profile-url' %}">Profile</a></li>
+                    {% else %}
+                    <li><a class="dropdown-item" href="{% url 'employer-profile-url' %}">Profile</a></li>
+                    {% endif %}
+										<li>
+											<a class="dropdown-item" href="{% url 'logout-url' %}">Logout</a>
+										</li>
+										<!-- <li>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</li> -->
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- T O P    N A V    E N D S -->
+		<!-- M A I N     C O N T E N T   S T A R T S -->
+		<section class="main-container">
+			<div class="container p-5">
+				<div class="row">
+					<div class="col-md-10 m-auto">
+						<h5 class="">Create new post</h5>
+						<p class="fw-light mt-2 mb-4 new-post-text">
+							Use the form below to describe your work or project. Your entries
+							will be available under “My post” tab
+						</p>
+						<div class="card">
+							<div class="card-body p-4">
+								<form action="" class="p-2 px-3 student-upload-work-form" method="POST">
+                  {% csrf_token %}
+
+									<div class="mb-3">
+										<div class="col-12">
+											<label for="title" class="form-label"
+												>Title <span class="text-danger">*</span>
+											</label>
+											<input
+												type="text"
+												class="form-control"
+												name="title"
+												id="new_post_title"
+												placeholder="Type here...."
+												aria-describedby="emailHelp"
+											/>
+										</div>
+									</div>
+									<div class="col-12 mt-4">
+										<div class="d-flex justify-content-between">
+											<label for="description" class="form-label"
+												>Description
+											</label>
+											<span class="d-flex">
+												<i class="bi bi-type-bold lead me-sm-3"></i>
+												<i class="bi bi-type-italic lead me-sm-3"></i>
+												<img
+													src="{% static 'backend/img/double-quote.svg' %}"
+													class="me-3"
+													alt=""
+												/>
+												<i class="bi bi-list-ul lead me-sm-3"></i>
+												<i class="bi bi-list-ol lead me-sm-3"></i>
+											</span>
+										</div>
+										<textarea
+											class="form-control"
+											name="description"
+											id="new_post_description"
+											rows="5"
+										></textarea>
+									</div>
+									<label for="" class="drag-drop-label"
+										>Upload relevant files
+									</label>
+									<div
+										class="
+											col-12
+											d-flex
+											flex-column
+											justify-content-center
+											align-items-center
+											drag-drop
+											mb-4
+										"
+									>
+										<p class="text-center">
+											Drag and drop reference images here <br />
+											<span>or</span>
+										</p>
+										<input
+											type="file"
+											name="reference_image"
+											id="file_upload"
+											class="input-file"
+										/>
+										<label for="avatar" class="ms-5">Browse</label>
+									</div>
+									<div class="col-12 mb-4">
+										<label for="" class="form-label"
+											>Category <span class="text-danger">*</span></label
+										>
+										<select
+											id="categories"
+											name="category"
+											class="form-select"
+											aria-label="Default select example"
+										>
+											<option selected>Open this select menu</option>
+											<option value="Management">Management</option>
+											<option value="Engineering">Engineering</option>
+											<option value="HR">HR</option>
+											<option value="Frontend Web Development">Frontend Web Development</option>
+											<option value="Backend with Python">Backend with Python</option>
+											<option value="Mobile Dev">Mobile Dev</option>
+											<option value="Copywriting">Copywriting</option>
+											<option value="Digital Marketing">Digital Marketing</option>
+											<option value="UIUX Design">UIUX Design</option>
+										</select>
+									</div>
+									<div class="col-12 mt-3 mb-4 tag-input-wrapper">
+										<label for="tags" class="form-label"
+											>Tags<span class="text-danger">*</span></label
+										>
+										<input
+											type="text"
+											class="form-control"
+											name="tags"
+											id="new_post_tags"
+											placeholder="add a minimum of 1 tag"
+											aria-describedby="emailHelp"
+										/>
+										<img src="{% static 'backend/img/input-tag.svg' %}" class="tag-icon" alt="" />
+									</div>
+									<div
+										class="col-12 col-sm-6 mb-3 d-flex justify-content-between"
+									>
+										<div class="col-sm-5">
+											<label for="" class="form-label"
+												>Start date<span class="text-danger">*</span></label
+											>
+											<div class="input-group mb-3 input-group-text-sort">
+												<input
+													name="start_date"
+													id="start_date"
+													type="date"
+													class="form-control"
+													placeholder="Username"
+													aria-label="Username"
+													aria-describedby="basic-addon1"
+												/>
+											</div>
+										</div>
+										<div class="col-sm-5">
+											<label for="" class="form-label"
+												>Deadline<span class="text-danger">*</span></label
+											>
+											<div class="input-group mb-3 input-group-text-sort">
+												<input
+													name="end_date"
+													id="end_date"
+													type="date"
+													class="form-control"
+													placeholder="Username"
+													aria-label="Username"
+													aria-describedby="basic-addon1"
+												/>
+											</div>
+											<div class="form-check">
+												<input
+													class="form-check-input"
+													type="checkbox"
+													value=""
+													name="fixed_dead_line"
+													id="fixed_dead_line"
+												/>
+												<label
+													class="form-check-label fixed-deadline"
+													for="fixed_dead_line"
+												>
+													No Fixed Deadline
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-sm-6 d-flex flex-column">
+										<div class="col-sm-5 mb-4">
+											<label for="" class="form-label"
+												>Budget<span class="text-danger">*</span></label
+											>
+											<div class="input-group mb-3 input-group-text-sort">
+												<label class="input-group-text" for="sort_recent">
+													<img src="{% static 'backend/img/dollar2.svg' %}" alt="" />
+												</label>
+												<input
+													name="budget"
+													id="budget"
+													type="text"
+													class="form-control"
+													placeholder=""
+													aria-label=""
+													aria-describedby="basic-addon1"
+												/>
+											</div>
+										</div>
+										<div class="form-check mb-2">
+											<input
+												class="form-check-input"
+												type="checkbox"
+												value=""
+												id="flexCheckDefault"
+											/>
+											<label class="form-check-label" for="flexCheckDefault">
+												Lorem Ipso dolor
+											</label>
+										</div>
+										<div class="form-check">
+											<input
+												class="form-check-input"
+												type="checkbox"
+												value=""
+												name="terms_conditions"
+												id="terms_conditions"
+												checked
+											/>
+											<label class="form-check-label" for="terms_conditions">
+												I agree with the
+												<span class="terms-conditions"
+													>terms and conditions </span
+												><span class="text-danger">*</span>
+											</label>
+										</div>
+									</div>
+									<div class="row mt-4">
+										<div class="col-12 px-4 d-flex justify-content-end">
+											<button class="btn btn-submit px-5 me-5">Save</button>
+											<button class="btn btn-dark px-5">Cancel</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- M A I N    C O N T E N T     E N D S -->
+		<!-- F O O T E R     S T A R T S-->
+		<section class="container-fluid bg-dark text-light">
+			<div class="container">
+				<div class="row gy-3">
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">MyInternApp</p>
+						<p>About</p>
+						<p>How it works</p>
+					</div>
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">Post Job Ads</p>
+						<p>Find Talent</p>
+					</div>
+					<div class="col-12 col-md-4 text-center text-sm-start">
+						<p class="lead">Showcase Talent</p>
+						<p>Projects</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- F O O T E R     E  N D S -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

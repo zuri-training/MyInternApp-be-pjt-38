@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -22,7 +24,14 @@
 		<!-- T O P    N A V    S T A R T S   -->
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top top-bar">
 			<div class="container-fluid d-flex align-items-center">
-				<a class="navbar-brand" href="#">
+        
+        {% if active_user_group == "student" %}
+          <a class="navbar-brand" href="{% url 'student-homepage-url' %}">
+        {% else %}
+        <a class="navbar-brand" href="{% url 'employer-homepage-url' %}">
+        {% endif %}
+          
+				
 					<img src="{% static 'backend/img/logo-light.svg' %}" alt="" class="align-self-center" />
 
 					<span class="fw-bold fs-4">MyIntern</span>
@@ -41,7 +50,9 @@
 				<div class="collapse navbar-collapse" id="navbarText">
 					<div class="container pt-2 d-md-flex justify-content-around">
 						<div class="top-nav-search">
-							<form class="d-flex flex-column justify-content-center">
+							<form class="d-flex flex-column justify-content-center" method="POST">
+								{% csrf_token %}
+
 								<input
 									class="form-control ps-5"
 									type="search"
@@ -55,7 +66,12 @@
 						</div>
 						<ul class="navbar-nav mb-2 mb-lg-0 top-nav-item">
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="#">Home</a>
+                
+                {% if active_user_group == "student" %}
+                  <a class="nav-link active" aria-current="page" href="{% url 'student-homepage-url' %}">Home</a>
+                {% else %}
+                  <a class="nav-link active" aria-current="page" href="{% url 'employer-homepage-url' %}">Home</a>
+                {% endif %}
 							</li>
 							<li class="nav-item dropdown">
 								<a
@@ -69,8 +85,8 @@
 									Explore
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<li><a class="dropdown-item" href="#">Students</a></li>
-									<li><a class="dropdown-item" href="#">Jobs</a></li>
+									<li><a class="dropdown-item" href="{% url 'explore-student-url' %}">Students</a></li>
+									<li><a class="dropdown-item" href="{% url 'explore-job-url' %}">Jobs</a></li>
 									<li><hr class="dropdown-divider" /></li>
 									<li>
 										<a class="dropdown-item" href="#">More</a>
@@ -93,7 +109,11 @@
 							<li class="nav-item">
 								<div class="dropdown">
 									<img
-										src="{% static 'backend/img/user-img.svg' %}"
+                    {% if request.user.studentprofile.profile_pic.url %}
+                      src="{{ request.user.studentprofile.profile_pic.url }}"
+                    {% else %}
+                      src="{% static 'backend/img/user-img.svg' %}"
+                    {% endif %}
 										class="btn dropdown-toggle user-img-dropdown"
 										role="button"
 										id="user_img_dropdown"
@@ -102,13 +122,18 @@
 										alt=""
 									/>
 									<ul class="dropdown-menu" aria-labelledby="user_img_dropdown">
-										<li><a class="dropdown-item" href="#">Action</a></li>
+                    
+                    {% if active_user_group == "student" %}
+                      <li><a class="dropdown-item" href="{% url 'student-profile-url' %}">Profile</a></li>
+                    {% else %}
+                    <li><a class="dropdown-item" href="{% url 'employer-profile-url' %}">Profile</a></li>
+                    {% endif %}
 										<li>
-											<a class="dropdown-item" href="#">Another action</a>
+											<a class="dropdown-item" href="{% url 'logout-url' %}">Logout</a>
 										</li>
-										<li>
+										<!-- <li>
 											<a class="dropdown-item" href="#">Something else here</a>
-										</li>
+										</li> -->
 									</ul>
 								</div>
 							</li>
@@ -132,28 +157,33 @@
 						</p>
 						<div class="card">
 							<div class="card-body p-4">
-								<form action="" class="p-2 px-3 student-upload-work-form">
+								{% for message in messages %}
+									<p style="color: green;">{{ message }}</p>
+								{% endfor %}
+								<form action="" class="p-2 px-3 student-upload-work-form" method="POST">
+									{% csrf_token %}
+
 									<div class="d-md-flex justify-content-between mb-2">
 										<div class="col-md-6">
-											<label for="new_post_title" class="form-label"
+											<label for="title" class="form-label"
 												>Title <span class="text-danger">*</span></label
 											>
 											<input
 												type="text"
 												class="form-control"
-												name="new_post_title"
+												name="title"
 												id="new_post_title"
 												placeholder="Type here...."
 												aria-describedby="emailHelp"
 											/>
 										</div>
 										<div class="col-sm-4">
-											<label for="new_post_category" class="form-label"
+											<label for="category" class="form-label"
 												>Category
 											</label>
 											<select
 												id="new_post_category"
-												name="new_post_category"
+												name="category"
 												class="form-select"
 												aria-label="Default select example"
 											>
@@ -183,7 +213,7 @@
 										</div>
 										<textarea
 											class="form-control"
-											name="new_post_description"
+											name="description"
 											id="new_post_description"
 											rows="5"
 										></textarea>
@@ -214,19 +244,21 @@
 										</div>
 									</div>
 									<div class="col m-3 tag-input-wrapper">
-										<label for="new_post_tags" class="form-label"
+										<label for="tags" class="form-label"
 											>Tags<span class="text-danger">*</span></label
 										>
 										<input
 											type="text"
 											class="form-control"
-											name="new_post_tags"
+											name="tags"
 											id="new_post_tags"
 											placeholder="add a minimum of 1 tag"
 											aria-describedby="emailHelp"
 										/>
 										<img src="{% static 'backend/img/input-tag.svg' %}" class="tag-icon" alt="" />
 									</div>
+
+									<button type="submit">Save</button>
 								</form>
 							</div>
 						</div>
