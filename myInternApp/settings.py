@@ -134,28 +134,29 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
-# use this for deployment
+#**************** use this for deployment ************************ 
 
-# STATIC_URL = '/static/'
-# MEDIA_URL = '/profile_pics/'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static'),
-# ]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# MEDIA_ROOT = str(BASE_DIR / "static")
-# MEDIA_ROOT = str(BASE_DIR / "backend/static/backend/profile_pics")
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-
-
-
-# Use this for production
 STATIC_URL = '/static/'
 MEDIA_URL = '/profile_pics/'
-STATICFILES_DIRS = []
-STATIC_ROOT = str(BASE_DIR / "static")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_ROOT = str(BASE_DIR / "static")
 MEDIA_ROOT = str(BASE_DIR / "backend/static/backend/profile_pics")
-DEBUG = True
+DEBUG = False
+
+
+
+#********************  Use this for production ***********************
+# STATIC_URL = '/static/'
+# MEDIA_URL = '/profile_pics/'
+# STATICFILES_DIRS = []
+# STATIC_ROOT = str(BASE_DIR / "static")
+# MEDIA_ROOT = str(BASE_DIR / "backend/static/backend/profile_pics")
+# DEBUG = True
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
