@@ -171,12 +171,16 @@ def student_homepage_view(request):
     else:
         jobs = JobPost.objects.all()
 
-    
+    active_user_group = str(request.user.groups.all()[0])
+    print(type(active_user_group))
+
     context= {
         'student_detail': student_detail,
         'jobs': jobs,
+        'active_user_group':active_user_group,
         
     }
+    
     return render(request, "backend/student-homepage.html", context)
 
 def employer_homepage_view(request):
@@ -195,7 +199,6 @@ def employer_homepage_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login-url')
-
 
 
 # Profile views
@@ -289,3 +292,7 @@ def upload_work_view(request):
         "form": form
     }
     return render(request, "backend/student-upload-work.html", context)
+
+def job_detail_view(request):
+    context = {}
+    return render(request, "backend/job-details.html", context)

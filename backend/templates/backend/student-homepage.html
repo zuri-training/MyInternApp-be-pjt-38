@@ -65,11 +65,12 @@
 						<ul class="navbar-nav mb-2 mb-lg-0 top-nav-item">
 							<li class="nav-item">
                 
-                {% if active_user_group == "student" %}
-                  <a class="nav-link active" aria-current="page" href="{% url 'student-homepage-url' %}">Home</a>
-                {% else %}
-                  <a class="nav-link active" aria-current="page" href="{% url 'employer-homepage-url' %}">Home</a>
-                {% endif %}
+								{% if active_user_group == "student" %}
+								<a class="nav-link active" aria-current="page" href="{% url 'student-homepage-url' %}">Home</a>
+		
+								{% elif active_user_group == "employer" %}
+								<a class="nav-link active" aria-current="page" href="{% url 'employer-homepage-url' %}">Home</a>
+								{% endif %}
 							</li>
 							<li class="nav-item dropdown">
 								<a
@@ -86,9 +87,9 @@
 									<li><a class="dropdown-item" href="{% url 'explore-student-url' %}">Students</a></li>
 									<li><a class="dropdown-item" href="{% url 'explore-job-url' %}">Jobs</a></li>
 									<li><hr class="dropdown-divider" /></li>
-									<li>
+									<!-- <li>
 										<a class="dropdown-item" href="#">More</a>
-									</li>
+									</li> -->
 								</ul>
 							</li>
 							<li class="nav-item">
@@ -254,7 +255,11 @@
 								{% for job in jobs  %}
 									
 									<li class="list-group-item">
-										<h5 class="card-title">{{job.title}}</h5>
+										<a href="{% url 'job-detail-url' %}" style="color: black;">
+											<h5 class="card-title">
+												{{job.title}}
+											</h5>
+										</a>
 										<p class="fw-light my-feed-article">
 											{{ job.description }}
 										</p>
