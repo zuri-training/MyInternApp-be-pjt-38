@@ -18,6 +18,8 @@ def home_view(request):
 
 
 def student_signup_view(request):
+    form = StudentRegistrationForm()
+    user_creation_form = CreateUserForm()
     if request.POST:
         data = request.POST
         form = StudentRegistrationForm(data)
@@ -64,8 +66,11 @@ def student_signup_view(request):
                 print(user_creation_form.errors)
         else:
             print(form.errors)
+            
 
     context = {
+        'reg_form_errors':form.errors,
+        'user_creation_errors': user_creation_form.errors,
     }
     return render(request, "backend/student-signup.html", context)
 
