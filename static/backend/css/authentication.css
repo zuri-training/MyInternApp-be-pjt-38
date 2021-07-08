@@ -1,0 +1,208 @@
+* {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	box-sizing: border-box;
+}
+
+.signup-page-container {
+	height: 100vh;
+}
+
+.login-link:hover,
+.login-link:active {
+	color: #20998d;
+}
+
+.text-tertiary {
+	color: #2ec4b6;
+}
+
+a.text-tertiary:hover {
+	color: #0f8377;
+}
+
+select:focus,
+.form-control:focus,
+.form-control:active {
+	background-color: rgba(46, 196, 182, 0.1);
+	border: 1px solid #2ec4b6;
+	outline: none !important;
+}
+
+.btn-next {
+	color: #ffffff;
+	background-color: #2ec4b6;
+}
+
+.signup-banner {
+	background-color: #2ec4b6;
+	border-color: 1px solid #2ec4b6;
+}
+
+.signup-banner div {
+	margin-top: 6rem;
+}
+
+input[type="text"]:focus,
+input:active,
+select:focus,
+select:active {
+	outline: none !important;
+}
+
+.input-group-number {
+	background-color: transparent;
+	font-size: 0.8rem;
+}
+
+.gender-input {
+	border: 1.5px solid #2ec4b6;
+}
+
+.form-input-container {
+	position: relative;
+}
+
+.eye-icon {
+	display: inline-block;
+	position: absolute;
+	right: 20px;
+	top: 29px;
+	color: #888585;
+}
+
+.login-input-icon {
+	position: absolute;
+	color: #888585;
+}
+
+input.login-form-control {
+	border: none;
+	padding-left: 2.3rem;
+}
+
+.sign-in-google {
+	background-color: transparent;
+	border: 1px solid #2ec4b6;
+}
+
+.terms-conditions {
+	font-size: 0.8rem;
+}
+
+.login-container {
+	margin: auto;
+}
+
+.login-form-container {
+	/* width: 384px;
+	height: 244px; */
+	background: rgba(0, 0, 0, 0.05);
+	border-radius: 6px;
+}
+
+a.forgot-password {
+	font-size: 0.8rem;
+	color: #333333;
+	padding: 2px;
+}
+a.forgot-password:hover,
+a.forgot-password:active {
+	color: #ccc;
+}
+
+.google-icon {
+	width: 25px;
+	height: 25px;
+}
+
+.signup-link {
+	width: 6rem;
+	border-bottom: 1px solid #2ec4b6;
+	cursor: pointer;
+}
+
+.signup-link:hover,
+.signup-link:active {
+	color: #19857a;
+	border-bottom: 1px solid #19857a;
+}
+
+/* Error CSS */
+.form-input-container.error input[type="text"],
+.form-input-container.error input[type="password"],
+.form-input-container.error select,
+.form-input-container.error .gender-input {
+	background-color: #ffffff;
+	border: 1px solid #fb3838;
+}
+
+.error-message {
+	visibility: hidden;
+	color: #fb3838;
+	font-size: 0.7rem;
+}
+
+.form-input-container.error .error-message {
+	visibility: visible;
+}
+
+.form-input-container.error i {
+	color: #fb3838;
+}
+
+/* Error CSS Ends */
+
+/* Input CSS Reset  */
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+[type="text"].form-control:focus,
+[type="password"].form-control:focus,
+[type="email"].form-control:focus,
+[type="tel"].form-control:focus,
+[contenteditable].form-control:focus,
+select:focus,
+select.form-control:focus {
+	box-shadow: inset 0 -1px 0 #ddd;
+}
+
+.bootstrap-select .btn:focus {
+	outline: none !important;
+}
+
+::placeholder {
+	color: #88858593;
+	font-size: 0.8rem;
+	font-weight: normal;
+	opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #88858593;
+	font-size: 0.8rem;
+	font-weight: normal;
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: #88858593;
+	font-size: 0.8rem;
+	font-weight: normal;
+}
+
+@media (width: 768px) {
+	.login-house {
+		width: 100%;
+	}
+}
