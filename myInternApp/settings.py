@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     #django rest framework
     'rest_framework',
+    'markdown',
 ]
 
 MIDDLEWARE = [
@@ -150,3 +151,9 @@ MEDIA_ROOT = str(BASE_DIR / "backend/static/backend/profile_pics")
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
