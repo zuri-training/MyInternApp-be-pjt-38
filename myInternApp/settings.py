@@ -24,9 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wn6e7nk!9nyg*k)_2wuu(jfxtsruj)d1tn)@zb!qey=q^)67l9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'murmuring-meadow-64199.herokuapp.com',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -49,6 +53,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -130,8 +136,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/profile_pics/'
-STATICFILES_DIRS = []
-STATIC_ROOT = str(BASE_DIR / "static")
+# STATICFILES_DIRS = []
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_ROOT = str(BASE_DIR / "static")
 MEDIA_ROOT = str(BASE_DIR / "backend/static/backend/profile_pics")
 
 

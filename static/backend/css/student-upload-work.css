@@ -1,0 +1,144 @@
+.main-container {
+	margin-top: 5rem;
+	min-height: 920px;
+}
+
+.new-post-text {
+	font-size: 0.9rem;
+	line-height: 1.6;
+	font-weight: 300;
+	color: #1d1d1d;
+}
+
+.upload-work-student-btn {
+	background-color: #005387;
+	color: #ffffff;
+}
+
+.upload-work-student-btn:hover {
+	background-color: #014068;
+	color: #ffffff;
+}
+
+form.student-upload-work-form input,
+form.student-upload-work-form textarea {
+	background-color: #f7f7f7;
+	border: 1px solid #d9d9d9;
+}
+
+.tag-input-wrapper {
+	position: relative;
+}
+
+.tag-input-wrapper input {
+	padding-left: 2.4rem !important;
+}
+
+img.tag-icon {
+	position: absolute;
+	top: 43px;
+	left: 10px;
+	width: 18px;
+	height: 18px;
+}
+
+.drag-drop {
+	position: relative;
+	height: 140px;
+	background: #f7f7f7;
+	border: 1px solid #d9d9d9;
+	border-radius: 6px;
+}
+
+.drag-drop span {
+	font-size: 0.8rem;
+	font-weight: 200;
+	color: #898d8f;
+}
+
+.drag-drop-label {
+	display: inline-block;
+	margin-top: 20px;
+	margin-bottom: -10px;
+}
+
+.input-file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.input-file + label {
+	padding: 10px 20px;
+	font-size: 1rem;
+	font-weight: 400;
+	color: #ffffff;
+	background-color: #2ec4b6;
+	display: inline-block;
+	border-radius: 6px;
+}
+
+.input-file:focus + label,
+.input-file + label:hover {
+	background-color: #147e73;
+}
+
+.input-file + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.input-group-text {
+	background: #f7f7f7 !important;
+	border-right: none !important;
+}
+
+.input-group-text-sort label {
+	background: #ffffff !important;
+	font-weight: 500 !important;
+	border-right: 0 !important;
+}
+
+.input-group-text-sort input {
+	font-style: normal !important;
+}
+
+.terms-conditions {
+	color: #2ec4b6;
+}
+
+.btn-submit {
+	background: #2ec4b6;
+	color: #ffffff;
+}
+
+.btn-submit:hover {
+	background: #147e73;
+	color: #ffffff;
+}
+
+::placeholder {
+	color: #88858593;
+	font-size: 0.75rem;
+	font-weight: 150;
+	font-style: italic;
+	opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #88858593;
+	font-size: 0.75rem;
+	font-weight: 150;
+	font-style: italic;
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: #88858593;
+	font-size: 0.75rem;
+	font-weight: 150;
+	font-style: italic;
+}
