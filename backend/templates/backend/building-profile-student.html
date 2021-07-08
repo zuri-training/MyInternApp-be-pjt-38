@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -22,7 +23,14 @@
 		<!-- T O P    N A V    S T A R T S   -->
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top top-bar">
 			<div class="container-fluid d-flex align-items-center">
-				<a class="navbar-brand" href="#">
+        
+        {% if active_user_group == "student" %}
+          <a class="navbar-brand" href="{% url 'student-homepage-url' %}">
+        {% else %}
+        <a class="navbar-brand" href="{% url 'employer-homepage-url' %}">
+        {% endif %}
+          
+				
 					<img src="{% static 'backend/img/logo-light.svg' %}" alt="" class="align-self-center" />
 
 					<span class="fw-bold fs-4">MyIntern</span>
@@ -55,7 +63,12 @@
 						</div>
 						<ul class="navbar-nav mb-2 mb-lg-0 top-nav-item">
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="#">Home</a>
+                
+                {% if active_user_group == "student" %}
+                  <a class="nav-link active" aria-current="page" href="{% url 'student-homepage-url' %}">Home</a>
+                {% else %}
+                  <a class="nav-link active" aria-current="page" href="{% url 'employer-homepage-url' %}">Home</a>
+                {% endif %}
 							</li>
 							<li class="nav-item dropdown">
 								<a
@@ -69,8 +82,8 @@
 									Explore
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<li><a class="dropdown-item" href="#">Students</a></li>
-									<li><a class="dropdown-item" href="#">Jobs</a></li>
+									<li><a class="dropdown-item" href="{% url 'explore-student-url' %}">Students</a></li>
+									<li><a class="dropdown-item" href="{% url 'explore-job-url' %}">Jobs</a></li>
 									<li><hr class="dropdown-divider" /></li>
 									<li>
 										<a class="dropdown-item" href="#">More</a>
@@ -93,7 +106,11 @@
 							<li class="nav-item">
 								<div class="dropdown">
 									<img
-										src="{% static 'backend/img/user-img.svg' %}"
+                    {% if request.user.studentprofile.profile_pic.url %}
+                      src="{{ request.user.studentprofile.profile_pic.url }}"
+                    {% else %}
+                      src="{% static 'backend/img/user-img.svg' %}"
+                    {% endif %}
 										class="btn dropdown-toggle user-img-dropdown"
 										role="button"
 										id="user_img_dropdown"
@@ -102,13 +119,18 @@
 										alt=""
 									/>
 									<ul class="dropdown-menu" aria-labelledby="user_img_dropdown">
-										<li><a class="dropdown-item" href="#">Action</a></li>
+                    
+                    {% if active_user_group == "student" %}
+                      <li><a class="dropdown-item" href="{% url 'student-profile-url' %}">Profile</a></li>
+                    {% else %}
+                    <li><a class="dropdown-item" href="{% url 'employer-profile-url' %}">Profile</a></li>
+                    {% endif %}
 										<li>
-											<a class="dropdown-item" href="#">Another action</a>
+											<a class="dropdown-item" href="{% url 'logout-url' %}">Logout</a>
 										</li>
-										<li>
+										<!-- <li>
 											<a class="dropdown-item" href="#">Something else here</a>
-										</li>
+										</li> -->
 									</ul>
 								</div>
 							</li>
@@ -121,7 +143,7 @@
 		<section class="main-container">
 			<div class="container pt-4">
 				<div class="col-12 col-md-10 m-auto account-setting">
-					<h2 class="account-setting-title mb-0">Account settings</h2>
+					<h2 class="account-setting-title mb-0">Student Account settings</h2>
 					<p class="">
 						Update your profile info, payment method, and notification settings
 					</p>
@@ -179,7 +201,10 @@
 										action=""
 										name="personal_information_form"
 										class="row g-3 d-flex justify-content-between"
+										method="POST"
+										enctype="multipart/form-data"
 									>
+										{% csrf_token %}
 										<div class="col-md-5 mb-3">
 											<label for="first_name" class="form-label"
 												>First name</label
@@ -191,6 +216,8 @@
 												id="first_name"
 												name="first_name"
 												placeholder="Your firstname"
+												value="{{user_reg_details.first_name}}"
+												readonly
 											/>
 										</div>
 										<div class="col-md-5 mb-3">
@@ -203,7 +230,9 @@
 												class="form-control"
 												id="last_name"
 												name="last_name"
+												value="{{user_reg_details.last_name}}"
 												placeholder="Your lastname"
+												readonly
 											/>
 										</div>
 										<div class="col-md-5 mb-3">
@@ -214,7 +243,9 @@
 												class="form-control"
 												id="email"
 												name="email"
+												value="{{ user_reg_details.email }}"
 												placeholder="name@example.com"
+												readonly
 											/>
 										</div>
 										<div class="col-md-5 mb-3">
@@ -227,6 +258,8 @@
 												class="form-control"
 												id="tags_input"
 												name="tags_input"
+												placeholder="{{ user_reg_details.skills }}"
+												readonly
 											/>
 										</div>
 										<div class="col-12 mb-3">
@@ -239,8 +272,9 @@
 												class="form-control"
 												id="exampleFormControlTextarea1"
 												rows="5"
-												placeholder="A few sentences about yourself......"
-											></textarea>
+												placeholder="{{ student_profile.about}}"												
+												name="about"
+											>{{ student_profile.about}}</textarea>
 										</div>
 										<p class="">Verify your identity</p>
 										<div class="col-md-5 mt-0 mb-3">
@@ -251,7 +285,9 @@
 												class="form-control"
 												id="school"
 												name="school"
+												value="{{ user_reg_details.school }}"
 												placeholder="Your school"
+												readonly
 											/>
 										</div>
 										<div class="col-md-5 mb-3">
@@ -263,8 +299,9 @@
 												type="text"
 												class="form-control"
 												id="course_of_study"
-												name="course_of_study"
-												placeholder="Your course of study"
+												name="course"
+												placeholder="{{ student_profile.course }}"
+												value="{{ student_profile.course }}"
 											/>
 										</div>
 										<div class="col-md-5 mb-3">
@@ -289,19 +326,27 @@
 												class="form-control"
 												id="level"
 												name="level"
+												value="{{ user_reg_details.level }}"
 												placeholder="Your level"
+												readonly
 											/>
 										</div>
 										<div class="col-md-5 mb-3">
 											<label for="" class="form-label d-block">Avatar</label>
 											<img
-												src="{% static 'backend/img/user-img.svg' %}"
+												
+												{% if request.user.studentprofile.profile_pic.url %}
+													src="{{ request.user.studentprofile.profile_pic.url }}"
+												{% else %}
+													src="{% static 'backend/img/user-img.svg' %}"
+												{% endif %}
+													
 												class="avatar-img"
 												alt=""
 											/>
 											<input
 												type="file"
-												name="avatar"
+												name="profile_pic"
 												id="avatar"
 												class="input-file"
 											/>
@@ -319,7 +364,8 @@
 												class="form-control"
 												id="twitter_handle"
 												name="twitter_handle"
-												placeholder="Your school ID"
+												placeholder="{{ student_profile.twitter_handle }}"
+												value="{{ student_profile.twitter_handle }}"
 											/>
 										</div>
 										<div class="col-12 mb-3">
@@ -330,12 +376,13 @@
 												itemid="linkedin_page"
 												type="text"
 												class="form-control"
-												id="linkedin_page"
-												name="linkedin_page"
-												placeholder="Your school ID"
+												id="linkedin_link"
+												name="linkedin_link"
+												value="{{ student_profile.linkedin_link }}"
+
 											/>
 										</div>
-										<div class="col-12 mb-3">
+										<!-- <div class="col-12 mb-3">
 											<label for="linkedin_page" class="form-label"
 												>Others</label
 											>
@@ -347,15 +394,15 @@
 												name="linkedin_page"
 												placeholder="paste url"
 											/>
-										</div>
+										</div> -->
 										<div class="col-12 d-flex flex-row-reverse my-5">
-											<input
+											<button 
 												type="submit"
 												id="update_user_info_btn"
-												name="update_user_info_btn"
-												value="Update Information"
 												class="btn w-25 update-info-btn"
-											/>
+											>
+												Update Information
+											</button>
 										</div>
 									</form>
 								</div>

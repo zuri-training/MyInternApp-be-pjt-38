@@ -1,0 +1,87 @@
+.text-green {
+	color: #2ec4b6;
+}
+
+.user-title {
+	color: #005387e5;
+}
+
+.new-jobs-btn {
+	background-color: #ffffff;
+	border-radius: 20px;
+	color: #2ec4b6;
+}
+
+.new-jobs-btn:hover {
+	color: #238d82;
+}
+
+.search-jobs,
+.new-jobs {
+	position: relative;
+}
+
+.search-jobs input {
+	width: 280px;
+}
+
+.search-jobs input,
+.new-jobs input {
+	border: 1px solid #d9d9d9;
+	border-radius: 50px;
+}
+
+.job-search-submit-btn {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.main-container {
+	margin-top: 6rem;
+}
+
+/* .my-feed {
+	width: 200px;
+} */
+
+.my-feed .card-body {
+	background: #005387e5;
+}
+
+.my-feed .card-body .card-title,
+.my-feed .card-body .card-text {
+	color: #ffffff;
+}
+
+.item-title a {
+	color: #000000;
+}
+
+.item-description {
+	color: #2ec4b6;
+	font-size: 0.8rem;
+}
+
+.online {
+	font-size: 0.8rem;
+}
+
+.my-feed-article {
+	font-size: 0.85rem;
+}
+
+.breadcrumb-text li {
+	font-size: 0.75rem;
+}
+
+.badge {
+	background: rgba(46, 196, 182, 0.2);
+	color: #5b5966;
+}
+
+@media screen and (min-width: 1128px) {
+	.search-jobs input {
+		width: 330px;
+	}
+}

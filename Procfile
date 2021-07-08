@@ -1,0 +1,1 @@
+web: gunicorn myInternApp.wsgi --log-file -
