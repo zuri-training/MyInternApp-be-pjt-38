@@ -18,6 +18,8 @@ def home_view(request):
 
 
 def student_signup_view(request):
+    form = StudentRegistrationForm()
+    user_creation_form = CreateUserForm()
     if request.POST:
         data = request.POST
         form = StudentRegistrationForm(data)
@@ -64,12 +66,17 @@ def student_signup_view(request):
                 print(user_creation_form.errors)
         else:
             print(form.errors)
+            
 
     context = {
+        'reg_form_errors':form.errors,
+        'user_creation_errors': user_creation_form.errors,
     }
     return render(request, "backend/student-signup.html", context)
 
 def employer_signup_view(request):
+    form = EmployerRegistrationForm()
+    user_creation_form = CreateUserForm()
     if request.POST:
         data = request.POST
         form = EmployerRegistrationForm(data)
@@ -117,7 +124,8 @@ def employer_signup_view(request):
             print(form.errors)       
     
     context = {
-        # 'employer_form_errors':employer_form_errors,
+        'reg_form_errors':form.errors,
+        'user_creation_errors': user_creation_form.errors,
     }
     return render(request, "backend/employer-signup.html", context)
 
@@ -163,12 +171,16 @@ def student_homepage_view(request):
     else:
         jobs = JobPost.objects.all()
 
-    
+    active_user_group = str(request.user.groups.all()[0])
+    print(type(active_user_group))
+
     context= {
         'student_detail': student_detail,
         'jobs': jobs,
+        'active_user_group':active_user_group,
         
     }
+    
     return render(request, "backend/student-homepage.html", context)
 
 def employer_homepage_view(request):
@@ -187,7 +199,6 @@ def employer_homepage_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login-url')
-
 
 
 # Profile views
@@ -281,3 +292,11 @@ def upload_work_view(request):
         "form": form
     }
     return render(request, "backend/student-upload-work.html", context)
+
+def job_detail_view(request, job_id):
+    job = JobPost.objects.get(id=job_id)
+
+    context = {
+        'job':job,
+    }
+    return render(request, "backend/job-details.html", context)

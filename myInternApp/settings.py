@@ -23,8 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-wn6e7nk!9nyg*k)_2wuu(jfxtsruj)d1tn)@zb!qey=q^)67l9'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = [
@@ -135,16 +134,29 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
+#**************** use this for deployment ************************ 
+
+# STATIC_URL = '/static/'
+# MEDIA_URL = '/profile_pics/'
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# MEDIA_ROOT = str(BASE_DIR / "static")
+# MEDIA_ROOT = str(BASE_DIR / "backend/static/backend/profile_pics")
+# DEBUG = False
+
+
+
+#********************  Use this for production ***********************
 STATIC_URL = '/static/'
 MEDIA_URL = '/profile_pics/'
-# STATICFILES_DIRS = []
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_ROOT = str(BASE_DIR / "static")
+STATICFILES_DIRS = []
+STATIC_ROOT = str(BASE_DIR / "static")
 MEDIA_ROOT = str(BASE_DIR / "backend/static/backend/profile_pics")
+DEBUG = True
+
 
 
 # Default primary key field type

@@ -1,3 +1,5 @@
+{% load static %}
+{% load filter_tags %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -14,8 +16,8 @@
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
 		/>
-		<link rel="stylesheet" href="../css/main.css" />
-		<link rel="stylesheet" href="../css/job-details.css" />
+		<link rel="stylesheet" href="{% static 'backend/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'backend/css/job-details.css' %}" />
 		<title>MyInterns</title>
 	</head>
 	<body>
@@ -147,17 +149,16 @@
 					<div class="col-sm-8">
 						<div class="card">
 							<div class="card-body">
-								<h5 class="card-title">Graphic Designer for Fb Banner</h5>
+								<h5 class="card-title">{{ job.title }}</h5>
 							</div>
 							<ul class="list-group list-group-flush">
 								<li class="list-group-item">
 									<div class="d-flex justify-content-between">
-										<p class="text-tertiary">Graphic Design</p>
-										<p>Posted: <span class="text-tertiary">2 days ago</span></p>
+										<p class="text-tertiary">{{ job.category }}</p>
+										<p>Posted: <span class="text-tertiary">{{ job.day_posted }}</span></p>
 									</div>
 									<p>
-										I’m looking for a graphic designer who can create 100
-										facebook banner in a week. He/she must be a professional.
+										{{ job.description }}
 									</p>
 								</li>
 								<li class="list-group-item">
@@ -166,16 +167,16 @@
 											<thead>
 												<tr>
 													<th scope="col">Price</th>
-													<th scope="col">Level</th>
+													<!-- <th scope="col">Level</th> -->
 													<th scope="col">Duration</th>
 													<th scope="col">Type</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
-													<td>$25.00</td>
-													<td>Intermediate</td>
-													<td>1 week, 2 hrs daily</td>
+													<td>{{ job.budget }}</td>
+													<!-- <td>Intermediate</td> -->
+													<td>{{ job.end_date|timeuntil:job.start_date }}</td>
 													<td>Contract</td>
 												</tr>
 											</tbody>
@@ -197,10 +198,13 @@
 								<li class="list-group-item">
 									<p class="th">Skills & Expertise</p>
 									<div>
-										<span class="badge fw-light">Adobe Illustrator</span>
-										<span class="badge fw-light">Canva</span>
-										<span class="badge fw-light">Figma</span>
-										<span class="badge fw-light">Adobe Photoshop</span>
+										{% with job.tags|split:"," as tags %}
+												
+											{% for tag in tags %}
+											<span class="badge fw-light">{{tag}}</span>
+											{% endfor %}
+												
+										{% endwith %}
 									</div>
 								</li>
 								<li class="list-group-item">
