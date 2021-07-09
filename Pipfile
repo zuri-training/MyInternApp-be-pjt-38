@@ -9,6 +9,7 @@ djangorestframework = "*"
 pillow = "*"
 gunicorn = "*"
 whitenoise = "*"
+selenium = "*"
 
 [dev-packages]
 
