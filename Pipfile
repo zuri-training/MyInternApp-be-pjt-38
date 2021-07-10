@@ -10,6 +10,8 @@ pillow = "*"
 gunicorn = "*"
 whitenoise = "*"
 selenium = "*"
+markdown = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 
