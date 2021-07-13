@@ -142,8 +142,10 @@ def login_view(request):
             login(request, user)
             if user.groups.filter(name = 'student').exists():
                 return redirect("student-homepage-url")
-            else:
+            elif user.groups.filter(name = 'employer').exists():
                 return redirect("employer-homepage-url")
+            else:
+                return redirect('my-intern-admin-url')
         else: 
             messages.info(request, "Username or password is incorrect")
             print(messages)
@@ -189,9 +191,12 @@ def employer_homepage_view(request):
     
     # use the email to search for student details in the StudentRegistration
     employer_detail = EmployerRegistration.objects.get(email = employer_email)
+    employer_profile = EmployerProfile.objects.get(employer_reg_info=employer_detail)
+    print(employer_profile.verified)
 
     context= {
         'employer_detail':employer_detail,
+        "employer_profile":employer_profile,
     }
     return render(request, "backend/employer-homepage.html", context)
 
@@ -300,3 +305,22 @@ def job_detail_view(request, job_id):
         'job':job,
     }
     return render(request, "backend/job-details.html", context)
+
+def my_intern_admin_view(request):
+    
+    all_employers = EmployerProfile.objects.all()
+    if request.method == "POST":
+        data = request.POST
+        if len(list(data)) > 1 :
+            employer_id = list(data)[1]
+            status = data[employer_id]
+            print(status)
+
+            employer = EmployerProfile.objects.get(id=int(employer_id))
+            employer.verified = True
+            employer.save()
+        # employer_id = request.post.get
+    context = {
+        'all_employers': all_employers,
+    }
+    return render(request, "backend/my-intern-admin.html", context)

@@ -144,6 +144,14 @@
 		<!-- M A I N     C O N T E N T   S T A R T S -->
 		<div class="container-fluid page-container">
 			<div class="container">
+				
+				{% if employer_profile.verified %}
+					<p style="color: green;">verified account</p>
+				{% else %}
+					<p style="color: red;">Your account has not been verified</p>
+				{% endif %}
+					
+				
 				<h2 class="welcome">Welcome {{ employer_detail.first_name }} {{ employer_detail.last_name }}</h2>
 				<div
 					class="
@@ -159,9 +167,16 @@
 					<p class="text-light lead fw-bold mt-2 align-self-center">
 						Post a job today
 					</p>
-					<a href="{% url 'upload-job-url' %}">
-						<button class="btn post-btn" type="button">Post</button>
-					</a>
+					
+						
+					{% if employer_profile.verified %}
+						<a href="{% url 'upload-job-url' %}">
+							<button class="btn post-btn" type="button">Post</button>
+						</a>
+					{% else %}
+						<button class="btn btn-secondary" type="button" disabled>Cannot post until verified</button>
+					{% endif %}
+					
 				</div>
 				<div class="row row-cols-1 row-cols-md-2 g-4">
 					<div class="col">
