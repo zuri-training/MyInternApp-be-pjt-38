@@ -60,6 +60,7 @@ class EmployerProfile(models.Model):
     interest = models.CharField(max_length=100, null=True, blank=True)
     twitter_handle = models.CharField(max_length=100, blank=True, null=True)
     linkedin_link = models.CharField(max_length=500, blank=True, null=True)
+    verified = models.BooleanField(blank=True, null=True)
 
     def __str__(self) -> str:
         return str(self.employer_reg_info)

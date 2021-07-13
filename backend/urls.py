@@ -24,5 +24,9 @@ urlpatterns = [
     path("upload-job/", upload_job_view, name="upload-job-url"),
     path("student-upload-work/", upload_work_view, name="student-upload-work-url"),
     path("job-detail/<job_id>/", job_detail_view, name="job-detail-url"),
+
+
+    #admin
+    path('my-intern-admin/', my_intern_admin_view, name= "my-intern-admin-url"),
 ]
 
