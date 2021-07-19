@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-wn6e7nk!9nyg*k)_2wuu(jfxtsruj)d1tn)@zb!qey=q^)67l9
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = [
     'murmuring-meadow-64199.herokuapp.com',
-    'my-intern-app.herokuapp.com/',
+    'my-intern-app.herokuapp.com',
     '127.0.0.1',
 ]
 
