@@ -64,11 +64,12 @@
 						<ul class="navbar-nav mb-2 mb-lg-0 top-nav-item">
 							<li class="nav-item">
                 
-                {% if active_user_group == "student" %}
-                  <a class="nav-link active" aria-current="page" href="{% url 'student-homepage-url' %}">Home</a>
-                {% else %}
-                  <a class="nav-link active" aria-current="page" href="{% url 'employer-homepage-url' %}">Home</a>
-                {% endif %}
+								{% if active_user_group == "student" %}
+								<a class="nav-link active" aria-current="page" href="{% url 'student-homepage-url' %}">Home</a>
+		
+								{% elif active_user_group == "employer" %}
+								<a class="nav-link active" aria-current="page" href="{% url 'employer-homepage-url' %}">Home</a>
+								{% endif %}
 							</li>
 							<li class="nav-item dropdown">
 								<a
@@ -85,9 +86,9 @@
 									<li><a class="dropdown-item" href="{% url 'explore-student-url' %}">Students</a></li>
 									<li><a class="dropdown-item" href="{% url 'explore-job-url' %}">Jobs</a></li>
 									<li><hr class="dropdown-divider" /></li>
-									<li>
+									<!-- <li>
 										<a class="dropdown-item" href="#">More</a>
-									</li>
+									</li> -->
 								</ul>
 							</li>
 							<li class="nav-item">
@@ -397,8 +398,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-  <script src="{% static 'backend/js/script.js' %}"></script>
-  <script src="{% static 'backend/js/landing-page.js' %}"></script>
+  <!-- <script src="{% static 'backend/js/script.js' %}"></script> -->
+  <!-- <script src="{% static 'backend/js/landing-page.js' %}"></script> -->
 </body>
 
 </html>

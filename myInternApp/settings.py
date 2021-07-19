@@ -24,7 +24,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wn6e7nk!9nyg*k)_2wuu(jfxtsruj)d1tn)@zb!qey=q^)67l9'
 
 
-
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = [
     'murmuring-meadow-64199.herokuapp.com',
@@ -42,11 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #custom apps 
+    # custom apps
     'api',
     'backend',
 
-    #django rest framework
+    # django rest framework
     'rest_framework',
     'markdown',
 ]
@@ -78,7 +77,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'libraries':{
-                'filter_tags':'backend.templatetags.filter',
+                'filter_tags': 'backend.templatetags.filter',
             }
         },
     },
@@ -135,7 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
-#**************** use this for deployment ************************ 
+# **************** use this for deployment ************************
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/profile_pics/'
@@ -148,15 +147,13 @@ MEDIA_ROOT = str(BASE_DIR / "backend/static/backend/profile_pics")
 DEBUG = False
 
 
-
-#********************  Use this for production ***********************
+# ********************  Use this for production ***********************
 # STATIC_URL = '/static/'
 # MEDIA_URL = '/profile_pics/'
 # STATICFILES_DIRS = []
 # STATIC_ROOT = str(BASE_DIR / "static")
 # MEDIA_ROOT = str(BASE_DIR / "backend/static/backend/profile_pics")
 # DEBUG = True
-
 
 
 # Default primary key field type
